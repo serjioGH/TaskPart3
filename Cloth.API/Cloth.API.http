@@ -1,0 +1,6 @@
+@Cloth.API_HostAddress = http://localhost:5097
+
+GET {{Cloth.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

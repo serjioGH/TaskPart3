@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Cloth.API.props" />
+</Project>

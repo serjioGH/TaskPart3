@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Repositories\\Cloth Manager\\Cloth.API\\Cloth.API.csproj": {}
+  },
+  "projects": {
+    "D:\\Repositories\\Cloth Manager\\Cloth.API\\Cloth.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\Cloth Manager\\Cloth.API\\Cloth.API.csproj",
+        "projectName": "Cloth.API",
+        "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.API\\Cloth.API.csproj",
+        "packagesPath": "C:\\Users\\Serdzhan.Ahmedov\\.nuget\\packages\\",
+        "outputPath": "D:\\Repositories\\Cloth Manager\\Cloth.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Serdzhan.Ahmedov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Repositories\\Cloth Manager\\Cloth.Application\\Cloth.Application.csproj": {
+                "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Application\\Cloth.Application.csproj"
+              },
+              "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj": {
+                "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj"
+              },
+              "D:\\Repositories\\Cloth Manager\\Cloth.Infrastructure\\Cloth.Infrastructure.csproj": {
+                "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Infrastructure\\Cloth.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Repositories\\Cloth Manager\\Cloth.Application\\Cloth.Application.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\Cloth Manager\\Cloth.Application\\Cloth.Application.csproj",
+        "projectName": "Cloth.Application",
+        "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Application\\Cloth.Application.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj": {
+                "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj",
+        "projectName": "Cloth.Domain",
+        "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\Repositories\\Cloth Manager\\Cloth.Infrastructure\\Cloth.Infrastructure.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Repositories\\Cloth Manager\\Cloth.Infrastructure\\Cloth.Infrastructure.csproj",
+        "projectName": "Cloth.Infrastructure",
+        "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Infrastructure\\Cloth.Infrastructure.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "D:\\Repositories\\Cloth Manager\\Cloth.Application\\Cloth.Application.csproj": {
+                "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Application\\Cloth.Application.csproj"
+              },
+              "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj": {
+                "projectPath": "D:\\Repositories\\Cloth Manager\\Cloth.Domain\\Cloth.Domain\\Cloth.Domain.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cloth.Application\Cloth.Application.csproj" />
+    <ProjectReference Include="..\Cloth.Domain\Cloth.Domain\Cloth.Domain.csproj" />
+    <ProjectReference Include="..\Cloth.Infrastructure\Cloth.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

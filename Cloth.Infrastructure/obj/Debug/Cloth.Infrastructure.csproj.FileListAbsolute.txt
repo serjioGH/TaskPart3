@@ -1,0 +1,11 @@
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\bin\Debug\Cloth.Infrastructure.dll
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\bin\Debug\Cloth.Infrastructure.pdb
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\bin\Debug\Cloth.Application.dll
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\bin\Debug\Cloth.Domain.dll
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\bin\Debug\Cloth.Application.pdb
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\bin\Debug\Cloth.Domain.pdb
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\obj\Debug\Cloth.Infrastructure.csproj.AssemblyReference.cache
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\obj\Debug\Cloth.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\obj\Debug\Cloth.Infrastructure.csproj.CopyComplete
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\obj\Debug\Cloth.Infrastructure.dll
+D:\Repositories\Cloth Manager\Cloth.Infrastructure\obj\Debug\Cloth.Infrastructure.pdb
