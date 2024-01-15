@@ -36,3 +36,7 @@ D:\Repositories\Cloth Manager\Cloth.API\obj\Debug\net8.0\refint\Cloth.API.dll
 D:\Repositories\Cloth Manager\Cloth.API\obj\Debug\net8.0\Cloth.API.pdb
 D:\Repositories\Cloth Manager\Cloth.API\obj\Debug\net8.0\Cloth.API.genruntimeconfig.cache
 D:\Repositories\Cloth Manager\Cloth.API\obj\Debug\net8.0\ref\Cloth.API.dll
+D:\Repositories\Cloth Manager\Cloth.API\obj\Debug\net8.0\Cloth.API.sourcelink.json
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Cloth.Application.dll.config
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Cloth.Infrastructure.dll.config
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\data.json

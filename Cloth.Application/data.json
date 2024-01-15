@@ -1,0 +1,180 @@
+[
+    {
+        "Title": "Stylish T-Shirt",
+        "Price": 24.99,
+        "Sizes": [
+            "Small",
+            "Medium",
+            "Large"
+        ],
+        "Description": "Comfortable cotton t-shirt in red with a stylish design."
+    },
+    {
+        "Title": "Classic Jeans",
+        "Price": 34.99,
+        "Sizes": [
+            "Medium",
+            "Large"
+        ],
+        "Description": "Timeless classic jeans in blue for a casual and versatile look."
+    },
+    {
+        "Title": "Cozy Hoodie",
+        "Price": 16.99,
+        "Sizes": [
+            "Small",
+            "Medium"
+        ],
+        "Description": "Warm and cozy hoodie in green for a relaxed and comfortable style."
+    },
+    {
+        "Title": "Formal Suit",
+        "Price": 59.99,
+        "Sizes": [
+            "Large"
+        ],
+        "Description": "Elegant formal suit in white for special occasions and business events."
+    },
+    {
+        "Title": "Sporty Tracksuit",
+        "Price": 69.99,
+        "Sizes": [
+            "Small",
+            "Medium",
+            "Large"
+        ],
+        "Description": "Versatile sporty tracksuit in yellow for an active and stylish lifestyle."
+    },
+    {
+        "Title": "Casual Dress",
+        "Price": 19.99,
+        "Sizes": [
+            "Medium"
+        ],
+        "Description": "Casual and comfortable dress in blue suitable for various occasions."
+    },
+    {
+        "Title": "Denim Jacket",
+        "Price": 29.99,
+        "Sizes": [
+            "Small",
+            "Medium",
+            "Large"
+        ],
+        "Description": "Stylish denim jacket in red to add a trendy touch to your outfit."
+    },
+    {
+        "Title": "Fashionable Skirt",
+        "Price": 44.99,
+        "Sizes": [
+            "Small",
+            "Large"
+        ],
+        "Description": "Trendy and fashionable skirt in green for a chic and modern look."
+    },
+    {
+        "Title": "Sweatpants",
+        "Price": 18.99,
+        "Sizes": [
+            "Medium"
+        ],
+        "Description": "Comfortable sweatpants in yellow for a relaxed and casual style."
+    },
+    {
+        "Title": "Winter Coat",
+        "Price": 79.99,
+        "Sizes": [
+            "Large"
+        ],
+        "Description": "Warm and stylish winter coat in white to keep you cozy during the cold season."
+    },
+    {
+        "Title": "Graphic Tee",
+        "Price": 26.99,
+        "Sizes": [
+            "Small",
+            "Medium",
+            "Large"
+        ],
+        "Description": "Cool graphic tee in blue with unique designs for a trendy and casual look."
+    },
+    {
+        "Title": "Chic Blouse",
+        "Price": 32.99,
+        "Sizes": [
+            "Medium",
+            "Large"
+        ],
+        "Description": "Chic blouse in red to add a touch of sophistication to your wardrobe."
+    },
+    {
+        "Title": "Leather Jacket",
+        "Price": 14.99,
+        "Sizes": [
+            "Small",
+            "Large"
+        ],
+        "Description": "Stylish leather jacket in green for a bold and edgy fashion statement."
+    },
+    {
+        "Title": "Elegant Dress",
+        "Price": 49.99,
+        "Sizes": [
+            "Small",
+            "Medium"
+        ],
+        "Description": "Elegantly designed dress in yellow for formal events and special occasions."
+    },
+    {
+        "Title": "Faux Fur Coat",
+        "Price": 42.99,
+        "Sizes": [
+            "Large"
+        ],
+        "Description": "Luxurious faux fur coat in white for a glamorous and stylish appearance."
+    },
+    {
+        "Title": "Basic T-Shirt",
+        "Price": 24.99,
+        "Sizes": [
+            "Small"
+        ],
+        "Description": "Simple and comfortable basic t-shirt in red for everyday casual wear."
+    },
+    {
+        "Title": "Active Leggings",
+        "Price": 34.99,
+        "Sizes": [
+            "Medium",
+            "Large"
+        ],
+        "Description": "Comfortable and flexible leggings in green for active and sporty lifestyles."
+    },
+    {
+        "Title": "Summer Shorts",
+        "Price": 16.99,
+        "Sizes": [
+            "Small",
+            "Medium"
+        ],
+        "Description": "Light and breathable summer shorts in yellow for a cool and casual look."
+    },
+    {
+        "Title": "Luxury Suit",
+        "Price": 59.99,
+        "Sizes": [
+            "Large"
+        ],
+        "Description": "High-end luxury suit in white for formal events and upscale occasions."
+    },
+    {
+        "Title": "Fashionable Jumpsuit",
+        "Price": 69.99,
+        "Sizes": [
+            "Small",
+            "Medium",
+            "Large"
+        ],
+        "Description": "Trendy jumpsuit in blue for a chic and fashion-forward ensemble."
+    }
+]

@@ -9,5 +9,13 @@
     public interface IClothService
     {
         List<Domain.Cloth> GetAllCloths();
+
+        List<string> GetUniqueSizes(List<Domain.Cloth> list);
+
+        List<string> GetCommonWords(List<Domain.Cloth> list);
+
+        List<Domain.Cloth> FilterWithHighlights(List<string> highlights, List<Domain.Cloth> list);
+
+        List<string> GetHighlights(string highlight);
     }
 }
