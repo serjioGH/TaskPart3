@@ -40,3 +40,14 @@ D:\Repositories\Cloth Manager\Cloth.API\obj\Debug\net8.0\Cloth.API.sourcelink.js
 D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Cloth.Application.dll.config
 D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Cloth.Infrastructure.dll.config
 D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\data.json
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Serilog.Sinks.File.dll
+D:\Repositories\Cloth Manager\Cloth.API\bin\Debug\net8.0\Cloth.Domain.dll.config
