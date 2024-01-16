@@ -9,7 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloth.Application", "..\Clo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloth.Infrastructure", "..\Cloth.Infrastructure\Cloth.Infrastructure.csproj", "{DB2B4B7E-95D1-47AE-841C-C20E4CD0881E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloth.API", "..\Cloth.API\Cloth.API.csproj", "{455076AE-0B95-40D8-8910-F817B39BDF2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloth.API", "..\Cloth.API\Cloth.API.csproj", "{455076AE-0B95-40D8-8910-F817B39BDF2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6EEF78EF-2E5A-4A78-95C2-789CAA5EFAAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "..\TestProject\TestProject.csproj", "{2D7D01E5-B8D3-4E42-B468-86D20A6A1BA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +37,16 @@ Global
 		{455076AE-0B95-40D8-8910-F817B39BDF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{455076AE-0B95-40D8-8910-F817B39BDF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{455076AE-0B95-40D8-8910-F817B39BDF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D7D01E5-B8D3-4E42-B468-86D20A6A1BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D7D01E5-B8D3-4E42-B468-86D20A6A1BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D7D01E5-B8D3-4E42-B468-86D20A6A1BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D7D01E5-B8D3-4E42-B468-86D20A6A1BA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2D7D01E5-B8D3-4E42-B468-86D20A6A1BA5} = {6EEF78EF-2E5A-4A78-95C2-789CAA5EFAAB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6130C7C7-1342-4C47-B42F-9CC6EF622042}

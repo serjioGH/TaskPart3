@@ -15,6 +15,10 @@ namespace Cloth.Application
             _sampleDataFromUrl = sampleJsonFilePath;
         }
 
+        /// <summary>
+        /// Creates a request to get the data and deserializes the response to create a list of items
+        /// </summary>
+        /// <returns></returns>
         public List<Domain.Cloth> UseReadJson()
         {
             WebRequest request = HttpWebRequest.Create(_sampleDataFromUrl);

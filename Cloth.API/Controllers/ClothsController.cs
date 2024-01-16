@@ -19,6 +19,7 @@
         public ActionResult Get(int? MinPrice, int? MaxPrice, string? Size, string? Highlight)
         {
             var allItems = this.clothService.GetAllCloths();
+
             var filter = new Filter();
             filter.MinPrice = allItems.Select(p => p.Price).Min();
             filter.MaxPrice = allItems.Select(p => p.Price).Max();
