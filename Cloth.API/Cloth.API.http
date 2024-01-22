@@ -1,6 +1,10 @@
 @Cloth.API_HostAddress = http://localhost:5097
 
-GET {{Cloth.API_HostAddress}}/weatherforecast/
-Accept: application/json
+### Get All Items
+GET {{Cloth.API_HostAddress}}/api/Cloths
+accept:  application/json
 
-###
+### Get Filtered Items
+GET {{Cloth.API_HostAddress}}/api/Cloths?MinPrice=2&MaxPrice=6&Highlight=blue,red&Size=small
+accept:  application/json
+

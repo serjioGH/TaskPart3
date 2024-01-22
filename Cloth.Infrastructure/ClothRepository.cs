@@ -1,20 +1,29 @@
 ﻿using Cloth.Application;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+namespace Cloth.Infrastructure;
 
-namespace Cloth.Infrastructure
+using Cloth.Domain.Entities;
+using Cloth.Application.Interfaces;
+
+public class ClothRepository : IClothRepository
 {
-    public class ClothRepository : IClothRepository
-    {
-        public string jsonPath = "https://run.mocky.io/v3/97aa328f-6f5d-458a-9fa4-55fe58eaacc9";
-        public static List<Domain.Cloth> lstCloths = new List<Domain.Cloth>();
+    //TODO: move to appsettings
+    public string jsonPath = "https://run.mocky.io/v3/97aa328f-6f5d-458a-9fa4-55fe58eaacc9";
+    private readonly IReadJsonFromUrlClient _readJsonFromUrlService;
+    private static IEnumerable<Cloth>? _items;
 
-        public List<Domain.Cloth> GetAllCloths()
+    public ClothRepository(IReadJsonFromUrlClient readJsonFromUrlService)
+    {
+        _readJsonFromUrlService = readJsonFromUrlService ?? throw new ArgumentNullException(nameof(readJsonFromUrlService));
+    }
+
+    public async Task<IEnumerable<Cloth>> GetAllCloths()
+    {
+        if (_items == null)
         {
-            var reader = new ReadJsonFromUrl(jsonPath);
-            var list = reader.UseReadJson();
-            return list;
+            _items = await _readJsonFromUrlService.GetClothsAsync(jsonPath);
         }
+        
+        return _items;
     }
 }
+

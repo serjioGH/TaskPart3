@@ -1,10 +1,10 @@
 ﻿namespace Cloth.Application
 {
-    using System;
+    using Cloth.Domain.Entities;
     using System.Collections.Generic;
 
     public interface IClothRepository
     {
-        List<Domain.Cloth> GetAllCloths();
+        Task<IEnumerable<Cloth>> GetAllCloths();
     }
 }

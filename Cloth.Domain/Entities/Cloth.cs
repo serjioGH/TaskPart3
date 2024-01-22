@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Cloth.Domain
+﻿namespace Cloth.Domain.Entities
 {
     public class Cloth
     {
