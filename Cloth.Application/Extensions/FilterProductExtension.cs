@@ -12,7 +12,7 @@ public static class FilterProductExtension
     /// </summary>
     /// <param name="list"></param>
     /// <returns></returns>
-    public static List<string> GetCommonWords(this IEnumerable<Cloth> list)
+    public static List<string> GetCommonWords(this List<Cloth> list)
     {
         string allDescriptions = string.Empty;
         foreach (var item in list)
@@ -21,7 +21,7 @@ public static class FilterProductExtension
         }
 
         string[] splitWords = allDescriptions.Split(new string[] { " ", "." }, StringSplitOptions.RemoveEmptyEntries);
-        var commonWords = splitWords.ToList().GroupBy(e => e).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(e => e.Count).Skip(5).Take(10);
+        var commonWords = splitWords.ToList().GroupBy(e => e.ToLower()).Select(g => new { Value = g.Key, Count = g.Count() }).OrderBy(e => e.Value).OrderByDescending(e => e.Count).Skip(5).Take(10);
 
         return commonWords.Select(g => g.Value).ToList();
     }
@@ -32,7 +32,7 @@ public static class FilterProductExtension
     /// <param name="highlights">Highlight to look for</param>
     /// <param name="list">List of items whose Description needs to be filtered</param>
     /// <returns></returns>
-    public static IEnumerable<Cloth> FilterWithHighlights(this IEnumerable<Cloth> list, List<string> highlights)
+    public static List<Cloth> FilterWithHighlights(this List<Cloth> list, List<string> highlights)
     {
         foreach (var cloth in list)
         {
@@ -53,7 +53,7 @@ public static class FilterProductExtension
     /// </summary>
     /// <param name="list"></param>
     /// <returns></returns>
-    public static List<string> GetUniqueSizes(this IEnumerable<Cloth> list)
+    public static List<string> GetUniqueSizes(this List<Cloth> list)
     {
         List<string> sizes = new List<string>();
         foreach (var cloth in list)
@@ -70,34 +70,34 @@ public static class FilterProductExtension
         return sizes;
     }
 
-    public static IEnumerable<Cloth> MinPriceFilter(this IEnumerable<Cloth> cloths, decimal? minPrice)
+    public static List<Cloth> MinPriceFilter(this List<Cloth> cloths, decimal? minPrice)
     {
         if (minPrice.HasValue)
         {
-            return cloths.Where(p => p.Price >= minPrice.Value);
+            return cloths.Where(p => p.Price >= minPrice.Value).ToList();
         }
 
         return cloths;
     }
 
-    public static IEnumerable<Cloth> MaxPriceFilter(this IEnumerable<Cloth> cloths, decimal? maxPrice)
+    public static List<Cloth> MaxPriceFilter(this List<Cloth> cloths, decimal? maxPrice)
     {
         if (maxPrice.HasValue)
         {
-            return cloths.Where(p => p.Price <= maxPrice.Value);
+            return cloths.Where(p => p.Price <= maxPrice.Value).ToList();
         }
 
         return cloths;
     }
 
-    public static IEnumerable<Cloth> SizeFilter(this IEnumerable<Cloth> items, string? size)
+    public static List<Cloth> SizeFilter(this List<Cloth> items, string? size)
     {
         if (string.IsNullOrEmpty(size))
         {
             return items;
         }
 
-        return items.Where(p => p.Sizes.Contains(size));
+        return items.Where(p => p.Sizes.Contains(size)).ToList();
     }
 }
 

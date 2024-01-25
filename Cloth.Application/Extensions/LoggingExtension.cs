@@ -1,4 +1,4 @@
-﻿using Cloth.Application.Queries;
+﻿using Cloth.Application.Features.Queries.GetCloths;
 using Microsoft.Extensions.Logging;
 
 namespace Cloth.Application.Extensions;

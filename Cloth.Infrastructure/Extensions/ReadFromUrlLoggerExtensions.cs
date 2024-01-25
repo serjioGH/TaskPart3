@@ -12,4 +12,7 @@ public static partial class ReadFromUrlLoggerExtensions
 
     [LoggerMessage(EventId = 32, Level = LogLevel.Debug, Message = "HttpClient get:")]
     public static partial void LogHttpClientGet(this ILogger logger);
+
+    [LoggerMessage(EventId = 33, Level = LogLevel.Error, Message = "HttpClient failed getting the data.")]
+    public static partial void LogHttpClientGetFailed(this ILogger logger);
 }

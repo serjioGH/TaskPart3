@@ -7,6 +7,7 @@ namespace Cloth.Application;
 using Cloth.Application.Extensions;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
+using System.Linq;
 
 public class ClothService : IClothService
 {
@@ -56,10 +57,10 @@ public class ClothService : IClothService
     {
         try
         {
-            var allItems = await clothRepository.GetAllCloths();
+            var allItems = (await clothRepository.GetAllCloths()).ToList();
             LoggingExtensions.LogGettingCloths(_logger);
 
-            if (allItems == null || allItems.Count() == 0)
+            if (allItems == null || allItems.Count == 0)
             {
                 LoggingExtensions.LogErrorGettingCloths(_logger);
                 throw new ItemNotFoundException("No items found in the database.");

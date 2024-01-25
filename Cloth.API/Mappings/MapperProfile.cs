@@ -1,20 +1,29 @@
-﻿namespace Cloth.API.Mappings
+﻿namespace Cloth.API.Mappings;
+
+using AutoMapper;
+using Cloth.API.Models.Requests;
+using Cloth.API.Models.Responses;
+using Cloth.Application.Features.Queries.GetCloths;
+using Cloth.Application.Models.Requests;
+using Cloth.Application.Models.Responses;
+
+public class MapperProfile : Profile
 {
-    using AutoMapper;
-    using Cloth.Application.Models.Requests;
-    using Cloth.Application.Queries;
-
-    public class MapperProfile : Profile
+    public MapperProfile()
     {
-        public MapperProfile()
-        {
-            FromRequestToQueriesMap();
-        }
-
-        private void FromRequestToQueriesMap()
-        {
-            CreateMap<ProductFilterRequest, ClothQuery>();
-        }
-
+        FromRequestToQueriesMap();
+        FromDtoToResponseMap();
     }
+
+    private void FromRequestToQueriesMap()
+    {
+        CreateMap<ClothFilterRequest, ClothQuery>();
+    }
+
+    private void FromDtoToResponseMap()
+    {
+        CreateMap<ResponseDto, ClothResponseDto>();
+    }
+
 }
+

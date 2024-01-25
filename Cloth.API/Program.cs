@@ -1,11 +1,8 @@
-using Cloth.API;
 using Cloth.Application;
 using Cloth.Application.Behavior;
 using Cloth.Application.Extensions;
-using Cloth.Application.Queries;
 using Cloth.Infrastructure;
 using Cloth.Infrastructure.Extensions;
-using FluentValidation;
 using MediatR;
 using Serilog;
 

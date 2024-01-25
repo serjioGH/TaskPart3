@@ -48,6 +48,7 @@ public class ReadJsonFromUrlClient : IReadJsonFromUrlClient
         }
         catch (Exception ex)
         {
+            ReadFromUrlLoggerExtensions.LogHttpClientGetFailed(_logger);
             throw new Exception("An error occurred while getting items from Url.", ex);
         }
     }

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Cloth.Domain\Cloth.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Commands\" />
+  </ItemGroup>
+
 </Project>
