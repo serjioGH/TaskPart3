@@ -4,6 +4,7 @@ using Cloth.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 public static class FilterProductExtension
 {
@@ -40,7 +41,7 @@ public static class FilterProductExtension
             {
                 if (cloth.Description.Contains(currentHighlight))
                 {
-                    cloth.Description = cloth.Description.Replace(currentHighlight, "<em>" + currentHighlight + "</em>");
+                    cloth.Description = cloth.Description.Replace(currentHighlight, $"<em>{currentHighlight}</em>");
                 }
             }
 
@@ -98,6 +99,30 @@ public static class FilterProductExtension
         }
 
         return items.Where(p => p.Sizes.Contains(size)).ToList();
+    }
+
+    /// <summary>
+    /// Splits the input to form list of different highlights
+    /// </summary>
+    /// <param name="highlight"></param>
+    /// <returns></returns>
+    public static List<string> GetHighlights(this string? highlight)
+    {
+        var highlights = new List<string>();
+        if (string.IsNullOrWhiteSpace(highlight))
+        {
+            return highlights;
+        }
+        else if (highlight.Contains(','))
+        {
+            highlights = highlight.Split(',').ToList();
+        }
+        else
+        {
+            highlights.Add(highlight);
+        }
+
+        return highlights;
     }
 }
 

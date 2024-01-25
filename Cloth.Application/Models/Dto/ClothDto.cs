@@ -1,9 +1,11 @@
 ﻿namespace Cloth.Application.Models.Dto;
 
+using Cloth.Domain.Entities;
+using System.Collections.Generic;
+
 public class ClothDto
 {
-    public decimal? MinPrice { get; set; }
-    public decimal MaxPrice { get; set; }
-    public string? Size { get; set; }
-    public string? Highlight { get; set; }
+    public FilterDto? Filter { get; set; }
+    public IEnumerable<Cloth>? Products { get; set; }
 }
+

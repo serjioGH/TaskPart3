@@ -1,6 +1,6 @@
-﻿namespace Cloth.Application.Models.Messages;
+﻿namespace Cloth.Application.Constants;
 
-public static class ClothErrorMessages
+public static class ClothValidationErrorMessages
 {
     public const string MinPriceOverZero = "MinPrice must be greater than zero.";
     public const string MaxPriceOverZero = "MaxPrice must be greater than zero.";

@@ -4,8 +4,7 @@ using AutoMapper;
 using Cloth.API.Models.Requests;
 using Cloth.API.Models.Responses;
 using Cloth.Application.Features.Queries.GetCloths;
-using Cloth.Application.Models.Requests;
-using Cloth.Application.Models.Responses;
+using Cloth.Application.Models.Dto;
 
 public class MapperProfile : Profile
 {
@@ -22,7 +21,7 @@ public class MapperProfile : Profile
 
     private void FromDtoToResponseMap()
     {
-        CreateMap<ResponseDto, ClothResponseDto>();
+        CreateMap<ClothDto, ClothResponseDto>();
     }
 
 }

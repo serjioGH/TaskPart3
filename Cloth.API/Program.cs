@@ -1,6 +1,7 @@
-using Cloth.Application;
 using Cloth.Application.Behavior;
 using Cloth.Application.Extensions;
+using Cloth.Application.Interfaces;
+using Cloth.Application.Services;
 using Cloth.Infrastructure;
 using Cloth.Infrastructure.Extensions;
 using MediatR;
@@ -28,7 +29,7 @@ builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour
 builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
 builder.Services.AddScoped<IClothRepository, ClothRepository>();
-builder.Services.AddScoped<IClothService, ClothService>();
+builder.Services.AddTransient<IClothService, ClothService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

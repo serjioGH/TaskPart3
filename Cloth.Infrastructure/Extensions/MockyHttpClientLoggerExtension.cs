@@ -2,7 +2,7 @@
 
 using Microsoft.Extensions.Logging;
 
-public static partial class ReadFromUrlLoggerExtensions
+public static partial class MockyHttpClientLoggerExtension
 {
     [LoggerMessage(EventId = 30, Level = LogLevel.Error, Message = "Failed to get cloths.")]
     public static partial void LogFailedGetItems(this ILogger logger);

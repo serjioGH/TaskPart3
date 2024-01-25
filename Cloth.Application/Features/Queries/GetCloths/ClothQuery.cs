@@ -1,10 +1,10 @@
 ﻿namespace Cloth.Application.Features.Queries.GetCloths;
 
-using Cloth.Application.Models.Responses;
+using Cloth.Application.Models.Dto;
 using MediatR;
 
 
-public class ClothQuery() : IRequest<ResponseDto>
+public record ClothQuery() : IRequest<ClothDto>
 {
     public decimal? MinPrice { get; set; }
     public decimal? MaxPrice { get; set; }

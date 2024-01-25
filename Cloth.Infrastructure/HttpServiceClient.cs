@@ -8,28 +8,32 @@ using Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cloth.Application.Interfaces;
+using Cloth.Infrastructure.Configuration;
+using Microsoft.Extensions.Options;
 
-public class ReadJsonFromUrlClient : IReadJsonFromUrlClient
+public class HttpServiceClient : IHttpServiceClient
 {
-    private readonly ILogger<ReadJsonFromUrlClient> _logger;
+    private readonly ILogger<HttpServiceClient> _logger;
     private readonly HttpClient _httpClient;
+    private readonly MockyHttpConfiguration _jsonPathConfig;
 
-    public ReadJsonFromUrlClient(ILogger<ReadJsonFromUrlClient> logger, HttpClient httpClient)
+    public HttpServiceClient(ILogger<HttpServiceClient> logger, HttpClient httpClient, IOptions<MockyHttpConfiguration> options)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+        _jsonPathConfig = options.Value ?? throw new ArgumentNullException(nameof(options));
     }
 
     /// <summary>
     /// Creates a request to get the data and deserializes the response to create a list of items
     /// </summary>
     /// <returns></returns>
-    public async Task<IEnumerable<Cloth>> GetClothsAsync(string url)
+    public async Task<IEnumerable<Cloth>> GetClothsAsync()
     {
         try
         {
-            ReadFromUrlLoggerExtensions.LogHttpClientGet(_logger);
-            var response = await _httpClient.GetAsync(url);
+            MockyHttpClientLoggerExtension.LogHttpClientGet(_logger);
+            var response = await _httpClient.GetAsync($"{_jsonPathConfig.Url}{_jsonPathConfig.ProductUrl}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -37,18 +41,18 @@ public class ReadJsonFromUrlClient : IReadJsonFromUrlClient
                 var cloths = JsonSerializer.Deserialize<IEnumerable<Cloth>>(content,
                     new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
-                ReadFromUrlLoggerExtensions.LogGetItemsResponse(_logger, content);
+                MockyHttpClientLoggerExtension.LogGetItemsResponse(_logger, content);
                 return cloths;
             }
             else
             {
-                ReadFromUrlLoggerExtensions.LogFailedGetItems(_logger);
+                MockyHttpClientLoggerExtension.LogFailedGetItems(_logger);
                 throw new HttpRequestException($"Failed to get items with status code: {response.StatusCode}");
             }
         }
         catch (Exception ex)
         {
-            ReadFromUrlLoggerExtensions.LogHttpClientGetFailed(_logger);
+            MockyHttpClientLoggerExtension.LogHttpClientGetFailed(_logger);
             throw new Exception("An error occurred while getting items from Url.", ex);
         }
     }

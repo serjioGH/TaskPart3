@@ -1,13 +1,13 @@
-﻿using Cloth.Application.Models.Responses;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using Cloth.Application.Extensions;
+using Cloth.Application.Models.Dto;
 
 namespace Cloth.Application.Behavior;
 
 public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
-    where TResponse : ResponseDto
+    where TResponse : ClothDto
 {
     private readonly ILogger<LoggingBehaviour<TRequest, TResponse>> _logger;
 

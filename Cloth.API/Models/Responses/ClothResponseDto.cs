@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class ClothResponseDto
 {
-    public Filter? Filter { get; set; }
+    public FilterDto? Filter { get; set; }
     public IEnumerable<Cloth>? Products { get; set; }
 }
 

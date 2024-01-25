@@ -1,4 +1,4 @@
-﻿namespace Cloth.Application;
+﻿namespace Cloth.Application.Interfaces;
 
 using Cloth.Domain.Entities;
 using System.Collections.Generic;

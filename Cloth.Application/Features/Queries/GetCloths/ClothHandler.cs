@@ -1,12 +1,12 @@
 ﻿namespace Cloth.Application.Features.Queries.GetCloths;
 
-using Cloth.Application;
 using Cloth.Application.Extensions;
-using Cloth.Application.Models.Responses;
+using Cloth.Application.Interfaces;
+using Cloth.Application.Models.Dto;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-public record ClothHandler : IRequestHandler<ClothQuery, ResponseDto>
+public record ClothHandler : IRequestHandler<ClothQuery, ClothDto>
 {
     private readonly IClothService _clothService;
     private readonly ILogger<ClothHandler> _logger;
@@ -16,7 +16,7 @@ public record ClothHandler : IRequestHandler<ClothQuery, ResponseDto>
         _logger = logger;
     }
 
-    public async Task<ResponseDto> Handle(ClothQuery request, CancellationToken cancellationToken)
+    public async Task<ClothDto> Handle(ClothQuery request, CancellationToken cancellationToken)
     {
         _logger.LogRequestHandlerMessage(request);
         var result = await _clothService.FilterClothsAsync(request.MinPrice, request.MaxPrice, request.Size, request.Highlight);

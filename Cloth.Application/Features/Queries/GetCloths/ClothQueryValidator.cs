@@ -1,6 +1,6 @@
 ﻿namespace Cloth.Application.Features.Queries.GetCloths;
 
-using Cloth.Application.Models.Messages;
+using Cloth.Application.Constants;
 using FluentValidation;
 
 public class ClothQueryValidator : AbstractValidator<ClothQuery>
@@ -10,23 +10,23 @@ public class ClothQueryValidator : AbstractValidator<ClothQuery>
         RuleFor(c => c.MinPrice)
             .Empty()
                 .When(c => c.MinPrice.HasValue && c.MinPrice <= 0)
-                .WithMessage(ClothErrorMessages.MinPriceOverZero)
+                .WithMessage(ClothValidationErrorMessages.MinPriceOverZero)
             .Must(IsValidDecimal)
                 .When(c => c.MinPrice.HasValue)
-                .WithMessage(ClothErrorMessages.MinPriceValidDecimal);
+                .WithMessage(ClothValidationErrorMessages.MinPriceValidDecimal);
 
         RuleFor(c => c.MaxPrice)
             .Empty()
                 .When(c => c.MaxPrice.HasValue && c.MaxPrice <= 0)
-                .WithMessage(ClothErrorMessages.MaxPriceOverZero)
+                .WithMessage(ClothValidationErrorMessages.MaxPriceOverZero)
             .Must(IsValidDecimal)
                 .When(c => c.MaxPrice.HasValue)
-                .WithMessage(ClothErrorMessages.MaxPriceValidDecimal);
+                .WithMessage(ClothValidationErrorMessages.MaxPriceValidDecimal);
 
         RuleFor(c => c.Size)
             .MaximumLength(20)
                 .When(c => !string.IsNullOrEmpty(c.Size))
-                .WithMessage(ClothErrorMessages.SizeMaxLength);
+                .WithMessage(ClothValidationErrorMessages.SizeMaxLength);
     }
 
     private bool IsValidDecimal(decimal? value)

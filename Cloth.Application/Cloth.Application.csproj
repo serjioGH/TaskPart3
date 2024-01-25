@@ -23,6 +23,9 @@
 
   <ItemGroup>
     <Folder Include="Features\Commands\" />
+    <Folder Include="Models\Messages\" />
+    <Folder Include="Models\Requests\" />
+    <Folder Include="Models\Responses\" />
   </ItemGroup>
 
 </Project>

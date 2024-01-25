@@ -1,6 +1,6 @@
 ﻿namespace Cloth.Application.Models;
 
-public class Filter
+public class FilterDto
 {
     public decimal? MinPrice { get; set; }
 

@@ -29,4 +29,6 @@ public static partial class LoggingExtensions
     [LoggerMessage(EventId = 8, Level = LogLevel.Information, Message = "Handler with request: {ClothQuery}")]
     public static partial void LogRequestHandlerMessage(this ILogger logger, ClothQuery ClothQuery);
 
+    [LoggerMessage(EventId = 9, Level = LogLevel.Error, Message = "Failed to receive items from the database.")]
+    public static partial void LogErrorFilteringCloths(this ILogger logger, string message);
 }

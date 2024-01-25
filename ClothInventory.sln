@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloth.Domain", "Cloth.Domain.csproj", "{F2CB87F3-E58B-4E73-BBAB-008E9BD6D9E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloth.Domain", "Cloth.Domain\Cloth.Domain.csproj", "{F2CB87F3-E58B-4E73-BBAB-008E9BD6D9E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloth.API", "..\Cloth.API\Cloth.API.csproj", "{9128C0AC-B18E-4248-978D-F8D2382A5B35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloth.API", "Cloth.API\Cloth.API.csproj", "{9128C0AC-B18E-4248-978D-F8D2382A5B35}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "..\TestProject\TestProject.csproj", "{2B233DC6-5436-4105-98B4-AD8D135E7A6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{2B233DC6-5436-4105-98B4-AD8D135E7A6B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloth.Application", "..\Cloth.Application\Cloth.Application.csproj", "{BCB3FAE0-0936-4B9F-B506-0F1593FE789A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloth.Application", "Cloth.Application\Cloth.Application.csproj", "{BCB3FAE0-0936-4B9F-B506-0F1593FE789A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloth.Infrastructure", "..\Cloth.Infrastructure\Cloth.Infrastructure.csproj", "{67AF2233-8739-44E1-9E31-A37D7C41C71F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloth.Infrastructure", "Cloth.Infrastructure\Cloth.Infrastructure.csproj", "{67AF2233-8739-44E1-9E31-A37D7C41C71F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

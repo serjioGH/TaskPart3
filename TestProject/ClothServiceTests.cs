@@ -1,7 +1,8 @@
 namespace TestProject;
 
-using Cloth.Application;
 using Cloth.Application.Extensions;
+using Cloth.Application.Interfaces;
+using Cloth.Application.Services;
 using Cloth.Domain.Entities;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
@@ -39,13 +40,9 @@ public class ClothServiceTests
     [Fact]
     public void GetHighlight_TwoValues_Success()
     {
-        var repoMock = new Mock<IClothRepository>();
         string input = "red,blue";
-        var loggerMock = new Mock<ILogger<ClothService>>();
 
-        var myService = new ClothService(repoMock.Object, loggerMock.Object);
-
-        var result = myService.GetHighlights(input);
+        var result = input.GetHighlights();
 
         foreach (var item in result)
         {

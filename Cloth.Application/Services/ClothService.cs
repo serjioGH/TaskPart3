@@ -1,10 +1,11 @@
 ﻿using Cloth.Application.Models;
-using Cloth.Application.Models.Responses;
 using Microsoft.Extensions.Logging;
 
-namespace Cloth.Application;
+namespace Cloth.Application.Services;
 
 using Cloth.Application.Extensions;
+using Cloth.Application.Interfaces;
+using Cloth.Application.Models.Dto;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
 using System.Linq;
@@ -16,7 +17,7 @@ public class ClothService : IClothService
     public ClothService(IClothRepository memberRepository, ILogger<ClothService> logger)
     {
         _logger = logger;
-        this.clothRepository = memberRepository;
+        clothRepository = memberRepository;
     }
 
     /// <summary>
@@ -28,41 +29,18 @@ public class ClothService : IClothService
         return await clothRepository.GetAllCloths();
     }
 
-    /// <summary>
-    /// Splits the input to form list of different highlights
-    /// </summary>
-    /// <param name="highlight"></param>
-    /// <returns></returns>
-    public List<string> GetHighlights(string? highlight)
-    {
-        var highlights = new List<string>();
-        if (string.IsNullOrWhiteSpace(highlight))
-        {
-            return highlights;
-        }
-        else if (highlight.Contains(','))
-        {
-            _logger.LogInformation("Multiple highlights detected in " + highlight);
-            highlights = highlight.Split(',').ToList();
-        }
-        else
-        {
-            highlights.Add(highlight);
-        }
 
-        return highlights;
-    }
 
-    public async Task<ResponseDto> FilterClothsAsync(decimal? minPrice, decimal? maxPrice, string? size, string? highlight)
+    public async Task<ClothDto> FilterClothsAsync(decimal? minPrice, decimal? maxPrice, string? size, string? highlight)
     {
         try
         {
             var allItems = (await clothRepository.GetAllCloths()).ToList();
-            LoggingExtensions.LogGettingCloths(_logger);
+            _logger.LogGettingCloths();
 
             if (allItems == null || allItems.Count == 0)
             {
-                LoggingExtensions.LogErrorGettingCloths(_logger);
+                _logger.LogErrorGettingCloths();
                 throw new ItemNotFoundException("No items found in the database.");
             }
 
@@ -70,7 +48,7 @@ public class ClothService : IClothService
             decimal? highestPrice = allItems.Max(p => p.Price);
 
             List<string> allSizes = allItems.GetUniqueSizes();
-            var allHighlights = this.GetHighlights(highlight);
+            var allHighlights = highlight.GetHighlights();
 
             var commonWords = allItems.GetCommonWords();
 
@@ -82,11 +60,11 @@ public class ClothService : IClothService
                 .SizeFilter(size)
                 .FilterWithHighlights(allHighlights);
 
-            LoggingExtensions.LogFilteringProducts(_logger);
+            _logger.LogFilteringProducts();
 
-            return new ResponseDto
+            return new ClothDto
             {
-                Filter = new Filter
+                Filter = new FilterDto
                 {
                     MinPrice = lowestPrice,
                     MaxPrice = highestPrice,
@@ -98,9 +76,9 @@ public class ClothService : IClothService
         }
         catch (Exception ex)
         {
+            _logger.LogErrorFilteringCloths(ex.Message);
             throw;
         }
     }
-
 }
 
