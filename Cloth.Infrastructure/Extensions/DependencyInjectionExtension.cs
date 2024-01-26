@@ -18,8 +18,8 @@ public static class DependencyInjectionExtension
         services.Configure<MockyHttpConfiguration>(configuration.GetSection("MockyClient"));
         services.AddScoped<IClothRepository, ClothRepository>();
         services.AddScoped<IClothService, ClothService>();
-        services.AddHttpClient<HttpServiceClient>();
-        services.AddScoped<IHttpServiceClient, HttpServiceClient>();
+        services.AddHttpClient<MockyHttpServiceClient>();
+        services.AddScoped<IMockyHttpServiceClient, MockyHttpServiceClient>();
 
         return services;
     }

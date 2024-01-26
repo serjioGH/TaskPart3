@@ -3,9 +3,9 @@
 using Cloth.Application.Constants;
 using FluentValidation;
 
-public class ClothQueryValidator : AbstractValidator<ClothQuery>
+public class GetClothQueryValidator : AbstractValidator<ClothQuery>
 {
-    public ClothQueryValidator()
+    public GetClothQueryValidator()
     {
         RuleFor(c => c.MinPrice)
             .Empty()

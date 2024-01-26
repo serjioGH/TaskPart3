@@ -11,13 +11,13 @@ using Cloth.Application.Interfaces;
 using Cloth.Infrastructure.Configuration;
 using Microsoft.Extensions.Options;
 
-public class HttpServiceClient : IHttpServiceClient
+public class MockyHttpServiceClient : IMockyHttpServiceClient
 {
-    private readonly ILogger<HttpServiceClient> _logger;
+    private readonly ILogger<MockyHttpServiceClient> _logger;
     private readonly HttpClient _httpClient;
     private readonly MockyHttpConfiguration _jsonPathConfig;
 
-    public HttpServiceClient(ILogger<HttpServiceClient> logger, HttpClient httpClient, IOptions<MockyHttpConfiguration> options)
+    public MockyHttpServiceClient(ILogger<MockyHttpServiceClient> logger, HttpClient httpClient, IOptions<MockyHttpConfiguration> options)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
@@ -56,6 +56,5 @@ public class HttpServiceClient : IHttpServiceClient
             throw new Exception("An error occurred while getting items from Url.", ex);
         }
     }
-
 }
 

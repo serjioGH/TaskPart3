@@ -7,10 +7,10 @@ using Microsoft.Extensions.Options;
 
 public class ClothRepository : IClothRepository
 {
-    private readonly IHttpServiceClient _readJsonFromUrlService;
+    private readonly IMockyHttpServiceClient _readJsonFromUrlService;
     private static IEnumerable<Cloth>? _items;
 
-    public ClothRepository(IHttpServiceClient readJsonFromUrlService, IOptions<MockyHttpConfiguration> options)
+    public ClothRepository(IMockyHttpServiceClient readJsonFromUrlService, IOptions<MockyHttpConfiguration> options)
     {
         _readJsonFromUrlService = readJsonFromUrlService ?? throw new ArgumentNullException(nameof(readJsonFromUrlService));
     }

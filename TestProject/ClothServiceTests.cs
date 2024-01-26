@@ -55,7 +55,7 @@ public class ClothServiceTests
     [Fact]
     public void GetUniqueSizes_Success()
     {
-         var result = FilterProductExtension.GetUniqueSizes(_list);
+         var result = ListClothExtension.GetUniqueSizes(_list);
 
         result.Should().NotBeNull();
         result.Should().HaveCount(3);
@@ -69,7 +69,7 @@ public class ClothServiceTests
     {
         List<Cloth> list = new List<Cloth>();
 
-        var result = FilterProductExtension.GetUniqueSizes(list);
+        var result = ListClothExtension.GetUniqueSizes(list);
 
         result.Should().NotBeNull();
         result.Should().BeEmpty();
@@ -82,7 +82,7 @@ public class ClothServiceTests
         highlights.Add("red");
         highlights.Add("blue");
 
-        var result = FilterProductExtension.FilterWithHighlights(_list, highlights).ToArray();
+        var result = ListClothExtension.FilterWithHighlights(_list, highlights).ToArray();
 
         result.Should().NotBeNull();
         result[0].Description.Should().Contain("<em>red</em>");
@@ -117,7 +117,7 @@ public class ClothServiceTests
         highlights.Add("red");
         highlights.Add("blue");
 
-        var result = FilterProductExtension.FilterWithHighlights(list, highlights).ToArray();
+        var result = ListClothExtension.FilterWithHighlights(list, highlights).ToArray();
 
         result[0].Description.Should().BeEmpty();
         result[1].Description.Should().BeEmpty();
@@ -133,7 +133,7 @@ public class ClothServiceTests
 
         var loggerMock = new Mock<ILogger<ClothService>>();
 
-        var result = FilterProductExtension.FilterWithHighlights(_list, highlights).ToArray();
+        var result = ListClothExtension.FilterWithHighlights(_list, highlights).ToArray();
 
         result[0].Description.Should().BeEquivalentTo(_list[0].Description);
         result[1].Description.Should().BeEquivalentTo(_list[1].Description);
@@ -164,7 +164,7 @@ public class ClothServiceTests
 
         var loggerMock = new Mock<ILogger<ClothService>>();
 
-        var result = FilterProductExtension.GetCommonWords(list);
+        var result = ListClothExtension.GetCommonWords(list);
         result.Should().NotBeNull();
         result.Should().HaveCount(10);
         result.Should().Contain("9");

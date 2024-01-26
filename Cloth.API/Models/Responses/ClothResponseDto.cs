@@ -1,6 +1,6 @@
 ﻿namespace Cloth.API.Models.Responses;
 
-using Cloth.Application.Models;
+using Cloth.Application.Models.Dto;
 using Cloth.Domain.Entities;
 using System.Collections.Generic;
 

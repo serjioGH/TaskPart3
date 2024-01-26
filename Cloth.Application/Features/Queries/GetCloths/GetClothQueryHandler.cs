@@ -6,11 +6,11 @@ using Cloth.Application.Models.Dto;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-public record ClothHandler : IRequestHandler<ClothQuery, ClothDto>
+public class GetClothQueryHandler : IRequestHandler<ClothQuery, ClothDto>
 {
     private readonly IClothService _clothService;
-    private readonly ILogger<ClothHandler> _logger;
-    public ClothHandler(IClothService clothService, ILogger<ClothHandler> logger)
+    private readonly ILogger<GetClothQueryHandler> _logger;
+    public GetClothQueryHandler(IClothService clothService, ILogger<GetClothQueryHandler> logger)
     {
         _clothService = clothService;
         _logger = logger;

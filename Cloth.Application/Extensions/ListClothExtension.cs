@@ -4,9 +4,8 @@ using Cloth.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
-public static class FilterProductExtension
+public static class ListClothExtension
 {
     /// <summary>
     /// Splits the descriptions of the items with "." and " " and finds the most common words skipping the first 5
@@ -99,30 +98,6 @@ public static class FilterProductExtension
         }
 
         return items.Where(p => p.Sizes.Contains(size)).ToList();
-    }
-
-    /// <summary>
-    /// Splits the input to form list of different highlights
-    /// </summary>
-    /// <param name="highlight"></param>
-    /// <returns></returns>
-    public static List<string> GetHighlights(this string? highlight)
-    {
-        var highlights = new List<string>();
-        if (string.IsNullOrWhiteSpace(highlight))
-        {
-            return highlights;
-        }
-        else if (highlight.Contains(','))
-        {
-            highlights = highlight.Split(',').ToList();
-        }
-        else
-        {
-            highlights.Add(highlight);
-        }
-
-        return highlights;
     }
 }
 

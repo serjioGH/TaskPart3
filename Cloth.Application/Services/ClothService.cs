@@ -1,8 +1,8 @@
-﻿using Cloth.Application.Models;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace Cloth.Application.Services;
 
+using AutoMapper;
 using Cloth.Application.Extensions;
 using Cloth.Application.Interfaces;
 using Cloth.Application.Models.Dto;
@@ -14,10 +14,12 @@ public class ClothService : IClothService
 {
     private readonly IClothRepository clothRepository;
     private readonly ILogger<ClothService> _logger;
-    public ClothService(IClothRepository memberRepository, ILogger<ClothService> logger)
+    private readonly IMapper _mapper;
+    public ClothService(IClothRepository memberRepository, ILogger<ClothService> logger, IMapper mapper)
     {
         _logger = logger;
         clothRepository = memberRepository;
+        _mapper = mapper;
     }
 
     /// <summary>
@@ -28,8 +30,6 @@ public class ClothService : IClothService
     {
         return await clothRepository.GetAllCloths();
     }
-
-
 
     public async Task<ClothDto> FilterClothsAsync(decimal? minPrice, decimal? maxPrice, string? size, string? highlight)
     {
@@ -59,20 +59,11 @@ public class ClothService : IClothService
                 .MaxPriceFilter(maxPrice)
                 .SizeFilter(size)
                 .FilterWithHighlights(allHighlights);
-
             _logger.LogFilteringProducts();
 
-            return new ClothDto
-            {
-                Filter = new FilterDto
-                {
-                    MinPrice = lowestPrice,
-                    MaxPrice = highestPrice,
-                    Sizes = allSizes,
-                    CommonWords = commonWords
-                },
-                Products = filteredProducts,
-            };
+            var response = _mapper.Map<ClothDto>((filteredProducts, commonWords, allSizes, lowestPrice, highestPrice));
+
+            return response;
         }
         catch (Exception ex)
         {

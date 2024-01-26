@@ -1,4 +1,4 @@
-﻿namespace Cloth.Application.Models;
+﻿namespace Cloth.Application.Models.Dto;
 
 public class FilterDto
 {

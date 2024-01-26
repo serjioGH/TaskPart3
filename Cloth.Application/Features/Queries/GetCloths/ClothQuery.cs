@@ -2,8 +2,6 @@
 
 using Cloth.Application.Models.Dto;
 using MediatR;
-
-
 public record ClothQuery() : IRequest<ClothDto>
 {
     public decimal? MinPrice { get; set; }
