@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace Cloth.Application.Behavior;
 
 public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
-    where TResponse : ClothDto
+    where TResponse : ClothTask1Dto
 {
     private readonly ILogger<ValidationBehaviour<TRequest, TResponse>> _logger;
     private readonly IValidator<TRequest> _validator;

@@ -19,10 +19,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cloth.Domain\Cloth.Domain.csproj" />
+    <ProjectReference Include="..\Persistence.Abstractions\Persistence.Abstractions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Commands\" />
+    <Folder Include="Features\Queries\Basket\GetBasket\" />
     <Folder Include="Models\Messages\" />
     <Folder Include="Models\Requests\" />
     <Folder Include="Models\Responses\" />

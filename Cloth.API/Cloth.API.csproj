@@ -4,13 +4,17 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
@@ -18,6 +22,14 @@
   <ItemGroup>
     <ProjectReference Include="..\Cloth.Application\Cloth.Application.csproj" />
     <ProjectReference Include="..\Cloth.Infrastructure\Cloth.Infrastructure.csproj" />
+    <ProjectReference Include="..\Cloth.Persistence.Ef\Cloth.Persistence.Ef.csproj" />
+    <ProjectReference Include="..\Cloth.Persistence\Cloth.Persistence.csproj" />
+    <ProjectReference Include="..\Persistence.Abstractions\Persistence.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Requests\Basket\" />
+    <Folder Include="Models\Responses\Basket\" />
   </ItemGroup>
 
 </Project>

@@ -20,19 +20,19 @@ public class ClothServiceTests
                 {
                     Title = "T-Shirt",
                     Description = "Simple and comfortable basic t-shirt in red for everyday casual wear.",
-                    Sizes = new List<string>() {"medium", "small"}
+                    //Sizes = new List<string>() {"medium", "small"}
                 },
                  new Cloth()
                 {
                     Title = "Chic Blouse",
                     Description = "Chic blouse in red to add a touch of sophistication to your wardrobe.",
-                    Sizes = new List<string>() {"large", "small"}
+                    //Sizes = new List<string>() {"large", "small"}
                 },
                 new Cloth()
                 {
                     Title = "Fashionable Jumpsuit",
                     Description = "Trendy jumpsuit in blue for a chic and fashion-forward ensemble.",
-                    Sizes = new List<string>() {"large"}
+                    //Sizes = new List<string>() {"large"}
                 },
         };
     }

@@ -7,7 +7,7 @@ namespace Cloth.Application.Behavior;
 
 public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
-    where TResponse : ClothDto
+    where TResponse : ClothTask1Dto
 {
     private readonly ILogger<LoggingBehaviour<TRequest, TResponse>> _logger;
 

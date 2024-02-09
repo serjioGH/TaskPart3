@@ -4,6 +4,8 @@ namespace Cloth.Application.Services;
 
 using AutoMapper;
 using Cloth.Application.Extensions;
+using Cloth.Application.Features.Commands.Cloth.ClothCreate;
+using Cloth.Application.Features.Commands.Cloth.ClothUpdate;
 using Cloth.Application.Interfaces;
 using Cloth.Application.Models.Dto;
 using Cloth.Domain.Entities;
@@ -12,13 +14,13 @@ using System.Linq;
 
 public class ClothService : IClothService
 {
-    private readonly IClothRepository clothRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<ClothService> _logger;
     private readonly IMapper _mapper;
-    public ClothService(IClothRepository memberRepository, ILogger<ClothService> logger, IMapper mapper)
+    public ClothService(IUnitOfWork unitOfWork, ILogger<ClothService> logger, IMapper mapper)
     {
         _logger = logger;
-        clothRepository = memberRepository;
+        _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
 
@@ -28,14 +30,97 @@ public class ClothService : IClothService
     /// <returns></returns>
     public async Task<IEnumerable<Cloth>> GetAllCloths()
     {
-        return await clothRepository.GetAllCloths();
+        return await _unitOfWork.Cloths.GetAllCloths();
     }
 
-    public async Task<ClothDto> FilterClothsAsync(decimal? minPrice, decimal? maxPrice, string? size, string? highlight)
+    public async Task<Cloth> CreateCloth(ClothCreateCommand command)
+    {
+        var item = new Cloth
+        {
+            Title = command.Title,
+            Description = command.Description,
+            Price = command.Price,
+            BrandId = command.BrandId,
+            ClothSizes = command.Sizes.Select(size => new ClothSize
+            {
+                SizeId = size.SizeId,
+                QuantityInStock = size.Quantity
+            }).ToList(),
+            ClothGroups = command.Groups.Select(group => new ClothGroup
+            {
+                GroupId = group.GroupId
+            }).ToList()
+        };
+
+        return item;
+    }
+
+
+    public async Task<Cloth> UpdateClothAsync(ClothUpdateCommand command)
+    {
+        var cloth = await _unitOfWork.Cloths.GetClothById(command.Id);
+        if (cloth == null)
+        {
+            throw new ItemNotFoundException($"Cloth: {command.Id} not found.");
+        }
+
+        cloth.Title = command.Title;
+        cloth.Description = command.Description;
+        cloth.Price = command.Price;
+        cloth.BrandId = command.BrandId;
+
+        foreach (var newSize in command.Sizes)
+        {
+            var existingSize = cloth.ClothSizes.FirstOrDefault(p => p.SizeId == newSize.SizeId);
+            if (existingSize != null)
+            {
+                existingSize.QuantityInStock = newSize.Quantity;
+            }
+            else
+            {
+                cloth.ClothSizes.Add(new ClothSize
+                {
+                    SizeId = newSize.SizeId,
+                    QuantityInStock = newSize.Quantity
+                });
+            }
+        }
+
+        foreach (var groups in command.Groups)
+        {
+            var currentGroup = cloth.ClothGroups.FirstOrDefault(p => p.GroupId == groups.GroupId);
+            if (currentGroup == null)
+            {
+                cloth.ClothGroups.Add(new ClothGroup
+                {
+                    GroupId = groups.GroupId
+                });
+            }
+
+        }
+
+        _unitOfWork.Save();
+     
+        return cloth;
+    }
+
+    public async Task DeleteClothAsync(Guid id)
+    {
+        var cloth = await _unitOfWork.Cloths.GetClothById(id);
+        if (cloth == null)
+        {
+            throw new ItemNotFoundException($"Cloth: {id} not found!");
+        }
+
+        await _unitOfWork.Cloths.Delete(cloth);
+        _unitOfWork.Save();
+    }
+
+    public async Task<ClothTask1Dto> FilterClothsAsync(decimal? minPrice, decimal? maxPrice, string? size, string? highlight)
     {
         try
         {
-            var allItems = (await clothRepository.GetAllCloths()).ToList();
+            var allItems = (await _unitOfWork.Cloths.GetAllCloths()).ToList();
             _logger.LogGettingCloths();
 
             if (allItems == null || allItems.Count == 0)
@@ -61,7 +146,7 @@ public class ClothService : IClothService
                 .FilterWithHighlights(allHighlights);
             _logger.LogFilteringProducts();
 
-            var response = _mapper.Map<ClothDto>((filteredProducts, commonWords, allSizes, lowestPrice, highestPrice));
+            var response = _mapper.Map<ClothTask1Dto>((filteredProducts, commonWords, allSizes, lowestPrice, highestPrice));
 
             return response;
         }
