@@ -1,4 +1,5 @@
 ﻿using Cloth.Domain.Entities;
+using Cloth.Persistence.Ef.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -22,6 +23,6 @@ public class BasketLineTypeConfiguration : IEntityTypeConfiguration<BasketLine>
             .HasForeignKey(p => p.BasketId);
 
         builder.Property(p => p.Price)
-            .HasColumnType("decimal(18, 2)");
+            .HasColumnType(ConfigurationConstants.DecimalType);
     }
 }

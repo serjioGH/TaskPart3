@@ -2,8 +2,6 @@
 
 using Cloth.Application.Interfaces;
 using Cloth.Application.Interfaces.Repositories;
-using Cloth.Application.Interfaces.Services;
-using Cloth.Application.Services;
 using Cloth.Infrastructure;
 using Cloth.Infrastructure.Configuration;
 using Cloth.Persistence.Ef.Context;
@@ -21,7 +19,8 @@ public static class DependencyInjectionExtension
             throw new ArgumentNullException(nameof(configuration));
         }
 
-        services.AddDbContext<DbContext, ClothInventoryDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ClothInventoryDbConnection")));
+        services.AddDbContext<DbContext, ClothInventoryDbContext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("ClothInventoryDbConnection")));
         services.Configure<MockyHttpConfiguration>(configuration.GetSection("MockyClient"));
         services.AddScoped<IClothRepository, ClothRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
@@ -29,7 +28,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IBasketLineRepository, BasketLineRepository>();
         services.AddScoped<ISizeRepository, SizeRepository>();
         services.AddScoped<IGroupRepository, GroupRepository>();
-        services.AddScoped<IClothService, ClothService>();
         services.AddHttpClient<MockyHttpServiceClient>();
         services.AddScoped<IMockyHttpServiceClient, MockyHttpServiceClient>();
 

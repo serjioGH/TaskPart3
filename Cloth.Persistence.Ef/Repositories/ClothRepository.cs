@@ -6,12 +6,13 @@ using Cloth.Domain.Exceptions;
 using Cloth.Persistence.Ef.Context;
 using global::Persistence.Abstractions.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 public class ClothRepository : GenericRepository<Cloth>, IClothRepository
 {
     protected readonly ClothInventoryDbContext _dbContext;
 
-    public ClothRepository(ClothInventoryDbContext dbContext) : base(dbContext)
+    public ClothRepository(ClothInventoryDbContext dbContext, ILogger<ClothRepository> logger) : base(dbContext)
     {
         _dbContext = dbContext;
     }
@@ -22,6 +23,7 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
             .Include(p => p.Brand)
             .Include(p => p.ClothSizes).ThenInclude(cs => cs.Size)
             .Include(p => p.ClothGroups).ThenInclude(cg => cg.Group)
+            .Where(p => p.IsDeleted == false)
             .ToListAsync();
 
         return result;

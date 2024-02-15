@@ -1,6 +1,7 @@
 ﻿namespace Cloth.Persistence.Ef.Configurations;
 
 using Cloth.Domain.Entities;
+using Cloth.Persistence.Ef.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,6 +11,7 @@ public class ClothTypeConfiguration : IEntityTypeConfiguration<Cloth>
     {
         builder.Property(p => p.CreatedOn)
           .HasDefaultValueSql("getDate()");
+
         builder.HasOne(p => p.Brand)
           .WithMany(s => s.Cloths)
           .HasForeignKey(p => p.BrandId);
@@ -26,6 +28,6 @@ public class ClothTypeConfiguration : IEntityTypeConfiguration<Cloth>
             .HasColumnType("text");
 
         builder.Property(p => p.Price)
-            .HasColumnType("decimal(18, 2)");
+            .HasColumnType(ConfigurationConstants.DecimalType);
     }
 }

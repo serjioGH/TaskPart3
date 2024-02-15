@@ -1,6 +1,7 @@
 ﻿namespace Cloth.Application.Mappings;
 
 using AutoMapper;
+using Cloth.Application.Features.Commands.Basket.BasketLineCreate;
 using Cloth.Application.Features.Commands.Basket.BasketLineUpdate;
 using Cloth.Application.Features.Commands.Cloth.ClothCreate;
 using Cloth.Application.Features.Commands.Order.OrderCreate;
@@ -20,8 +21,25 @@ public class ClothMapperProfile : Profile
     private void FromCommandEntityToDto()
     {
         CreateMap<ClothQuery, ClothListDto>();
-        CreateMap<ClothCreateCommand, ClothDto>();
-        CreateMap<OrderCreateCommand, CreateOrderDto>();
+        CreateMap<ClothCreateCommand, Cloth>()
+            .ForMember(dest => dest.ClothSizes, opt => opt.MapFrom(src => src.Sizes.Select(dto => new ClothSize
+            {
+                SizeId = dto.SizeId,
+                QuantityInStock = dto.Quantity
+            }).ToList()))
+            .ForMember(dest => dest.ClothGroups, opt => opt.MapFrom(src => src.Groups.Select(dto => new ClothGroup
+            {
+                GroupId = dto.GroupId
+            }).ToList()));
+        CreateMap<OrderCreateCommand, Order>()
+            .ForMember(dest => dest.OrderLines, opt => opt.MapFrom(src => src.OrderLines.Select(dto => new OrderLines
+            {
+                SizeId = dto.SizeId,
+                Quantity = dto.Quantity,
+                ClothId = dto.ClothId,
+                OrderId = dto.OrderId,
+                Price = dto.Price
+            }).ToList()));
         CreateMap<Cloth, ClothDto>()
             .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.Name))
             .ForMember(dest => dest.Groups, opt => opt.MapFrom(src => src.ClothGroups.Select(pg => pg.Group.Name).ToList()))
@@ -84,6 +102,12 @@ public class ClothMapperProfile : Profile
              .ForMember(
                  dest => dest.TotalAmount,
                  opt => opt.MapFrom(src => src.BasketLines.Sum(p => p.Quantity * p.Price)));
+
+        CreateMap<BasketLineCreateCommand, BasketLine>()
+           .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.BasketLine.Quantity))
+           .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.BasketLine.SizeId))
+           .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.BasketLine.Price))
+           .ForMember(dest => dest.ClothId, opt => opt.MapFrom(src => src.BasketLine.ClothId));
 
         CreateMap<BasketLineUpdateCommand, BasketLine>()
            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.BasketLineId))

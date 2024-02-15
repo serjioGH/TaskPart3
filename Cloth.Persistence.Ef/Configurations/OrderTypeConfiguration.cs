@@ -1,6 +1,7 @@
 ﻿namespace Cloth.Persistence.Ef.Configurations;
 
 using Cloth.Domain.Entities;
+using Cloth.Persistence.Ef.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -20,7 +21,7 @@ public class OrderTypeConfiguration : IEntityTypeConfiguration<Order>
             .WithOne(p => p.Order)
             .HasForeignKey<Payment>(p => p.PaymentId);
         builder.Property(p => p.TotalAmount)
-            .HasColumnType("decimal(18, 2)");
+            .HasColumnType(ConfigurationConstants.DecimalType);
         builder.HasOne(p => p.User)
             .WithMany(p => p.Orders)
             .HasForeignKey(p => p.UserId);

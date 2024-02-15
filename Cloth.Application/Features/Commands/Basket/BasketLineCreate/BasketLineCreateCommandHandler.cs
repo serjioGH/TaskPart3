@@ -2,8 +2,8 @@
 
 using AutoMapper;
 using global::Cloth.Application.Interfaces;
-using global::Cloth.Application.Interfaces.Factories;
 using global::Cloth.Application.Models.Dto.Basket;
+using global::Cloth.Domain.Entities;
 using MediatR;
 using System;
 using System.Threading;
@@ -13,20 +13,18 @@ public class BasketLineCreateCommandHandler : IRequestHandler<BasketLineCreateCo
 {
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IBasketLineFactory _basketLineFactory;
 
-    public BasketLineCreateCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IBasketLineFactory basketLineFactory)
+    public BasketLineCreateCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
         _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-        _basketLineFactory = basketLineFactory ?? throw new ArgumentNullException(nameof(basketLineFactory));
     }
 
     public async Task<BasketLineCreateDto> Handle(BasketLineCreateCommand request, CancellationToken cancellationToken)
     {
         var basket = await _unitOfWork.Baskets.GetBasketByUserIdAsync(request.UserId);
 
-        var basketLine = _basketLineFactory.CreateBasketLine(request);
+        var basketLine = _mapper.Map<BasketLine>(request);
         basketLine.BasketId = basket.Id;
 
         await _unitOfWork.BasketLines.InsertAsync(basketLine);

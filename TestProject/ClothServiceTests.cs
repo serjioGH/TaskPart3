@@ -2,7 +2,6 @@ namespace TestProject;
 
 using Cloth.Application.Extensions;
 using Cloth.Application.Interfaces.Repositories;
-using Cloth.Application.Services;
 using Cloth.Domain.Entities;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
@@ -129,8 +128,6 @@ public class ClothServiceTests
         List<string> highlights = new List<string>();
         highlights.Add("testWord");
 
-        var loggerMock = new Mock<ILogger<ClothService>>();
-
         var result = ListClothExtension.FilterWithHighlights(_list, highlights).ToArray();
 
         result[0].Description.Should().BeEquivalentTo(_list[0].Description);
@@ -158,8 +155,6 @@ public class ClothServiceTests
                 Description = word
             });
         }
-
-        var loggerMock = new Mock<ILogger<ClothService>>();
 
         var result = ListClothExtension.GetCommonWords(list);
         result.Should().NotBeNull();

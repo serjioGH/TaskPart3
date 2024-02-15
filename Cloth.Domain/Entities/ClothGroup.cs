@@ -7,5 +7,6 @@ public class ClothGroup
     public Guid GroupId { get; set; }
 
     public Cloth Cloth { get; set; }
+
     public Group Group { get; set; }
 }

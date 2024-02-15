@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Cloth.Application.Interfaces;
 using Cloth.Application.Models.Dto;
-using Cloth.Domain.Exceptions;
 using MediatR;
 
 namespace Cloth.Application.Features.Commands.Order.OrderUpdate;

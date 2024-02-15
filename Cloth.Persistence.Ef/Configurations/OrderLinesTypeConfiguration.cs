@@ -1,6 +1,7 @@
 ﻿namespace Cloth.Persistence.Ef.Configurations;
 
 using Cloth.Domain.Entities;
+using Cloth.Persistence.Ef.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -19,6 +20,6 @@ public class OrderLinesTypeConfiguration : IEntityTypeConfiguration<OrderLines>
             .WithMany(p => p.OrderDetails)
             .HasForeignKey(p => p.ClothId);
         builder.Property(p => p.Price)
-            .HasColumnType("decimal(18, 2)");
+            .HasColumnType(ConfigurationConstants.DecimalType);
     }
 }

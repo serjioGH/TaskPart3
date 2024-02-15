@@ -1,10 +1,8 @@
 ﻿namespace Cloth.Application.Features.Queries.Basket.GetBasket;
 
 using AutoMapper;
-
 using Cloth.Application.Interfaces;
 using Cloth.Application.Models.Dto.Basket;
-
 using MediatR;
 using System;
 using System.Threading;
