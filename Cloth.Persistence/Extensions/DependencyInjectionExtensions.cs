@@ -4,6 +4,7 @@ using Cloth.Application.Interfaces;
 using Cloth.Persistence.Ef.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 public static class DependencyInjectionExtensions
 {
     public static IServiceCollection RegisterPersistenceDependencies(this IServiceCollection services, IConfiguration configuration)

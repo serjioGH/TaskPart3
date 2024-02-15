@@ -1,4 +1,5 @@
 ﻿namespace Cloth.Persistence.Ef.Context;
+
 using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -24,6 +25,7 @@ public class ClothInventoryDbContext : DbContext
     public ClothInventoryDbContext(DbContextOptions<ClothInventoryDbContext> options) : base(options)
     {
     }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
@@ -59,8 +61,45 @@ public class ClothInventoryDbContext : DbContext
             new OrderStatus { Id = Guid.Parse("77777770-7777-7777-7777-111111111111"), Name = "Completed" },
             new OrderStatus { Id = Guid.Parse("77777771-7777-7777-7777-111111111111"), Name = "Cancelled" }
         );
+
+        builder.Entity<User>().HasData(
+            new User
+            {
+                Id = Guid.Parse("11111110-1111-1111-1111-111111111122"),
+                FirstName = "Serdzhan",
+                LastName = "Ahmedov",
+                Email = "s.r.a@example.com",
+                Password = "password",
+                Phone = "1234567890",
+                Address = "Address example",
+                Orders = new List<Order>()
+            }
+        );
+
+        builder.Entity<Basket>().HasData(
+             new Basket
+             {
+                 Id = Guid.Parse("11111110-1111-1111-1111-111111111133"),
+                 UserId = Guid.Parse("11111110-1111-1111-1111-111111111122"),
+             }
+        );
+
+        //Seed Roles
+        var roles = new[]
+        {
+            new Role { Id = Guid.Parse("11111110-1111-1111-1111-111111111144"), Name = "admin" }
+        };
+
+        builder.Entity<Role>().HasData(roles);
+
+        //Seed UserRoles
+        var userRole = new UserRoles
+        {
+            UserId = Guid.Parse("11111110-1111-1111-1111-111111111122"),
+            RoleId = Guid.Parse("11111110-1111-1111-1111-111111111144")
+        };
+
+        builder.Entity<UserRoles>().HasData(userRole);
         base.OnModelCreating(builder);
     }
-
 }
-

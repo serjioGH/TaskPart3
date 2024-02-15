@@ -1,5 +1,4 @@
 ﻿using Cloth.Application.Interfaces;
-using Cloth.Domain.Exceptions;
 using MediatR;
 
 namespace Cloth.Application.Features.Commands.Order.OrderDelete;
@@ -15,14 +14,10 @@ public class OrderDeleteCommandHandler : IRequestHandler<OrderDeleteCommand>
 
     public async Task Handle(OrderDeleteCommand request, CancellationToken cancellationToken)
     {
-        var order = await _unitOfWork.Orders.GetById(request.orderId);
-        if (order == null)
-        {
-            throw new ItemNotFoundException($"Order with ID {request.orderId} not found.");
-        }
+        var order = await _unitOfWork.Orders.GetOrderById(request.orderId);
 
         order.IsDeleted = true;
-        _unitOfWork.Orders.Update(order);
+        await _unitOfWork.Orders.UpdateAsync(order);
         _unitOfWork.Save();
     }
 }

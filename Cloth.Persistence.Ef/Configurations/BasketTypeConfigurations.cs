@@ -8,6 +8,5 @@ public class BasketTypeConfigurations : IEntityTypeConfiguration<Basket>
 {
     public void Configure(EntityTypeBuilder<Basket> builder)
     {
-
     }
 }

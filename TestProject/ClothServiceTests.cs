@@ -1,7 +1,7 @@
 namespace TestProject;
 
 using Cloth.Application.Extensions;
-using Cloth.Application.Interfaces;
+using Cloth.Application.Interfaces.Repositories;
 using Cloth.Application.Services;
 using Cloth.Domain.Entities;
 using FluentAssertions;
@@ -49,13 +49,12 @@ public class ClothServiceTests
             item.Should().NotBeNull();
             input.Should().Contain(item);
         }
-
     }
 
     [Fact]
     public void GetUniqueSizes_Success()
     {
-         var result = ListClothExtension.GetUniqueSizes(_list);
+        var result = ListClothExtension.GetUniqueSizes(_list);
 
         result.Should().NotBeNull();
         result.Should().HaveCount(3);
@@ -122,7 +121,6 @@ public class ClothServiceTests
         result[0].Description.Should().BeEmpty();
         result[1].Description.Should().BeEmpty();
         result[2].Description.Should().BeEmpty();
-
     }
 
     [Fact]
@@ -138,7 +136,6 @@ public class ClothServiceTests
         result[0].Description.Should().BeEquivalentTo(_list[0].Description);
         result[1].Description.Should().BeEquivalentTo(_list[1].Description);
         result[2].Description.Should().BeEquivalentTo(_list[2].Description);
-
     }
 
     [Fact]

@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using MediatR;
 using Cloth.Application.Interfaces;
+using Cloth.Application.Interfaces.Services;
 using Cloth.Application.Models.Dto;
+using MediatR;
 
 namespace Cloth.Application.Features.Commands.Cloth.ClothCreate;
 
@@ -22,12 +23,10 @@ public class ClothCreateCommandHandler : IRequestHandler<ClothCreateCommand, Cre
     {
         var cloth = await _clothService.CreateCloth(command);
 
-        await _unitOfWork.Cloths.Insert(cloth);
+        await _unitOfWork.Cloths.InsertAsync(cloth);
         _unitOfWork.Save();
 
-        var entity = await _unitOfWork.Cloths.GetClothById(cloth.Id);
-
-        var itemDto = _mapper.Map<CreateClothDto>(entity);
+        var itemDto = _mapper.Map<CreateClothDto>(cloth);
 
         return itemDto;
     }

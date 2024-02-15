@@ -14,4 +14,3 @@ public class Cloth : Entity
     public string Description { get; set; }
     public bool IsDeleted { get; set; }
 }
-

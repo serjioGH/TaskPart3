@@ -28,12 +28,6 @@ namespace Cloth.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -46,15 +40,30 @@ namespace Cloth.Persistence.Migrations
                         .IsUnique();
 
                     b.ToTable("Baskets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("11111110-1111-1111-1111-111111111133"),
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("11111110-1111-1111-1111-111111111122")
+                        });
                 });
 
             modelBuilder.Entity("Cloth.Domain.Entities.BasketLine", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("BasketId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ClothId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
@@ -65,7 +74,9 @@ namespace Cloth.Persistence.Migrations
                     b.Property<Guid>("SizeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("BasketId", "ClothId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
 
                     b.HasIndex("ClothId");
 
@@ -79,12 +90,6 @@ namespace Cloth.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -101,14 +106,12 @@ namespace Cloth.Persistence.Migrations
                         new
                         {
                             Id = new Guid("11111110-1111-1111-1111-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chanel"
                         },
                         new
                         {
                             Id = new Guid("22222220-2222-2222-2222-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nike"
                         });
@@ -120,17 +123,13 @@ namespace Cloth.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
-
                     b.Property<Guid>("BrandId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getDate()");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -198,12 +197,6 @@ namespace Cloth.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -219,14 +212,12 @@ namespace Cloth.Persistence.Migrations
                         new
                         {
                             Id = new Guid("88888880-8888-8888-8888-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Men"
                         },
                         new
                         {
                             Id = new Guid("99999990-9999-9999-9999-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Women"
                         });
@@ -238,14 +229,10 @@ namespace Cloth.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
-
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getDate()");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -278,10 +265,17 @@ namespace Cloth.Persistence.Migrations
 
             modelBuilder.Entity("Cloth.Domain.Entities.OrderLines", b =>
                 {
-                    b.Property<Guid>("OrderId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ClothId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Price")
@@ -293,9 +287,11 @@ namespace Cloth.Persistence.Migrations
                     b.Property<Guid>("SizeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("OrderId", "ClothId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ClothId");
+
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("SizeId");
 
@@ -307,12 +303,6 @@ namespace Cloth.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -329,28 +319,24 @@ namespace Cloth.Persistence.Migrations
                         new
                         {
                             Id = new Guid("66666660-6666-6666-6666-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Processing"
                         },
                         new
                         {
                             Id = new Guid("66666661-6666-6666-6666-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Shipped"
                         },
                         new
                         {
                             Id = new Guid("77777770-7777-7777-7777-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Completed"
                         },
                         new
                         {
                             Id = new Guid("77777771-7777-7777-7777-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cancelled"
                         });
@@ -379,12 +365,6 @@ namespace Cloth.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -395,6 +375,14 @@ namespace Cloth.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("11111110-1111-1111-1111-111111111144"),
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "admin"
+                        });
                 });
 
             modelBuilder.Entity("Cloth.Domain.Entities.Size", b =>
@@ -402,12 +390,6 @@ namespace Cloth.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -424,21 +406,18 @@ namespace Cloth.Persistence.Migrations
                         new
                         {
                             Id = new Guid("33333330-3333-3333-3333-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Small"
                         },
                         new
                         {
                             Id = new Guid("44444440-4444-4444-4444-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Medium"
                         },
                         new
                         {
                             Id = new Guid("55555550-5555-5555-5555-111111111111"),
-                            AssociatedId = 0L,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Large"
                         });
@@ -455,14 +434,10 @@ namespace Cloth.Persistence.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<long>("AssociatedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("AssociatedId"));
-
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getDate()");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -495,6 +470,20 @@ namespace Cloth.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("11111110-1111-1111-1111-111111111122"),
+                            Address = "Address example",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "s.r.a@example.com",
+                            FirstName = "Serdzhan",
+                            IsDeleted = false,
+                            LastName = "Ahmedov",
+                            Password = "password",
+                            Phone = "1234567890"
+                        });
                 });
 
             modelBuilder.Entity("Cloth.Domain.Entities.UserRoles", b =>
@@ -510,6 +499,13 @@ namespace Cloth.Persistence.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("11111110-1111-1111-1111-111111111122"),
+                            RoleId = new Guid("11111110-1111-1111-1111-111111111144")
+                        });
                 });
 
             modelBuilder.Entity("Cloth.Domain.Entities.Basket", b =>
@@ -625,7 +621,7 @@ namespace Cloth.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("Cloth.Domain.Entities.Order", "Order")
-                        .WithMany("OrderDetails")
+                        .WithMany("OrderLines")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -701,7 +697,7 @@ namespace Cloth.Persistence.Migrations
 
             modelBuilder.Entity("Cloth.Domain.Entities.Order", b =>
                 {
-                    b.Navigation("OrderDetails");
+                    b.Navigation("OrderLines");
 
                     b.Navigation("Payment")
                         .IsRequired();

@@ -2,6 +2,7 @@
 
 using Cloth.Application.Interfaces;
 using Cloth.Application.Interfaces.Factories;
+using Cloth.Application.Interfaces.Services;
 using Cloth.Application.Services;
 using Cloth.Infrastructure.Configuration;
 using Cloth.Infrastructure.Factories;
@@ -18,8 +19,8 @@ public static class DependencyInjectionExtension
         }
 
         services.Configure<MockyHttpConfiguration>(configuration.GetSection("MockyClient"));
-        //services.AddScoped<IClothRepository, ClothRepository>();
         services.AddScoped<IClothFactory, ClothFactory>();
+        services.AddScoped<IBasketLineFactory, BasketLineFactory>();
         services.AddScoped<IOrderFactory, OrderFactory>();
         services.AddScoped<IClothService, ClothService>();
         services.AddHttpClient<MockyHttpServiceClient>();

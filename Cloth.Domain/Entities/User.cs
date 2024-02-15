@@ -13,9 +13,10 @@ public class User : Entity
     public string Phone { get; set; }
 
     public string Address { get; set; }
-    public bool IsDeleted { get; set; }
 
-    public Basket Basket { get; set; } 
+    public bool IsDeactivated { get; set; }
+
+    public Basket Basket { get; set; }
 
     public ICollection<Order> Orders { get; set; } = new List<Order>();
 

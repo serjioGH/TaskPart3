@@ -16,21 +16,17 @@ public class OrderUpdateCommandHandler : IRequestHandler<OrderUpdateCommand, Upd
         _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
+
     public async Task<UpdateOrderDto> Handle(OrderUpdateCommand request, CancellationToken cancellationToken)
     {
         var order = await _unitOfWork.Orders.GetOrderById(request.Id);
-        if (order == null)
-        {
-            throw new ItemNotFoundException($"Order with ID {request.Id} not found.");
-        }
 
         order.StatusId = request.StatusId;
         order.PaymentId = request.PaymentId;
-        order.OrderDate = request.OrderDate;
         order.UserId = request.UserId;
         order.TotalAmount = request.TotalAmount;
-  
-        _unitOfWork.Orders.Update(order);
+
+        await _unitOfWork.Orders.UpdateAsync(order);
         _unitOfWork.Save();
 
         var updatedOrderDto = _mapper.Map<UpdateOrderDto>(order);

@@ -3,9 +3,8 @@
 using Cloth.Domain.Entities;
 using System.Collections.Generic;
 
-public class ClothTask1Dto
+public class ClothFilterDto
 {
     public FilterDto? Filter { get; set; }
     public IEnumerable<Cloth>? Products { get; set; }
 }
-

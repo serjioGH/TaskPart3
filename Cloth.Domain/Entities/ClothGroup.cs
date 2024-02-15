@@ -9,4 +9,3 @@ public class ClothGroup
     public Cloth Cloth { get; set; }
     public Group Group { get; set; }
 }
-

@@ -12,7 +12,6 @@ public class OrderFactory : IOrderFactory
         {
             StatusId = command.StatusId,
             PaymentId = command.PaymentId,
-            OrderDate = command.OrderDate,
             UserId = command.UserId,
             TotalAmount = command.TotalAmount,
             OrderLines = command.OrderLines.Select(line => new OrderLines

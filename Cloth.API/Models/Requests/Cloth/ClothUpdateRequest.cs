@@ -3,6 +3,7 @@
 public class ClothUpdateRequest
 {
     public Guid Id { get; set; }
+
     public Guid BrandId { get; set; }
 
     public string Title { get; set; }
@@ -12,5 +13,6 @@ public class ClothUpdateRequest
     public decimal Price { get; set; }
 
     public List<GroupClothRequest> Groups { get; set; }
+
     public List<SizeClothRequest> Sizes { get; set; }
 }

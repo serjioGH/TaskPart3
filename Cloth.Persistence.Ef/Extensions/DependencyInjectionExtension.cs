@@ -1,14 +1,16 @@
 ﻿namespace Cloth.Persistence.Ef.Extensions;
 
 using Cloth.Application.Interfaces;
+using Cloth.Application.Interfaces.Repositories;
+using Cloth.Application.Interfaces.Services;
 using Cloth.Application.Services;
-using Microsoft.EntityFrameworkCore;
+using Cloth.Infrastructure;
+using Cloth.Infrastructure.Configuration;
 using Cloth.Persistence.Ef.Context;
+using Cloth.Persistence.Ef.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Cloth.Infrastructure.Configuration;
-using Cloth.Infrastructure;
-using Cloth.Persistence.Ef.Repositories;
 
 public static class DependencyInjectionExtension
 {
@@ -23,6 +25,8 @@ public static class DependencyInjectionExtension
         services.Configure<MockyHttpConfiguration>(configuration.GetSection("MockyClient"));
         services.AddScoped<IClothRepository, ClothRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IBasketRepository, BasketRepository>();
+        services.AddScoped<IBasketLineRepository, BasketLineRepository>();
         services.AddScoped<ISizeRepository, SizeRepository>();
         services.AddScoped<IGroupRepository, GroupRepository>();
         services.AddScoped<IClothService, ClothService>();

@@ -1,4 +1,5 @@
 ﻿namespace Cloth.Domain.Entities;
+
 public class Payment
 {
     public Guid PaymentId { get; set; }

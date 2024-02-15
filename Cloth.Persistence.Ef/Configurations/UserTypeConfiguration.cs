@@ -1,14 +1,16 @@
 ﻿namespace Cloth.Persistence.Ef.Configurations;
+
+using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Cloth.Domain.Entities;
+
 public class UserTypeConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.Property(p => p.CreatedOn)
                .HasDefaultValueSql("getDate()");
-        builder.Property(p => p.IsDeleted)
+        builder.Property(p => p.IsDeactivated)
                .HasColumnType("bit")
                .HasDefaultValue(false);
         builder.Property(u => u.Email).HasMaxLength(30).IsRequired();

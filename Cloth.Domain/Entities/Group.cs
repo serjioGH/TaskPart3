@@ -6,4 +6,3 @@ public class Group : Entity
 
     public ICollection<ClothGroup> ClothGroups { get; set; }
 }
-

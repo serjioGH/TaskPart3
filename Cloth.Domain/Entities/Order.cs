@@ -6,7 +6,6 @@ public class Order : Entity
     public Guid? UserId { get; set; }
     public Guid? PaymentId { get; set; }
     public decimal TotalAmount { get; set; }
-    public DateTime OrderDate { get; set; }
     public User User { get; set; }
     public ICollection<OrderLines> OrderLines { get; set; }
     public Payment Payment { get; set; }

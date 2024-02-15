@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Queries\Basket\GetBasket\" />
     <Folder Include="Models\Messages\" />
     <Folder Include="Models\Requests\" />
     <Folder Include="Models\Responses\" />

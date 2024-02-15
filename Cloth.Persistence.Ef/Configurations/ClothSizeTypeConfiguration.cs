@@ -1,7 +1,9 @@
 ﻿namespace Cloth.Persistence.Ef.Configurations;
+
+using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Cloth.Domain.Entities;
+
 public class ClothSizeTypeConfiguration : IEntityTypeConfiguration<ClothSize>
 {
     public void Configure(EntityTypeBuilder<ClothSize> builder)

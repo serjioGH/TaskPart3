@@ -8,8 +8,7 @@ public class BasketLineTypeConfiguration : IEntityTypeConfiguration<BasketLine>
 {
     public void Configure(EntityTypeBuilder<BasketLine> builder)
     {
-        builder.HasKey(p => new { p.BasketId, p.ClothId });
-
+        builder.HasKey(p => p.Id);
         builder.HasOne(p => p.Cloth)
             .WithMany(p => p.BasketLines)
             .HasForeignKey(p => p.ClothId);

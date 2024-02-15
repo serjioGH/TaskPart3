@@ -7,6 +7,7 @@ using Cloth.Application.Extensions;
 using Cloth.Application.Features.Commands.Cloth.ClothCreate;
 using Cloth.Application.Features.Commands.Cloth.ClothUpdate;
 using Cloth.Application.Interfaces;
+using Cloth.Application.Interfaces.Services;
 using Cloth.Application.Models.Dto;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
@@ -17,6 +18,7 @@ public class ClothService : IClothService
     private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<ClothService> _logger;
     private readonly IMapper _mapper;
+
     public ClothService(IUnitOfWork unitOfWork, ILogger<ClothService> logger, IMapper mapper)
     {
         _logger = logger;
@@ -37,6 +39,7 @@ public class ClothService : IClothService
     {
         var item = new Cloth
         {
+            Id = Guid.NewGuid(),
             Title = command.Title,
             Description = command.Description,
             Price = command.Price,
@@ -54,7 +57,6 @@ public class ClothService : IClothService
 
         return item;
     }
-
 
     public async Task<Cloth> UpdateClothAsync(ClothUpdateCommand command)
     {
@@ -96,11 +98,10 @@ public class ClothService : IClothService
                     GroupId = groups.GroupId
                 });
             }
-
         }
 
         _unitOfWork.Save();
-     
+
         return cloth;
     }
 
@@ -112,11 +113,11 @@ public class ClothService : IClothService
             throw new ItemNotFoundException($"Cloth: {id} not found!");
         }
 
-        await _unitOfWork.Cloths.Delete(cloth);
+        await _unitOfWork.Cloths.DeleteAsync(cloth);
         _unitOfWork.Save();
     }
 
-    public async Task<ClothTask1Dto> FilterClothsAsync(decimal? minPrice, decimal? maxPrice, string? size, string? highlight)
+    public async Task<ClothFilterDto> FilterClothsAsync(decimal? minPrice, decimal? maxPrice, string? size, string? highlight)
     {
         try
         {
@@ -146,7 +147,7 @@ public class ClothService : IClothService
                 .FilterWithHighlights(allHighlights);
             _logger.LogFilteringProducts();
 
-            var response = _mapper.Map<ClothTask1Dto>((filteredProducts, commonWords, allSizes, lowestPrice, highestPrice));
+            var response = _mapper.Map<ClothFilterDto>((filteredProducts, commonWords, allSizes, lowestPrice, highestPrice));
 
             return response;
         }
@@ -157,4 +158,3 @@ public class ClothService : IClothService
         }
     }
 }
-

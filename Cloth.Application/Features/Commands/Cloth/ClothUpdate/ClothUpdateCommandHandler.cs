@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cloth.Application.Interfaces;
+using Cloth.Application.Interfaces.Services;
 using Cloth.Application.Models.Dto;
 using MediatR;
 

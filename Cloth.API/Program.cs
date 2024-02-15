@@ -1,13 +1,9 @@
 using Cloth.API.Filter;
 using Cloth.Application.Behavior;
 using Cloth.Application.Extensions;
-using Cloth.Application.Interfaces;
-using Cloth.Application.Services;
 using Cloth.Infrastructure.Extensions;
-using Cloth.Persistence.Ef.Repositories;
 using Cloth.Persistence.Extensions;
 using MediatR;
-using Persistence.Abstractions.Interfaces;
 using Persistence.Abstractions.Repositories;
 using Serilog;
 
@@ -27,14 +23,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services
     .AddApplication()
+    .AddGenericRepository()
     .AddInfrastructure(builder.Configuration)
     .RegisterPersistenceDependencies(builder.Configuration);
 
 builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
 builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped<IClothRepository, ClothRepository>();
-builder.Services.AddTransient<IClothService, ClothService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

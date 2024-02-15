@@ -2,7 +2,9 @@
 using Cloth.Application.Interfaces.Factories;
 
 namespace Cloth.Infrastructure.Factories;
+
 using Cloth.Domain.Entities;
+
 internal class ClothFactory : IClothFactory
 {
     public Cloth CreateCloth(ClothCreateCommand command)

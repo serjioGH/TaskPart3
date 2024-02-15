@@ -8,7 +8,7 @@ public static class ListOrderExtension
     {
         if (minDate.HasValue)
         {
-            return orders.Where(p => p.OrderDate >= minDate.Value).ToList();
+            return orders.Where(p => p.CreatedOn >= minDate.Value).ToList();
         }
 
         return orders;
@@ -18,7 +18,7 @@ public static class ListOrderExtension
     {
         if (maxDate.HasValue)
         {
-            return orders.Where(p => p.OrderDate <= maxDate.Value).ToList();
+            return orders.Where(p => p.CreatedOn <= maxDate.Value).ToList();
         }
 
         return orders;

@@ -10,23 +10,23 @@ public class GetClothQueryValidator : AbstractValidator<ClothQuery>
         RuleFor(c => c.MinPrice)
             .Empty()
                 .When(c => c.MinPrice.HasValue && c.MinPrice <= 0)
-                .WithMessage(ClothValidationErrorMessages.MinPriceOverZero)
+                .WithMessage(Constants.MinPriceOverZero)
             .Must(IsValidDecimal)
                 .When(c => c.MinPrice.HasValue)
-                .WithMessage(ClothValidationErrorMessages.MinPriceValidDecimal);
+                .WithMessage(Constants.MinPriceValidDecimal);
 
         RuleFor(c => c.MaxPrice)
             .Empty()
                 .When(c => c.MaxPrice.HasValue && c.MaxPrice <= 0)
-                .WithMessage(ClothValidationErrorMessages.MaxPriceOverZero)
+                .WithMessage(Constants.MaxPriceOverZero)
             .Must(IsValidDecimal)
                 .When(c => c.MaxPrice.HasValue)
-                .WithMessage(ClothValidationErrorMessages.MaxPriceValidDecimal);
+                .WithMessage(Constants.MaxPriceValidDecimal);
 
         RuleFor(c => c.Size)
             .MaximumLength(20)
                 .When(c => !string.IsNullOrEmpty(c.Size))
-                .WithMessage(ClothValidationErrorMessages.SizeMaxLength);
+                .WithMessage(Constants.ClothValidationMessages.SizeMaxLength);
     }
 
     private bool IsValidDecimal(decimal? value)
@@ -34,4 +34,3 @@ public class GetClothQueryValidator : AbstractValidator<ClothQuery>
         return value == null || decimal.TryParse(value.ToString(), out _);
     }
 }
-

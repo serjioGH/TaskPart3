@@ -1,6 +1,6 @@
 ﻿namespace Cloth.Domain.Entities;
 
-public class BasketLine
+public class BasketLine : Entity
 {
     public Guid BasketId { get; set; }
     public Guid ClothId { get; set; }

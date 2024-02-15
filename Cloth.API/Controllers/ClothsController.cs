@@ -14,7 +14,7 @@ public class ClothsController : BaseController
 {
     // GET: api/<ClothsController>
     [HttpGet]
-    public async Task<IActionResult> Get([FromQuery] ClothFilterRequest request, [FromServices] ISender _mediator,
+    public async Task<IActionResult> Get([FromQuery] ClothFilterRequest request, [FromServices] IMediator _mediator,
          [FromServices] IMapper _mapper)
     {
         var query = _mapper.Map<ClothQuery>(request);
@@ -30,7 +30,7 @@ public class ClothsController : BaseController
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateCloth(
-        [FromBody] ClothCreateRequest productCreateRequest, [FromServices] ISender _mediator, [FromServices] IMapper _mapper)
+        [FromBody] ClothCreateRequest productCreateRequest, [FromServices] IMediator _mediator, [FromServices] IMapper _mapper)
     {
         var command = _mapper.Map<ClothCreateCommand>(productCreateRequest);
 
@@ -46,7 +46,7 @@ public class ClothsController : BaseController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> UpdateProduct(
-        [FromQuery] Guid clothId, [FromBody] ClothUpdateRequest productUpdateRequest, [FromServices] ISender _mediator, [FromServices] IMapper _mapper)
+        [FromQuery] Guid clothId, [FromBody] ClothUpdateRequest productUpdateRequest, [FromServices] IMediator _mediator, [FromServices] IMapper _mapper)
     {
         productUpdateRequest.Id = clothId;
 
@@ -64,7 +64,7 @@ public class ClothsController : BaseController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> DeleteProduct(
-        [FromRoute] Guid clothId, [FromServices] ISender _mediator)
+        [FromRoute] Guid clothId, [FromServices] IMediator _mediator)
     {
         var command = new DeleteClothCommand(clothId);
 
@@ -73,4 +73,3 @@ public class ClothsController : BaseController
         return NoContent();
     }
 }
-

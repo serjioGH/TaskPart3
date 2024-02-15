@@ -27,9 +27,4 @@
     <ProjectReference Include="..\Persistence.Abstractions\Persistence.Abstractions.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Requests\Basket\" />
-    <Folder Include="Models\Responses\Basket\" />
-  </ItemGroup>
-
 </Project>

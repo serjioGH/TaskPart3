@@ -23,10 +23,13 @@ public class OrderCreateCommandHandler : IRequestHandler<OrderCreateCommand, Cre
     {
         var order = _orderFactory.CreateOrder(request);
 
-        await _unitOfWork.Orders.Insert(order);
+        await _unitOfWork.Orders.InsertAsync(order);
+
+        var basket = await _unitOfWork.Baskets.GetBasketByUserIdAsync(request.UserId);
+        await _unitOfWork.BasketLines.DeleteAll(basket.Id);
         _unitOfWork.Save();
 
-        var checkedOrder = await _unitOfWork.Orders.GetById(order.Id);
+        var checkedOrder = await _unitOfWork.Orders.GetByIdAsync(order.Id);
 
         var orderDto = _mapper.Map<CreateOrderDto>(checkedOrder);
 

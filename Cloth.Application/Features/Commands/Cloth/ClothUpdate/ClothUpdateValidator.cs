@@ -1,32 +1,33 @@
-﻿using FluentValidation;
+﻿namespace Cloth.Application.Features.Commands.Cloth.ClothUpdate;
 
-namespace Cloth.Application.Features.Commands.Cloth.ClothUpdate;
+using FluentValidation;
+using Constants;
 
-public class ClothUpdateValidator: AbstractValidator<ClothUpdateCommand>
+public class ClothUpdateValidator : AbstractValidator<ClothUpdateCommand>
 {
     public ClothUpdateValidator()
     {
         RuleFor(command => command.Id)
-            .NotEmpty().WithMessage("Id is required.");
+            .NotEmpty().WithMessage(Constants.IdRequiredMessage);
 
         RuleFor(command => command.BrandId)
-           .NotEmpty().WithMessage("BrandId is required.");
+           .NotEmpty().WithMessage(Constants.ClothValidationMessages.BrandIdRequired);
 
         RuleFor(command => command.Title)
-            .NotEmpty().WithMessage("Title is required.")
-            .MaximumLength(50).WithMessage("Title maximum length: 50 characters.");
+            .NotEmpty().WithMessage(Constants.ClothValidationMessages.TitleRequired)
+            .MaximumLength(50).WithMessage(Constants.ClothValidationMessages.TitleMaxLength);
 
         RuleFor(command => command.Description)
-            .NotEmpty().WithMessage("Description is required.")
-            .MaximumLength(500).WithMessage("Description maximum length: 500 characters.");
+            .NotEmpty().WithMessage(Constants.ClothValidationMessages.DescriptionRequired)
+            .MaximumLength(500).WithMessage(Constants.ClothValidationMessages.DescriptionMaxLength);
 
         RuleFor(command => command.Price)
-            .GreaterThan(0).WithMessage("Price must be greater than 0.");
+            .GreaterThan(0).WithMessage(Constants.ClothValidationMessages.PriceOverZero);
 
         RuleFor(command => command.Groups)
-            .NotEmpty().WithMessage("A Group must be provided.");
+            .NotEmpty().WithMessage(Constants.ClothValidationMessages.GroupRequired);
 
         RuleFor(command => command.Sizes)
-            .NotEmpty().WithMessage("A Size must be provided.");
+            .NotEmpty().WithMessage(Constants.ClothValidationMessages.SizeRequired);
     }
 }

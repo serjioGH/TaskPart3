@@ -1,7 +1,9 @@
 ﻿namespace Cloth.Persistence.Ef.Configurations;
+
+using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Cloth.Domain.Entities;
+
 public class OrderTypeConfiguration : IEntityTypeConfiguration<Order>
 {
     public void Configure(EntityTypeBuilder<Order> builder)
@@ -9,7 +11,7 @@ public class OrderTypeConfiguration : IEntityTypeConfiguration<Order>
         builder.Property(p => p.IsDeleted)
             .HasColumnType("bit")
             .HasDefaultValue(false);
-        builder.Property(p => p.CreatedOn)          
+        builder.Property(p => p.CreatedOn)
             .HasDefaultValueSql("getDate()");
         builder.HasOne(p => p.Status)
             .WithMany(s => s.Orders)

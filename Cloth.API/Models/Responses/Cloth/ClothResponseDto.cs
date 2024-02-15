@@ -7,4 +7,3 @@ public class ClothResponseDto
     public FilterDto? Filter { get; set; }
     public IEnumerable<ClothDto>? Cloths { get; set; }
 }
-

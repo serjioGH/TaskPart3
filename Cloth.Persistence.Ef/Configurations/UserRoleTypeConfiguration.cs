@@ -1,7 +1,8 @@
 ﻿namespace Cloth.Persistence.Ef.Configurations;
+
+using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Cloth.Domain.Entities;
 
 public class UserRoleTypeConfiguration : IEntityTypeConfiguration<UserRoles>
 {

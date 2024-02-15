@@ -43,7 +43,6 @@ public static class ListClothExtension
                     cloth.Description = cloth.Description.Replace(currentHighlight, $"<em>{currentHighlight}</em>");
                 }
             }
-
         }
         return list;
     }
@@ -67,7 +66,7 @@ public static class ListClothExtension
                 }
             }
         }
-       
+
         return sizes;
     }
 
@@ -100,7 +99,7 @@ public static class ListClothExtension
 
         List<Cloth> newList = new List<Cloth>();
 
-        foreach (var item in items) 
+        foreach (var item in items)
         {
             var clothSizes = item.ClothSizes.ToList();
             foreach (var currClothSize in clothSizes)
@@ -115,4 +114,3 @@ public static class ListClothExtension
         return newList;
     }
 }
-

@@ -15,14 +15,11 @@ public class DeleteClothCommandHandler : IRequestHandler<DeleteClothCommand>
 
     public async Task Handle(DeleteClothCommand command, CancellationToken cancellationToken)
     {
-        var cloth = await _unitOfWork.Cloths.GetById(command.clothId);
-        if (cloth == null)
-        {
-            throw new ItemNotFoundException($"Cloth with ID {command.clothId} not found.");
-        }
+        var cloth = await _unitOfWork.Cloths.GetClothById(command.clothId);
 
         cloth.IsDeleted = true;
-        _unitOfWork.Cloths.Update(cloth);
+
+        await _unitOfWork.Cloths.UpdateAsync(cloth);
         _unitOfWork.Save();
     }
 }

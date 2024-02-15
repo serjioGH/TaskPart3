@@ -11,5 +11,6 @@ public class ClothCreateRequest
     public string Description { get; set; }
 
     public List<GroupClothRequest> Groups { get; set; }
+
     public List<SizeClothRequest> Sizes { get; set; }
 }
