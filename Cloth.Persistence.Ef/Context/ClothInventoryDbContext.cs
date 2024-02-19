@@ -1,13 +1,14 @@
 ﻿namespace Cloth.Persistence.Ef.Context;
 
 using Cloth.Domain.Entities;
+using Cloth.Domain.Enumarations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 public class ClothInventoryDbContext : DbContext
 {
     public DbSet<Cloth> Cloths { get; set; }
-    public DbSet<ClothSize> ClothSizes { get; set; }
+    public DbSet<Domain.Entities.ClothSize> ClothSizes { get; set; }
     public DbSet<ClothGroup> ClothGroups { get; set; }
     public DbSet<Group> Groups { get; set; }
     public DbSet<Size> Sizes { get; set; }
@@ -16,8 +17,8 @@ public class ClothInventoryDbContext : DbContext
     public DbSet<UserRoles> UserRoles { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderLines> OrderLines { get; set; }
-    public DbSet<OrderStatus> OrderStatus { get; set; }
-    public DbSet<Payment> Payments { get; set; }
+    public DbSet<Domain.Entities.OrderStatus> OrderStatus { get; set; }
+    public DbSet<Domain.Entities.Payment> Payments { get; set; }
     public DbSet<Brand> Brands { get; set; }
     public DbSet<Basket> Baskets { get; set; }
     public DbSet<BasketLine> BasketLines { get; set; }
@@ -34,6 +35,7 @@ public class ClothInventoryDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        base.Database.Migrate();
         //seed
         //Seed Brands
         builder.Entity<Brand>().HasData(
@@ -43,9 +45,9 @@ public class ClothInventoryDbContext : DbContext
 
         //Seed Sizes
         builder.Entity<Size>().HasData(
-            new Size { Id = Guid.Parse("33333330-3333-3333-3333-111111111111"), Name = "Small" },
-            new Size { Id = Guid.Parse("44444440-4444-4444-4444-111111111111"), Name = "Medium" },
-            new Size { Id = Guid.Parse("55555550-5555-5555-5555-111111111111"), Name = "Large" }
+            new Size { Id = Guid.Parse("33333330-3333-3333-3333-111111111111"), Name = Domain.Enumarations.ClothSize.Small },
+            new Size { Id = Guid.Parse("44444440-4444-4444-4444-111111111111"), Name = Domain.Enumarations.ClothSize.Medium },
+            new Size { Id = Guid.Parse("55555550-5555-5555-5555-111111111111"), Name = Domain.Enumarations.ClothSize.Large }
         );
 
         //Seed Groups
@@ -55,11 +57,11 @@ public class ClothInventoryDbContext : DbContext
         );
 
         //Seed OrderStatus
-        builder.Entity<OrderStatus>().HasData(
-            new OrderStatus { Id = Guid.Parse("66666660-6666-6666-6666-111111111111"), Name = "Processing" },
-            new OrderStatus { Id = Guid.Parse("66666661-6666-6666-6666-111111111111"), Name = "Shipped" },
-            new OrderStatus { Id = Guid.Parse("77777770-7777-7777-7777-111111111111"), Name = "Completed" },
-            new OrderStatus { Id = Guid.Parse("77777771-7777-7777-7777-111111111111"), Name = "Cancelled" }
+        builder.Entity<Domain.Entities.OrderStatus>().HasData(
+            new Domain.Entities.OrderStatus { Id = Guid.Parse("66666660-6666-6666-6666-111111111111"), Name = Domain.Enumarations.OrderStatus.Processing },
+            new Domain.Entities.OrderStatus { Id = Guid.Parse("66666661-6666-6666-6666-111111111111"), Name = Domain.Enumarations.OrderStatus.Shipped },
+            new Domain.Entities.OrderStatus { Id = Guid.Parse("77777770-7777-7777-7777-111111111111"), Name = Domain.Enumarations.OrderStatus.Received },
+            new Domain.Entities.OrderStatus { Id = Guid.Parse("77777771-7777-7777-7777-111111111111"), Name = Domain.Enumarations.OrderStatus.Canceled }
         );
 
         builder.Entity<User>().HasData(

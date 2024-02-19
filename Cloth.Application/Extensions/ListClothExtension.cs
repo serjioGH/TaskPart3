@@ -60,9 +60,9 @@ public static class ListClothExtension
         {
             foreach (var size in item)
             {
-                if (!sizes.Contains(size.Name))
+                if (!sizes.Contains(size.Name.ToString()))
                 {
-                    sizes.Add(size.Name);
+                    sizes.Add(size.Name.ToString());
                 }
             }
         }
@@ -104,7 +104,7 @@ public static class ListClothExtension
             var clothSizes = item.ClothSizes.ToList();
             foreach (var currClothSize in clothSizes)
             {
-                if (currClothSize.Size.Name.Contains(size))
+                if (currClothSize.Size.Name.ToString().Contains(size))
                 {
                     newList.Add(item);
                 }

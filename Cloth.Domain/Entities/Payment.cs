@@ -4,7 +4,7 @@ public class Payment
 {
     public Guid PaymentId { get; set; }
 
-    public string PaymentMethod { get; set; }
+    public Enumarations.Payment PaymentMethod { get; set; }
 
     public DateTime PaymentDate { get; set; }
 

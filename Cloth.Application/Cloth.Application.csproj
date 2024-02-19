@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Messages\**" />
+    <Compile Remove="Models\Requests\**" />
+    <Compile Remove="Models\Responses\**" />
+    <EmbeddedResource Remove="Models\Messages\**" />
+    <EmbeddedResource Remove="Models\Requests\**" />
+    <EmbeddedResource Remove="Models\Responses\**" />
+    <None Remove="Models\Messages\**" />
+    <None Remove="Models\Requests\**" />
+    <None Remove="Models\Responses\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.9.0" />
@@ -20,13 +32,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Cloth.Domain\Cloth.Domain.csproj" />
     <ProjectReference Include="..\Persistence.Abstractions\Persistence.Abstractions.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\Messages\" />
-    <Folder Include="Models\Requests\" />
-    <Folder Include="Models\Responses\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

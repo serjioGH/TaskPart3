@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cloth.API.Models;
+using Cloth.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
@@ -35,6 +36,11 @@ public class ErrorHandlingFilter : IExceptionFilter
             context.Result = new NotFoundResult();
             error.StatusCode = HttpStatusCode.InternalServerError;
             error.Message = "Internel server error.";
+        }
+        else if (exceptionType == typeof(ItemNotFoundException))
+        {
+            error.Message = exception.Message;
+            error.StatusCode = HttpStatusCode.BadRequest;
         }
 
         context.Result = new JsonResult(error);

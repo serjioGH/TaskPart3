@@ -3,4 +3,6 @@
 public static class ConfigurationConstants
 {
     public const string DecimalType = "decimal(18, 2)";
+
+    public const string NvarcharType = "nvarchar(max)";
 }

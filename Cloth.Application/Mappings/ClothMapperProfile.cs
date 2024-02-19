@@ -5,7 +5,6 @@ using Cloth.Application.Features.Commands.Basket.BasketLineCreate;
 using Cloth.Application.Features.Commands.Basket.BasketLineUpdate;
 using Cloth.Application.Features.Commands.Cloth.ClothCreate;
 using Cloth.Application.Features.Commands.Order.OrderCreate;
-using Cloth.Application.Features.Queries.Cloths.GetCloths;
 using Cloth.Application.Models.Dto;
 using Cloth.Application.Models.Dto.Basket;
 using Cloth.Domain.Entities;
@@ -20,7 +19,6 @@ public class ClothMapperProfile : Profile
 
     private void FromCommandEntityToDto()
     {
-        CreateMap<ClothQuery, ClothListDto>();
         CreateMap<ClothCreateCommand, Cloth>()
             .ForMember(dest => dest.ClothSizes, opt => opt.MapFrom(src => src.Sizes.Select(dto => new ClothSize
             {
@@ -82,26 +80,14 @@ public class ClothMapperProfile : Profile
         CreateMap<BasketLine, BasketLineCreateDto>();
 
         CreateMap<BasketLine, BasketLineDto>()
-            .ForMember(
-                 dest => dest.ClothName,
-                 opt => opt.MapFrom(src => src.Cloth.Title))
-             .ForMember(
-                 dest => dest.SizeName,
-                 opt => opt.MapFrom(src => src.Size.Name));
+            .ForMember(dest => dest.ClothName, opt => opt.MapFrom(src => src.Cloth.Title))
+            .ForMember(dest => dest.SizeName, opt => opt.MapFrom(src => src.Size.Name));
 
         CreateMap<Basket, BasketDetailsDto>()
-             .ForMember(
-                 dest => dest.Id,
-                 opt => opt.MapFrom(src => src.Id))
-             .ForMember(
-                 dest => dest.UserId,
-                 opt => opt.MapFrom(src => src.UserId))
-             .ForMember(
-                 dest => dest.FullName,
-                 opt => opt.MapFrom(src => $"{src.User.FirstName} {src.User.LastName}"))
-             .ForMember(
-                 dest => dest.TotalAmount,
-                 opt => opt.MapFrom(src => src.BasketLines.Sum(p => p.Quantity * p.Price)));
+             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+             .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
+             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.User.FirstName} {src.User.LastName}"))
+             .ForMember(dest => dest.TotalAmount, opt => opt.MapFrom(src => src.BasketLines.Sum(p => p.Quantity * p.Price)));
 
         CreateMap<BasketLineCreateCommand, BasketLine>()
            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.BasketLine.Quantity))

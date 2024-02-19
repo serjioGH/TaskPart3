@@ -1,7 +1,9 @@
 ﻿namespace Cloth.Application.Models.Dto;
 
+using Domain.Enumarations;
+
 public class SizeDto
 {
-    public string Name { get; set; }
+    public ClothSize Name { get; set; }
     public int QuantityInStock { get; set; }
 }

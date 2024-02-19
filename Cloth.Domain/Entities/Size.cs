@@ -1,8 +1,10 @@
 ﻿namespace Cloth.Domain.Entities;
 
+using Enumarations;
+
 public class Size : Entity
 {
-    public string Name { get; set; }
+    public Enumarations.ClothSize Name { get; set; }
 
     public ICollection<OrderLines> OrderLines { get; set; }
 
