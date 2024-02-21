@@ -28,7 +28,6 @@ builder.Services
     .RegisterPersistenceDependencies(builder.Configuration);
 
 builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
-builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

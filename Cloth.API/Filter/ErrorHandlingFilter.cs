@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cloth.API.Models;
 using Cloth.Domain.Exceptions;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
@@ -15,6 +16,7 @@ public class ErrorHandlingFilter : IExceptionFilter
         ArgumentNullException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
         InvalidOperationException => new Error { StatusCode = HttpStatusCode.InternalServerError, Message = exception.Message },
         ItemNotFoundException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
+        ValidationException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
         _ => new Error { StatusCode = HttpStatusCode.InternalServerError, Message = "Unexpected error occured." },
     };
 

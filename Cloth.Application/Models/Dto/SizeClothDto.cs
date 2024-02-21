@@ -3,5 +3,6 @@
 public class SizeClothDto
 {
     public Guid SizeId { get; set; }
+
     public int Quantity { get; set; }
 }

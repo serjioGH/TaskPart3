@@ -2,5 +2,5 @@
 
 public class GroupClothResponse
 {
-    public string Group { get; set; }
+    public Guid GroupId { get; set; }
 }

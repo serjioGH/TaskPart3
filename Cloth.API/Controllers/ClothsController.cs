@@ -3,9 +3,9 @@
 using AutoMapper;
 using Cloth.API.Models.Requests.Cloth;
 using Cloth.API.Models.Responses.Cloth;
-using Cloth.Application.Features.Commands.Cloth.ClothCreate;
-using Cloth.Application.Features.Commands.Cloth.ClothDelete;
-using Cloth.Application.Features.Commands.Cloth.ClothUpdate;
+using Cloth.Application.Features.Commands.Cloths.ClothCreate;
+using Cloth.Application.Features.Commands.Cloths.ClothDelete;
+using Cloth.Application.Features.Commands.Cloths.ClothUpdate;
 using Cloth.Application.Features.Queries.Cloths.GetCloths;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -30,9 +30,9 @@ public class ClothsController : BaseController
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateCloth(
-        [FromBody] ClothCreateRequest productCreateRequest, [FromServices] IMediator _mediator, [FromServices] IMapper _mapper)
+        [FromBody] ClothCreateRequest clothCreateRequest, [FromServices] IMediator _mediator, [FromServices] IMapper _mapper)
     {
-        var command = _mapper.Map<ClothCreateCommand>(productCreateRequest);
+        var command = _mapper.Map<ClothCreateCommand>(clothCreateRequest);
 
         var result = await _mediator.Send(command);
 
@@ -45,12 +45,12 @@ public class ClothsController : BaseController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> UpdateProduct(
-        [FromQuery] Guid clothId, [FromBody] ClothUpdateRequest productUpdateRequest, [FromServices] IMediator _mediator, [FromServices] IMapper _mapper)
+    public async Task<IActionResult> UpdateCloth(
+        [FromQuery] Guid clothId, [FromBody] ClothUpdateRequest clothUpdateRequest, [FromServices] IMediator _mediator, [FromServices] IMapper _mapper)
     {
-        productUpdateRequest.Id = clothId;
+        clothUpdateRequest.Id = clothId;
 
-        var command = _mapper.Map<ClothUpdateCommand>(productUpdateRequest);
+        var command = _mapper.Map<ClothUpdateCommand>(clothUpdateRequest);
 
         var result = await _mediator.Send(command);
 
@@ -59,11 +59,11 @@ public class ClothsController : BaseController
         return Ok(mappedResult);
     }
 
-    [HttpDelete("{productId}")]
+    [HttpDelete("{clothId}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> DeleteProduct(
+    public async Task<IActionResult> DeleteCloth(
         [FromRoute] Guid clothId, [FromServices] IMediator _mediator)
     {
         var command = new DeleteClothCommand(clothId);

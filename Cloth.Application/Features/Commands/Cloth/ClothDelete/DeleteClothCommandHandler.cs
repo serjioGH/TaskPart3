@@ -1,8 +1,7 @@
 ﻿using Cloth.Application.Interfaces;
-using Cloth.Domain.Exceptions;
 using MediatR;
 
-namespace Cloth.Application.Features.Commands.Cloth.ClothDelete;
+namespace Cloth.Application.Features.Commands.Cloths.ClothDelete;
 
 public class DeleteClothCommandHandler : IRequestHandler<DeleteClothCommand>
 {

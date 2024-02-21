@@ -1,7 +1,7 @@
 ﻿using Cloth.Application.Models.Dto;
 using MediatR;
 
-namespace Cloth.Application.Features.Commands.Cloth.ClothUpdate;
+namespace Cloth.Application.Features.Commands.Cloths.ClothUpdate;
 
 public record ClothUpdateCommand(
     Guid Id,

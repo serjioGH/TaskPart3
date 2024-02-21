@@ -1,4 +1,4 @@
-﻿namespace Cloth.Application.Features.Commands.Cloth.ClothUpdate;
+﻿namespace Cloth.Application.Features.Commands.Cloths.ClothUpdate;
 
 using FluentValidation;
 using Constants;

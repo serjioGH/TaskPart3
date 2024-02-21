@@ -4,6 +4,7 @@ using Domain.Enumarations;
 
 public class SizeDto
 {
-    public ClothSize Name { get; set; }
+    public Guid SizeId { get; set; }
+
     public int QuantityInStock { get; set; }
 }

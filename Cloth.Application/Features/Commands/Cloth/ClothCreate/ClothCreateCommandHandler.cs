@@ -1,4 +1,4 @@
-﻿namespace Cloth.Application.Features.Commands.Cloth.ClothCreate;
+﻿namespace Cloth.Application.Features.Commands.Cloths.ClothCreate;
 
 using Application.Models.Dto;
 using AutoMapper;

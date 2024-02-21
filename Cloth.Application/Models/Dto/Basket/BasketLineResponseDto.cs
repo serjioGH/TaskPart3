@@ -2,8 +2,10 @@
 
 using System;
 
-public class BasketLineDto
+public class BasketLineResponseDto
 {
+    public Guid Id { get; set; }
+
     public Guid BasketId { get; set; }
 
     public Guid ClothId { get; set; }

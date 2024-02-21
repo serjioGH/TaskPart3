@@ -10,14 +10,15 @@ using Cloth.API.Models.Responses.Cloth;
 using Cloth.API.Models.Responses.Order;
 using Cloth.Application.Features.Commands.Basket.BasketLineCreate;
 using Cloth.Application.Features.Commands.Basket.BasketLineUpdate;
-using Cloth.Application.Features.Commands.Cloth.ClothCreate;
-using Cloth.Application.Features.Commands.Cloth.ClothUpdate;
+using Cloth.Application.Features.Commands.Cloths.ClothCreate;
+using Cloth.Application.Features.Commands.Cloths.ClothUpdate;
 using Cloth.Application.Features.Commands.Order.OrderCreate;
 using Cloth.Application.Features.Commands.Order.OrderUpdate;
 using Cloth.Application.Features.Queries.Cloths.GetCloths;
 using Cloth.Application.Features.Queries.Order.GetOrders;
 using Cloth.Application.Models.Dto;
 using Cloth.Application.Models.Dto.Basket;
+using Cloth.Domain.Entities;
 
 public class MapperProfile : Profile
 {
@@ -42,6 +43,12 @@ public class MapperProfile : Profile
     private void FromDtoToResponseMap()
     {
         CreateMap<ClothFilterDto, ClothResponseDto>();
+        CreateMap<Cloth, ClothDto>()
+            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
+            .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+            .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
+            .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.Name));
         CreateMap<SizeClothRequest, SizeClothDto>();
         CreateMap<GroupClothRequest, GroupClothDto>();
         CreateMap<SizeDto, SizeClothRequest>();
@@ -56,5 +63,14 @@ public class MapperProfile : Profile
         CreateMap<BasketLineCreateDto, BasketLineResponse>();
         CreateMap<BasketLineUpdateDto, BasketLineUpdateResponse>();
         CreateMap<BasketDetailsDto, BasketResponse>();
+        CreateMap<GroupClothDto, GroupClothResponse>()
+            .ForMember(dest => dest.GroupId, opt => opt.MapFrom(src => src.GroupId));
+        CreateMap<GroupDto, GroupClothResponse>()
+            .ForMember(dest => dest.GroupId, opt => opt.MapFrom(src => src.GroupId));
+        CreateMap<SizeDto, SizeClothResponse>()
+            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId));
+        CreateMap<SizeClothDto, SizeClothResponse>()
+            .ForMember(dest => dest.QuantityInStock, opt => opt.MapFrom(src => src.Quantity))
+            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId));
     }
 }

@@ -57,6 +57,8 @@ public static class Constants
         public const string QuantityOverZero = "Quantity must be greater than 0.";
     }
 
+    public const string QuantityOverZero = "Quantity must be greater than 0.";
+
     public const string IdRequiredMessage = "Id is required.";
 
     public const string UserRequiredMessage = "User is required.";

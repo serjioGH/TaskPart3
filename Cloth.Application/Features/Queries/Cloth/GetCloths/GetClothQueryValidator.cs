@@ -8,8 +8,7 @@ public class GetClothQueryValidator : AbstractValidator<ClothQuery>
     public GetClothQueryValidator()
     {
         RuleFor(c => c.MinPrice)
-            .Empty()
-                .When(c => c.MinPrice.HasValue && c.MinPrice <= 0)
+            .GreaterThanOrEqualTo(0)
                 .WithMessage(Constants.MinPriceOverZero)
             .Must(IsValidDecimal)
                 .When(c => c.MinPrice.HasValue)

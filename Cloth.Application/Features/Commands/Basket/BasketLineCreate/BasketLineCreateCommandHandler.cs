@@ -23,9 +23,15 @@ public class BasketLineCreateCommandHandler : IRequestHandler<BasketLineCreateCo
     public async Task<BasketLineCreateDto> Handle(BasketLineCreateCommand request, CancellationToken cancellationToken)
     {
         var basket = await _unitOfWork.Baskets.GetBasketByUserIdAsync(request.UserId);
+        if (basket.BasketLines.Where(p => p.ClothId == request.BasketLine?.ClothId && p.SizeId == request.BasketLine.SizeId)
+            .Count() > 0)
+        {
+            throw new ArgumentException("Item with that size already in basket!");
+        }
 
         var basketLine = _mapper.Map<BasketLine>(request);
         basketLine.BasketId = basket.Id;
+        basketLine.Id = Guid.NewGuid();
 
         await _unitOfWork.BasketLines.InsertAsync(basketLine);
         _unitOfWork.Save();

@@ -2,5 +2,5 @@
 
 public class GroupDto
 {
-    public string Name { get; set; }
+    public Guid GroupId { get; set; }
 }

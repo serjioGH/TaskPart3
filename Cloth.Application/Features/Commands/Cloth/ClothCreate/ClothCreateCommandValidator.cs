@@ -1,11 +1,11 @@
-﻿namespace Cloth.Application.Features.Commands.Cloth.ClothCreate;
+﻿namespace Cloth.Application.Features.Commands.Cloths.ClothCreate;
 
+using Cloth.Application.Constants;
 using FluentValidation;
-using Constants;
 
-public class ClothCreateValidator : AbstractValidator<ClothCreateCommand>
+public class ClothCreateCommandValidator : AbstractValidator<ClothCreateCommand>
 {
-    public ClothCreateValidator()
+    public ClothCreateCommandValidator()
     {
         RuleFor(command => command.BrandId)
             .NotEmpty().WithMessage(Constants.ClothValidationMessages.BrandIdRequired);
@@ -26,5 +26,8 @@ public class ClothCreateValidator : AbstractValidator<ClothCreateCommand>
 
         RuleFor(command => command.Sizes)
             .NotEmpty().WithMessage(Constants.ClothValidationMessages.SizeRequired);
+
+        RuleForEach(command => command.Sizes)
+            .SetValidator(new SizeClothDtoValidator());
     }
 }

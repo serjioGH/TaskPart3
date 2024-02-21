@@ -2,6 +2,7 @@
 
 public class SizeClothResponse
 {
-    public string Size { get; set; }
+    public Guid SizeId { get; set; }
+
     public int QuantityInStock { get; set; }
 }

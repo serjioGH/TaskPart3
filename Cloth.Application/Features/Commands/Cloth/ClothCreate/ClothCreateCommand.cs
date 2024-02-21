@@ -1,7 +1,7 @@
-﻿using Cloth.Application.Models.Dto;
-using MediatR;
+﻿namespace Cloth.Application.Features.Commands.Cloths.ClothCreate;
 
-namespace Cloth.Application.Features.Commands.Cloth.ClothCreate;
+using Application.Models.Dto;
+using MediatR;
 
 public record ClothCreateCommand(
     Guid BrandId,

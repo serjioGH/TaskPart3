@@ -4,7 +4,7 @@ using Cloth.Application.Models.Dto;
 using Cloth.Domain.Entities;
 using MediatR;
 
-namespace Cloth.Application.Features.Commands.Cloth.ClothUpdate;
+namespace Cloth.Application.Features.Commands.Cloths.ClothUpdate;
 
 public class ClothUpdateCommandHandler : IRequestHandler<ClothUpdateCommand, UpdateClothDto>
 {
