@@ -19,6 +19,6 @@ public class DeleteClothCommandHandler : IRequestHandler<DeleteClothCommand>
         cloth.IsDeleted = true;
 
         await _unitOfWork.Cloths.UpdateAsync(cloth);
-        _unitOfWork.Save();
+        await _unitOfWork.SaveAsync();
     }
 }

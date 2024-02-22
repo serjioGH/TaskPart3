@@ -12,11 +12,11 @@ public class UnitOfWork : IUnitOfWork
     public IGroupRepository Groups { get; }
     public IBasketRepository Baskets { get; }
     public IBasketLineRepository BasketLines { get; }
-
     public IOrderRepository Orders { get; }
+    public IClothSizeRepository ClothSizes { get; }
 
     public UnitOfWork(ClothInventoryDbContext dbContext, IClothRepository clothRepository,
-        ISizeRepository sizes, IOrderRepository orders, IGroupRepository groups, IBasketRepository baskets, IBasketLineRepository basketLines)
+        ISizeRepository sizes, IOrderRepository orders, IGroupRepository groups, IBasketRepository baskets, IBasketLineRepository basketLines, IClothSizeRepository clothSizes)
     {
         _dbContext = dbContext;
         Cloths = clothRepository;
@@ -25,11 +25,12 @@ public class UnitOfWork : IUnitOfWork
         Groups = groups;
         Baskets = baskets;
         BasketLines = basketLines;
+        ClothSizes = clothSizes;
     }
 
-    public int Save()
+    public async Task<int> SaveAsync()
     {
-        return _dbContext.SaveChanges();
+        return await _dbContext.SaveChangesAsync();
     }
 
     public void Dispose()

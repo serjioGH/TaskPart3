@@ -10,14 +10,14 @@ public class ClothTypeConfiguration : IEntityTypeConfiguration<Cloth>
     public void Configure(EntityTypeBuilder<Cloth> builder)
     {
         builder.Property(p => p.CreatedOn)
-          .HasDefaultValueSql("getDate()");
+          .HasDefaultValueSql(ConfigurationConstants.GetdateType);
 
         builder.HasOne(p => p.Brand)
           .WithMany(s => s.Cloths)
           .HasForeignKey(p => p.BrandId);
 
         builder.Property(p => p.IsDeleted)
-           .HasColumnType("bit")
+           .HasColumnType(ConfigurationConstants.BitType)
            .HasDefaultValue(false);
 
         builder.Property(p => p.Title)

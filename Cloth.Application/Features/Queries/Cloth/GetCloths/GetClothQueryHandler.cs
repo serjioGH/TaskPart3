@@ -23,7 +23,6 @@ public class GetClothQueryHandler : IRequestHandler<ClothQuery, ClothFilterDto>
 
     public async Task<ClothFilterDto> Handle(ClothQuery request, CancellationToken cancellationToken)
     {
-        _logger.LogRequestHandlerMessage(request);
         List<Cloth> allItems = (List<Cloth>)await _unitOfWork.Cloths.GetAllCloths();
         decimal? lowestPrice = allItems.Min(p => p.Price);
         decimal? highestPrice = allItems.Max(p => p.Price);

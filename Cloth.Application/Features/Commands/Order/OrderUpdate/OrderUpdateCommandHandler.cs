@@ -22,11 +22,9 @@ public class OrderUpdateCommandHandler : IRequestHandler<OrderUpdateCommand, Upd
 
         order.StatusId = request.StatusId;
         order.PaymentId = request.PaymentId;
-        order.UserId = request.UserId;
-        order.TotalAmount = request.TotalAmount;
 
         await _unitOfWork.Orders.UpdateAsync(order);
-        _unitOfWork.Save();
+        await _unitOfWork.SaveAsync();
 
         var updatedOrderDto = _mapper.Map<UpdateOrderDto>(order);
         return updatedOrderDto;

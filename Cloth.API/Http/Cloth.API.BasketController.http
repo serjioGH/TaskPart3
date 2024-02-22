@@ -1,4 +1,4 @@
-@Cloth.API_HostAddress = http://localhost:5097
+@Cloth.API_HostAddress = http://localhost:44326
 
 ### Get Basket
 GET {{Cloth.API_HostAddress}}/api/Basket/11111110-1111-1111-1111-111111111122

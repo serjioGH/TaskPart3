@@ -1,6 +1,6 @@
 ﻿namespace Cloth.API.Models.Responses.Basket;
 
-using global::Cloth.Application.Models.Dto.Basket;
+using Application.Models.Dto.Basket;
 
 public class BasketResponse
 {

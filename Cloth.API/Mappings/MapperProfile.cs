@@ -26,14 +26,22 @@ public class MapperProfile : Profile
     {
         FromRequestToQueriesMap();
         FromDtoToResponseMap();
+        FromRequestToCommandsMap();
     }
 
     private void FromRequestToQueriesMap()
     {
         CreateMap<ClothFilterRequest, ClothQuery>();
+        CreateMap<OrderFilterRequest, GetOrdersQuery>();
+    }
+
+    private void FromRequestToCommandsMap()
+    {
         CreateMap<ClothCreateRequest, ClothCreateCommand>();
         CreateMap<ClothUpdateRequest, ClothUpdateCommand>();
-        CreateMap<OrderFilterRequest, GetOrdersQuery>();
+        CreateMap<OrderLineCreateRequest, OrderLineCreateDto>();
+        CreateMap<SizeClothRequest, SizeClothDto>();
+        CreateMap<GroupClothRequest, GroupClothDto>();
         CreateMap<OrderCreateRequest, OrderCreateCommand>();
         CreateMap<OrderUpdateRequest, OrderUpdateCommand>();
         CreateMap<BasketLineCreateRequest, BasketLineCreateCommand>();
@@ -49,15 +57,13 @@ public class MapperProfile : Profile
             .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
             .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
             .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.Name));
-        CreateMap<SizeClothRequest, SizeClothDto>();
-        CreateMap<GroupClothRequest, GroupClothDto>();
         CreateMap<SizeDto, SizeClothRequest>();
         CreateMap<GroupDto, GroupClothRequest>();
         CreateMap<CreateClothDto, ClothCreateResponse>();
         CreateMap<UpdateClothDto, ClothUpdateResponse>();
         CreateMap<OrderDto, OrderResponse>().ForMember(dest => dest.TotalPrice, opt => opt.MapFrom(src => src.TotalAmount));
         CreateMap<CreateOrderDto, OrderCreateResponse>();
-        CreateMap<UpdateOrderDto, OrderResponse>();
+        CreateMap<UpdateOrderDto, OrderUpdateResponse>();
         CreateMap<OrderLineDto, OrderLineResponse>();
         CreateMap<BasketCreateDto, BasketCreateResponse>();
         CreateMap<BasketLineCreateDto, BasketLineResponse>();

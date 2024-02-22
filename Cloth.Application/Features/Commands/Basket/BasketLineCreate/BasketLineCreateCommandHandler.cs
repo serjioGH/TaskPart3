@@ -1,9 +1,9 @@
 ﻿namespace Cloth.Application.Features.Commands.Basket.BasketLineCreate;
 
 using AutoMapper;
-using global::Cloth.Application.Interfaces;
-using global::Cloth.Application.Models.Dto.Basket;
-using global::Cloth.Domain.Entities;
+using Cloth.Application.Interfaces;
+using Cloth.Application.Models.Dto.Basket;
+using Cloth.Domain.Entities;
 using MediatR;
 using System;
 using System.Threading;
@@ -34,7 +34,7 @@ public class BasketLineCreateCommandHandler : IRequestHandler<BasketLineCreateCo
         basketLine.Id = Guid.NewGuid();
 
         await _unitOfWork.BasketLines.InsertAsync(basketLine);
-        _unitOfWork.Save();
+        await _unitOfWork.SaveAsync();
 
         var baskeLineDto = _mapper.Map<BasketLineCreateDto>(basketLine);
         return baskeLineDto;

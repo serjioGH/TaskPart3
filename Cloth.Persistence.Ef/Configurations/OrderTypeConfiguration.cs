@@ -10,10 +10,10 @@ public class OrderTypeConfiguration : IEntityTypeConfiguration<Order>
     public void Configure(EntityTypeBuilder<Order> builder)
     {
         builder.Property(p => p.IsDeleted)
-            .HasColumnType("bit")
+            .HasColumnType(ConfigurationConstants.BitType)
             .HasDefaultValue(false);
         builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql("getDate()");
+            .HasDefaultValueSql(ConfigurationConstants.GetdateType);
         builder.HasOne(p => p.Status)
             .WithMany(s => s.Orders)
             .HasForeignKey(p => p.StatusId);

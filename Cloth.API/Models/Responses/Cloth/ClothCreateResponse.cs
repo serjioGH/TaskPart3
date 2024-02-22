@@ -6,7 +6,7 @@ public class ClothCreateResponse
 
     public string Title { get; set; }
 
-    public string Brand { get; set; }
+    public Guid BrandId { get; set; }
 
     public string Description { get; set; }
 

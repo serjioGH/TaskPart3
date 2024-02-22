@@ -1,9 +1,7 @@
 ﻿namespace Cloth.Application.Models.Dto;
 
-public class OrderLineDto
+public class OrderLineCreateDto
 {
-    public Guid OrderId { get; set; }
-
     public Guid ClothId { get; set; }
 
     public Guid SizeId { get; set; }

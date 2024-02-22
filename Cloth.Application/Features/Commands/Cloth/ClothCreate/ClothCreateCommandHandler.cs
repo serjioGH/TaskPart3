@@ -22,7 +22,7 @@ public class ClothCreateCommandHandler : IRequestHandler<ClothCreateCommand, Cre
         var cloth = _mapper.Map<Cloth>(command);
 
         await _unitOfWork.Cloths.InsertAsync(cloth);
-        _unitOfWork.Save();
+        await _unitOfWork.SaveAsync();
 
         var itemDto = _mapper.Map<CreateClothDto>(cloth);
 

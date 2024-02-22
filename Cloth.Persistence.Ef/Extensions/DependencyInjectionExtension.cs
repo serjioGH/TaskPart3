@@ -27,6 +27,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IBasketRepository, BasketRepository>();
         services.AddScoped<IBasketLineRepository, BasketLineRepository>();
         services.AddScoped<ISizeRepository, SizeRepository>();
+        services.AddScoped<IClothSizeRepository, ClothSizeRepository>();
         services.AddScoped<IGroupRepository, GroupRepository>();
         services.AddHttpClient<MockyHttpServiceClient>();
         services.AddScoped<IMockyHttpServiceClient, MockyHttpServiceClient>();

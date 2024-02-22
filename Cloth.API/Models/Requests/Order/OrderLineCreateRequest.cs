@@ -1,9 +1,7 @@
-﻿namespace Cloth.Application.Models.Dto;
+﻿namespace Cloth.API.Models.Requests.Order;
 
-public class OrderLineDto
+public class OrderLineCreateRequest
 {
-    public Guid OrderId { get; set; }
-
     public Guid ClothId { get; set; }
 
     public Guid SizeId { get; set; }

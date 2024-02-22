@@ -6,7 +6,5 @@ public class OrderUpdateResponse
 
     public string FullName { get; set; }
 
-    public string Status { get; set; }
-
-    public decimal TotalPrice { get; set; }
+    public Guid StatusId { get; set; }
 }

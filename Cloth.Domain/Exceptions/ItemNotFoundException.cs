@@ -6,4 +6,9 @@ public class ItemNotFoundException : Exception
      : base(message)
     {
     }
+
+    public ItemNotFoundException(string message, Exception exc)
+    : base(message, exc)
+    {
+    }
 }

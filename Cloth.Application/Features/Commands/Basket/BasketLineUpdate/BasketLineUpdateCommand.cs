@@ -1,6 +1,6 @@
 ﻿namespace Cloth.Application.Features.Commands.Basket.BasketLineUpdate;
 
-using global::Cloth.Application.Models.Dto.Basket;
+using Cloth.Application.Models.Dto.Basket;
 
 using MediatR;
 

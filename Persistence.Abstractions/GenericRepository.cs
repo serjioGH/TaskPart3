@@ -70,13 +70,4 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
             _dbSet.Remove(entity);
         }
     }
-
-    /// <summary>
-    /// This method will make the changes permanent in the database
-    /// </summary>
-    /// <returns></returns>
-    public async Task SaveAsync()
-    {
-        await _dbContext.SaveChangesAsync();
-    }
 }

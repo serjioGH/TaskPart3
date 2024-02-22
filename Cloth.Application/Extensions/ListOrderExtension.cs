@@ -26,7 +26,7 @@ public static class ListOrderExtension
 
     public static List<Order> OrderStatusFilter(this List<Order> orders, Guid? statusId)
     {
-        if (statusId.HasValue)
+        if (statusId != Guid.Empty && statusId.HasValue)
         {
             return orders.Where(p => p.StatusId == statusId.Value).ToList();
         }
@@ -36,7 +36,7 @@ public static class ListOrderExtension
 
     public static List<Order> OrderUserFilter(this List<Order> orders, Guid? userId)
     {
-        if (userId.HasValue)
+        if (userId != Guid.Empty && userId.HasValue)
         {
             return orders.Where(p => p.UserId == userId.Value).ToList();
         }

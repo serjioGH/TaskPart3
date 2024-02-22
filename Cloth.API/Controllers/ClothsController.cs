@@ -14,6 +14,7 @@ public class ClothsController : BaseController
 {
     // GET: api/<ClothsController>
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> Get([FromQuery] ClothFilterRequest request, [FromServices] IMediator _mediator,
          [FromServices] IMapper _mapper)
     {
@@ -41,7 +42,7 @@ public class ClothsController : BaseController
         return CreatedAtAction(nameof(CreateCloth), new { id = result.Id }, mappedResult);
     }
 
-    [HttpPut("{clothId}")]
+    [HttpPut()]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]

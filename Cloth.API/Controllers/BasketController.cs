@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 public class BasketController : BaseController
 {
     [HttpGet("{userId:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> GetBasket([FromRoute] Guid userId, [FromServices] IMediator _mediator,
         [FromServices] IMapper _mapper)
     {

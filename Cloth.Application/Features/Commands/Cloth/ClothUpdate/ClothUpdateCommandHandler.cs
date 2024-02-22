@@ -55,7 +55,7 @@ public class ClothUpdateCommandHandler : IRequestHandler<ClothUpdateCommand, Upd
             }
         }
 
-        _unitOfWork.Save();
+        await _unitOfWork.SaveAsync();
 
         var updatedProductDto = _mapper.Map<UpdateClothDto>(cloth);
 

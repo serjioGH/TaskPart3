@@ -25,9 +25,13 @@ public class BasketRepository : GenericRepository<Basket>, IBasketRepository
                 .SingleAsync(o => o.UserId == id);
             return result;
         }
-        catch (Exception)
+        catch (ArgumentNullException)
         {
             throw new ItemNotFoundException($"Basket of User ID {id} not found.");
+        }
+        catch (Exception ex)
+        {
+            throw new ItemNotFoundException($"Basket of User ID {id} not found.", ex);
         }
     }
 }

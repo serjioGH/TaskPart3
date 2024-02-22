@@ -15,29 +15,11 @@ public class ClothMapperProfile : Profile
     {
         FromTupleToClothDto();
         FromCommandEntityToDto();
+        FromEntityToDto();
     }
 
-    private void FromCommandEntityToDto()
+    private void FromEntityToDto()
     {
-        CreateMap<ClothCreateCommand, Cloth>()
-            .ForMember(dest => dest.ClothSizes, opt => opt.MapFrom(src => src.Sizes.Select(dto => new ClothSize
-            {
-                SizeId = dto.SizeId,
-                QuantityInStock = dto.Quantity
-            }).ToList()))
-            .ForMember(dest => dest.ClothGroups, opt => opt.MapFrom(src => src.Groups.Select(dto => new ClothGroup
-            {
-                GroupId = dto.GroupId
-            }).ToList()));
-        CreateMap<OrderCreateCommand, Order>()
-            .ForMember(dest => dest.OrderLines, opt => opt.MapFrom(src => src.OrderLines.Select(dto => new OrderLines
-            {
-                SizeId = dto.SizeId,
-                Quantity = dto.Quantity,
-                ClothId = dto.ClothId,
-                OrderId = dto.OrderId,
-                Price = dto.Price
-            }).ToList()));
         CreateMap<Cloth, ClothDto>()
             .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.Name))
             .ForMember(dest => dest.Groups, opt => opt.MapFrom(src => src.ClothGroups.Select(pg => pg.Group.Name).ToList()))
@@ -77,23 +59,15 @@ public class ClothMapperProfile : Profile
                 GroupId = ps.GroupId
             })));
 
-        CreateMap<GroupClothDto, ClothGroup>()
-            .ForMember(dest => dest.GroupId, opt => opt.MapFrom(src => src.GroupId));
-
-        CreateMap<SizeClothDto, ClothSize>()
-            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId))
-            .ForMember(dest => dest.QuantityInStock, opt => opt.MapFrom(src => src.Quantity));
-
         CreateMap<Order, OrderDto>()
-            .ForMember(dest => dest.OrderDate, opt => opt.MapFrom(src => src.CreatedOn))
-            .ForMember(dest => dest.TotalAmount, opt => opt.MapFrom(src => src.TotalAmount))
-            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.Name))
-            .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.User.FirstName} {src.User.LastName}"));
+           .ForMember(dest => dest.OrderDate, opt => opt.MapFrom(src => src.CreatedOn))
+           .ForMember(dest => dest.TotalAmount, opt => opt.MapFrom(src => src.TotalAmount))
+           .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.Name))
+           .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.User.FirstName} {src.User.LastName}"));
 
         CreateMap<Order, UpdateOrderDto>()
-            .ForMember(dest => dest.PaymentId, opt => opt.MapFrom(src => src.PaymentId ?? Guid.Empty))
-            .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId ?? Guid.Empty))
-            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.Name))
+            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.StatusId))
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.User.FirstName} {src.User.LastName}"));
 
         CreateMap<Order, CreateOrderDto>()
@@ -126,10 +100,48 @@ public class ClothMapperProfile : Profile
              .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.User.FirstName} {src.User.LastName}"))
              .ForMember(dest => dest.TotalAmount, opt => opt.MapFrom(src => src.BasketLines.Sum(p => p.Quantity * p.Price)));
 
+        CreateMap<BasketLine, BasketLineUpdateDto>()
+            .ForMember(dest => dest.BasketLineId, opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.BasketId, opt => opt.MapFrom(src => src.BasketId))
+            .ForMember(dest => dest.ClothId, opt => opt.MapFrom(src => src.ClothId))
+            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId))
+            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity));
+    }
+
+    private void FromCommandEntityToDto()
+    {
+        CreateMap<ClothCreateCommand, Cloth>()
+            .ForMember(dest => dest.ClothSizes, opt => opt.MapFrom(src => src.Sizes.Select(dto => new ClothSize
+            {
+                SizeId = dto.SizeId,
+                QuantityInStock = dto.Quantity
+            }).ToList()))
+            .ForMember(dest => dest.ClothGroups, opt => opt.MapFrom(src => src.Groups.Select(dto => new ClothGroup
+            {
+                GroupId = dto.GroupId
+            }).ToList()));
+        CreateMap<OrderCreateCommand, Order>()
+            .ForMember(dest => dest.OrderLines, opt => opt.MapFrom(src => src.OrderLines.Select(dto => new OrderLines
+            {
+                SizeId = dto.SizeId,
+                Quantity = dto.Quantity,
+                ClothId = dto.ClothId
+            }).ToList()));
+        CreateMap<OrderLineCreateDto, OrderLines>()
+            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity))
+            .ForMember(dest => dest.ClothId, opt => opt.MapFrom(src => src.ClothId))
+            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId));
+
+        CreateMap<GroupClothDto, ClothGroup>()
+            .ForMember(dest => dest.GroupId, opt => opt.MapFrom(src => src.GroupId));
+
+        CreateMap<SizeClothDto, ClothSize>()
+            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId))
+            .ForMember(dest => dest.QuantityInStock, opt => opt.MapFrom(src => src.Quantity));
+
         CreateMap<BasketLineCreateCommand, BasketLine>()
            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.BasketLine.Quantity))
            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.BasketLine.SizeId))
-           .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.BasketLine.Price))
            .ForMember(dest => dest.ClothId, opt => opt.MapFrom(src => src.BasketLine.ClothId));
 
         CreateMap<BasketLineUpdateCommand, BasketLine>()
@@ -137,13 +149,6 @@ public class ClothMapperProfile : Profile
            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity))
            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId))
            .ForMember(dest => dest.ClothId, opt => opt.MapFrom(src => src.ClothId));
-
-        CreateMap<BasketLine, BasketLineUpdateDto>()
-            .ForMember(dest => dest.BasketLineId, opt => opt.MapFrom(src => src.Id))
-            .ForMember(dest => dest.BasketId, opt => opt.MapFrom(src => src.BasketId))
-            .ForMember(dest => dest.ClothId, opt => opt.MapFrom(src => src.ClothId))
-            .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId))
-            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity));
     }
 
     private void FromTupleToClothDto()

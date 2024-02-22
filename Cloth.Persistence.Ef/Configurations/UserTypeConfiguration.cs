@@ -1,6 +1,7 @@
 ﻿namespace Cloth.Persistence.Ef.Configurations;
 
 using Cloth.Domain.Entities;
+using Cloth.Persistence.Ef.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -9,9 +10,9 @@ public class UserTypeConfiguration : IEntityTypeConfiguration<User>
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.Property(p => p.CreatedOn)
-               .HasDefaultValueSql("getDate()");
+               .HasDefaultValueSql(ConfigurationConstants.GetdateType);
         builder.Property(p => p.IsDeactivated)
-               .HasColumnType("bit")
+               .HasColumnType(ConfigurationConstants.BitType)
                .HasDefaultValue(false);
         builder.Property(u => u.Email).HasMaxLength(30).IsRequired();
         builder.Property(u => u.Address).HasMaxLength(200);

@@ -10,5 +10,5 @@ public class OrderCreateRequest
 
     public decimal TotalAmount { get; set; }
 
-    public List<OrderLineRequest>? OrderLines { get; set; }
+    public List<OrderLineCreateRequest>? OrderLines { get; set; }
 }

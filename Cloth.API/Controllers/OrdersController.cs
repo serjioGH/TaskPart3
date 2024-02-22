@@ -14,6 +14,7 @@ namespace Cloth.API.Controllers
     public class OrdersController : BaseController
     {
         [HttpGet("{orderId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get([FromRoute] Guid orderId, [FromServices] IMediator _mediator,
              [FromServices] IMapper _mapper)
         {
@@ -27,6 +28,7 @@ namespace Cloth.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetOrders([FromQuery] OrderFilterRequest orderRequest, [FromServices] IMediator _mediator,
                 [FromServices] IMapper _mapper)
         {

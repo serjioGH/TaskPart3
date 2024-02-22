@@ -19,14 +19,21 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
 
     public async Task<IEnumerable<Cloth>> GetAllCloths()
     {
-        var result = await _dbContext.Cloths
-            .Include(p => p.Brand)
-            .Include(p => p.ClothSizes).ThenInclude(cs => cs.Size)
-            .Include(p => p.ClothGroups).ThenInclude(cg => cg.Group)
-            .Where(p => p.IsDeleted == false)
-            .ToListAsync();
+        try
+        {
+            var result = await _dbContext.Cloths
+                 .Include(p => p.Brand)
+                 .Include(p => p.ClothSizes).ThenInclude(cs => cs.Size)
+                 .Include(p => p.ClothGroups).ThenInclude(cg => cg.Group)
+                 .Where(p => p.IsDeleted == false)
+                 .ToListAsync();
 
-        return result;
+            return result;
+        }
+        catch (Exception)
+        {
+            throw new ItemNotFoundException($"Error retrieving all items.");
+        }
     }
 
     public async Task<Cloth> GetClothById(Guid clothId)

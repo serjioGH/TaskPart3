@@ -1,8 +1,8 @@
 ﻿namespace Cloth.Application.Features.Commands.Basket.BasketLineUpdate;
 
 using AutoMapper;
-using global::Cloth.Application.Interfaces;
-using global::Cloth.Application.Models.Dto.Basket;
+using Cloth.Application.Interfaces;
+using Cloth.Application.Models.Dto.Basket;
 using MediatR;
 using System;
 using System.Threading;
@@ -23,11 +23,12 @@ public class BasketLineUpdateCommandHandler : IRequestHandler<BasketLineUpdateCo
     {
         var basketLine = await _unitOfWork.BasketLines.GetBasketLine(request.BasketLineId);
 
-        _mapper.Map(request, basketLine);
+        var editedBL = _mapper.Map(request, basketLine);
 
-        _unitOfWork.Save();
+        await _unitOfWork.BasketLines.UpdateAsync(editedBL);
+        await _unitOfWork.SaveAsync();
 
-        var updatedDto = _mapper.Map<BasketLineUpdateDto>(basketLine);
+        var updatedDto = _mapper.Map<BasketLineUpdateDto>(editedBL);
 
         return updatedDto;
     }

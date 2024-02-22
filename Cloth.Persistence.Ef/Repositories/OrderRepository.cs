@@ -54,7 +54,6 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
         try
         {
             var result = await _dbContext.Orders
-                .AsNoTracking()
                 .Include(o => o.User)
                 .Include(o => o.Status)
                 .Include(o => o.OrderLines)

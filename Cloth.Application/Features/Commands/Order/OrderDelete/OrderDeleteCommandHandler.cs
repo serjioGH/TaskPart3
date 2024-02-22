@@ -18,6 +18,6 @@ public class OrderDeleteCommandHandler : IRequestHandler<OrderDeleteCommand>
 
         order.IsDeleted = true;
         await _unitOfWork.Orders.UpdateAsync(order);
-        _unitOfWork.Save();
+        await _unitOfWork.SaveAsync();
     }
 }

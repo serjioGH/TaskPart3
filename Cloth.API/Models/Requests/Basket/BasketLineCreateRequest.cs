@@ -1,6 +1,6 @@
 ﻿namespace Cloth.API.Models.Requests.Basket;
 
-using global::Cloth.Application.Models.Dto.Basket;
+using Application.Models.Dto.Basket;
 
 public class BasketLineCreateRequest
 {

@@ -1,6 +1,6 @@
 ﻿namespace Cloth.Application.Features.Commands.Basket.BasketLineDelete;
 
-using global::Cloth.Application.Interfaces;
+using Cloth.Application.Interfaces;
 using MediatR;
 using System;
 using System.Threading;
@@ -20,6 +20,6 @@ public class BasketLineDeleteCommandHandler : IRequestHandler<BasketLineDeleteCo
         var basketLine = await _unitOfWork.BasketLines.GetBasketLine(request.basketLineId);
 
         await _unitOfWork.BasketLines.DeleteAsync(basketLine.Id);
-        _unitOfWork.Save();
+        await _unitOfWork.SaveAsync();
     }
 }

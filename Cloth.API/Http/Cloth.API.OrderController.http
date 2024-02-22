@@ -1,1 +1,40 @@
-# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@Cloth.API_HostAddress = http://localhost:44326
+
+### Get Filtered Items
+GET {{Cloth.API_HostAddress}}/api/Orders?UserId=3fa85f64-5717-4562-b3fc-2c963f66afa6&StatusId=3fa85f64-5717-4562-b3fc-2c963f66afa6
+accept:  application/json
+
+### Get All Items
+GET {{Cloth.API_HostAddress}}/api/Orders
+accept:  application/json
+
+### Create Order
+POST {{Cloth.API_HostAddress}}/api/Orders
+Content-Type: application/json
+
+{
+  "statusId": "66666660-6666-6666-6666-111111111111",
+  "paymentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "userId": "11111110-1111-1111-1111-111111111122",
+  "totalAmount": 10,
+  "orderLines": [
+    {
+      "clothId": "23e7bf36-e51b-40e7-d2bd-08dc31e9e561",
+      "sizeId": "44444440-4444-4444-4444-111111111111",
+      "quantity": 5
+    }
+  ]
+}
+
+### Update Order
+PUT {{Cloth.API_HostAddress}}/api/Orders
+Content-Type: application/json
+
+{
+  "id": "51f2a98e-fb9e-42bd-cc7b-08dc3387b76f",
+  "statusId": "77777770-7777-7777-7777-111111111111",
+  "paymentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+
+### Delete Order
+DELETE {{Cloth.API_HostAddress}}/api/Orders/caeb7e52-f1ef-459b-fc7f-08dc33a5a2af

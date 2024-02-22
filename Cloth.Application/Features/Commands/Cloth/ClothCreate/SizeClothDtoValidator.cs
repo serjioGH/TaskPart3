@@ -1,7 +1,7 @@
 ﻿namespace Cloth.Application.Features.Commands.Cloths.ClothCreate;
 
 using FluentValidation;
-using global::Cloth.Application.Models.Dto;
+using Cloth.Application.Models.Dto;
 using Constants;
 
 public class SizeClothDtoValidator : AbstractValidator<SizeClothDto>

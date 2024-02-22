@@ -2,7 +2,7 @@
 
 using FluentValidation;
 using Constants;
-using global::Cloth.Application.Models.Dto.Basket;
+using Cloth.Application.Models.Dto.Basket;
 
 public class BasketLineDtoValidator : AbstractValidator<BasketLineDto>
 {
@@ -10,8 +10,6 @@ public class BasketLineDtoValidator : AbstractValidator<BasketLineDto>
     {
         RuleFor(dto => dto.Quantity)
             .GreaterThan(0).WithMessage(Constants.BasketValidationMessages.QuantityOverZero);
-        RuleFor(dto => dto.Price)
-            .GreaterThan(0).WithMessage(Constants.BasketValidationMessages.PriceOverZero);
         RuleFor(dto => dto.BasketId)
             .NotEmpty().WithMessage(Constants.BasketValidationMessages.BasketIdRequired);
         RuleFor(dto => dto.ClothId)
