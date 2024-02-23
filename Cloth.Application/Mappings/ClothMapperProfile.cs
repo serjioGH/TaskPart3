@@ -81,7 +81,8 @@ public class ClothMapperProfile : Profile
             .ForMember(dest => dest.BasketId, opt => opt.MapFrom(src => src.BasketId))
             .ForMember(dest => dest.ClothId, opt => opt.MapFrom(src => src.ClothId))
             .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId))
-            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity)); ;
+            .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price * src.Quantity))
+            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity));
 
         CreateMap<BasketLine, BasketLineDto>()
             .ForMember(dest => dest.ClothId, opt => opt.MapFrom(src => src.ClothId))
@@ -111,11 +112,7 @@ public class ClothMapperProfile : Profile
     private void FromCommandEntityToDto()
     {
         CreateMap<ClothCreateCommand, Cloth>()
-            .ForMember(dest => dest.ClothSizes, opt => opt.MapFrom(src => src.Sizes.Select(dto => new ClothSize
-            {
-                SizeId = dto.SizeId,
-                QuantityInStock = dto.Quantity
-            }).ToList()))
+            .ForMember(dest => dest.ClothSizes, opt => opt.MapFrom(src => src.Sizes))
             .ForMember(dest => dest.ClothGroups, opt => opt.MapFrom(src => src.Groups.Select(dto => new ClothGroup
             {
                 GroupId = dto.GroupId

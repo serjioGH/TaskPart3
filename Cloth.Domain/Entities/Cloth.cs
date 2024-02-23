@@ -2,8 +2,6 @@
 
 public class Cloth : Entity
 {
-    public Guid SizeId { get; set; }
-
     public Guid BrandId { get; set; }
 
     public string Title { get; set; }
