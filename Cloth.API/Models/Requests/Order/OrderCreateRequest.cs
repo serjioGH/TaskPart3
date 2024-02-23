@@ -8,7 +8,5 @@ public class OrderCreateRequest
 
     public Guid UserId { get; set; }
 
-    public decimal TotalAmount { get; set; }
-
     public List<OrderLineCreateRequest>? OrderLines { get; set; }
 }

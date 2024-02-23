@@ -16,7 +16,6 @@ Content-Type: application/json
   "statusId": "66666660-6666-6666-6666-111111111111",
   "paymentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "userId": "11111110-1111-1111-1111-111111111122",
-  "totalAmount": 10,
   "orderLines": [
     {
       "clothId": "23e7bf36-e51b-40e7-d2bd-08dc31e9e561",
