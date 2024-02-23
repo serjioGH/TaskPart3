@@ -4,6 +4,7 @@ using AutoMapper;
 using Cloth.Application.Interfaces;
 using Cloth.Application.Models.Dto.Basket;
 using Cloth.Domain.Entities;
+using Cloth.Domain.Exceptions;
 using MediatR;
 using System;
 using System.Threading;
@@ -32,11 +33,31 @@ public class BasketLineCreateCommandHandler : IRequestHandler<BasketLineCreateCo
         var basketLine = _mapper.Map<BasketLine>(request);
         basketLine.BasketId = basket.Id;
         basketLine.Id = Guid.NewGuid();
+        var cloth = await _unitOfWork.Cloths
+            .GetClothById(basketLine.ClothId);
+        basketLine.Price = cloth.Price;
+        await CheckClothSizesAsync(basketLine);
 
         await _unitOfWork.BasketLines.InsertAsync(basketLine);
         await _unitOfWork.SaveAsync();
 
         var baskeLineDto = _mapper.Map<BasketLineCreateDto>(basketLine);
         return baskeLineDto;
+    }
+
+    private async Task CheckClothSizesAsync(BasketLine newBasketLine)
+    {
+        var clothSize = await _unitOfWork.ClothSizes
+            .GetByCompositKey(newBasketLine.ClothId, newBasketLine.SizeId);
+
+        if (clothSize != null)
+        {
+            clothSize.QuantityInStock -= newBasketLine.Quantity;
+
+            if (clothSize.QuantityInStock < 0)
+            {
+                throw new ItemNotFoundException($"Cloth {clothSize.ClothId} does not have that quantity with size {clothSize.SizeId}.");
+            }
+        }
     }
 }

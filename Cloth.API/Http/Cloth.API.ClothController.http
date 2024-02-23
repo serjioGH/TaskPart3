@@ -1,8 +1,4 @@
 @Cloth.API_HostAddress = https://localhost:44326
-@brandId = "11111110-1111-1111-1111-111111111111"
-@mediumSize = "44444440-4444-4444-4444-111111111111"
-@largeSize = "55555550-5555-5555-5555-111111111111"
-@menGroup = "88888880-8888-8888-8888-111111111111"
 
 ### Get All Items
 GET {{Cloth.API_HostAddress}}/api/Cloths
@@ -17,18 +13,18 @@ POST {{Cloth.API_HostAddress}}/api/cloths
 Content-Type: application/json
 
 {
-  "brandId": {{brandId}},
+  "brandId": "11111110-1111-1111-1111-111111111111",
   "title": "created",
   "price": 20,
   "description": "created",
   "groups": [
     {
-      "groupId": {{menGroup}}
+      "groupId": "88888880-8888-8888-8888-111111111111"
     }
   ],
   "sizes": [
     {
-      "sizeId": {{mediumSize}},
+      "sizeId": "44444440-4444-4444-4444-111111111111",
       "quantity": 20
     }
   ]

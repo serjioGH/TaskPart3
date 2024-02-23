@@ -39,6 +39,14 @@ public class BasketLineRepository : GenericRepository<BasketLine>, IBasketLineRe
                 .SingleAsync(bl => bl.Id == basketId);
             return basketLine;
         }
+        catch (ArgumentNullException ex)
+        {
+            throw new ItemNotFoundException($"Retrieving Basket: {basketId} resulted in an error.", ex);
+        }
+        catch (InvalidOperationException ex)
+        {
+            throw new ItemNotFoundException($"Retrieving Basket: {basketId} resulted in an error.", ex);
+        }
         catch (Exception)
         {
             throw new ItemNotFoundException($"Retrieving Basket: {basketId} resulted in an error.");

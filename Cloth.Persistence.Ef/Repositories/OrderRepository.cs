@@ -40,13 +40,20 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
 
     public async Task<IEnumerable<Order>> GetAllOrders()
     {
-        var result = await _dbContext.Orders
-             .Include(o => o.User)
-             .Include(o => o.Status)
-             .Where(p => p.IsDeleted == false)
-             .ToListAsync();
+        try
+        {
+            var result = await _dbContext.Orders
+                 .Include(o => o.User)
+                 .Include(o => o.Status)
+                 .Where(p => p.IsDeleted == false)
+                 .ToListAsync();
 
-        return result;
+            return result;
+        }
+        catch (ArgumentNullException ex)
+        {
+            throw new ItemNotFoundException($"Retrieving all orders resulted in an error.", ex);
+        }
     }
 
     public async Task<Order> GetOrderById(Guid orderId)
@@ -63,6 +70,14 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
                 .Where(p => p.IsDeleted == false)
                 .SingleAsync(o => o.Id == orderId);
             return result;
+        }
+        catch (ArgumentNullException ex)
+        {
+            throw new ItemNotFoundException($"Retrieving Order: {orderId} resulted in an error.", ex);
+        }
+        catch (InvalidOperationException ex)
+        {
+            throw new ItemNotFoundException($"Retrieving Order: {orderId} resulted in an error.", ex);
         }
         catch (Exception)
         {

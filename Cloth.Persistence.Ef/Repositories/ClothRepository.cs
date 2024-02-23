@@ -30,6 +30,10 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
 
             return result;
         }
+        catch (ArgumentNullException ex)
+        {
+            throw new ItemNotFoundException($"Retrieving all cloths resulted in an error.", ex);
+        }
         catch (Exception)
         {
             throw new ItemNotFoundException($"Error retrieving all items.");
@@ -46,6 +50,14 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
                 .Include(p => p.ClothSizes).ThenInclude(cs => cs.Size)
                 .SingleAsync();
             return result;
+        }
+        catch (ArgumentNullException ex)
+        {
+            throw new ItemNotFoundException($"Retrieving Cloth: {clothId} resulted in an error.", ex);
+        }
+        catch (InvalidOperationException ex)
+        {
+            throw new ItemNotFoundException($"Retrieving Cloth: {clothId} resulted in an error.", ex);
         }
         catch (Exception)
         {
