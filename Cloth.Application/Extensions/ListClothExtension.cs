@@ -43,7 +43,6 @@ public static class ListClothExtension
                     cloth.Description = cloth.Description.Replace(currentHighlight, $"<em>{currentHighlight}</em>");
                 }
             }
-
         }
         return list;
     }
@@ -55,14 +54,15 @@ public static class ListClothExtension
     /// <returns></returns>
     public static List<string> GetUniqueSizes(this List<Cloth> list)
     {
+        var givenSizes = list.Select(p => p.ClothSizes).ToList().Select(p => p.Select(p => p.Size)).ToList();
         List<string> sizes = new List<string>();
-        foreach (var cloth in list)
+        foreach (var item in givenSizes)
         {
-            foreach (var currentSize in cloth.Sizes)
+            foreach (var size in item)
             {
-                if (!sizes.Contains(currentSize))
+                if (!sizes.Contains(size.Name.ToString()))
                 {
-                    sizes.Add(currentSize);
+                    sizes.Add(size.Name.ToString());
                 }
             }
         }
@@ -97,7 +97,20 @@ public static class ListClothExtension
             return items;
         }
 
-        return items.Where(p => p.Sizes.Contains(size)).ToList();
+        List<Cloth> newList = new List<Cloth>();
+
+        foreach (var item in items)
+        {
+            var clothSizes = item.ClothSizes.ToList();
+            foreach (var currClothSize in clothSizes)
+            {
+                if (currClothSize.Size.Name.ToString().Contains(size))
+                {
+                    newList.Add(item);
+                }
+            }
+        }
+
+        return newList;
     }
 }
-

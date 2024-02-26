@@ -1,4 +1,5 @@
 ﻿namespace Cloth.Application.Interfaces;
+
 using Cloth.Domain.Entities;
 
 public interface IMockyHttpServiceClient

@@ -26,4 +26,3 @@ public static class StringExtensioncs
         return highlights;
     }
 }
-

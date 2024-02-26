@@ -1,7 +1,6 @@
 ﻿namespace Cloth.Infrastructure.Extensions;
 
 using Cloth.Application.Interfaces;
-using Cloth.Application.Services;
 using Cloth.Infrastructure.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +15,6 @@ public static class DependencyInjectionExtension
         }
 
         services.Configure<MockyHttpConfiguration>(configuration.GetSection("MockyClient"));
-        services.AddScoped<IClothRepository, ClothRepository>();
-        services.AddScoped<IClothService, ClothService>();
         services.AddHttpClient<MockyHttpServiceClient>();
         services.AddScoped<IMockyHttpServiceClient, MockyHttpServiceClient>();
 

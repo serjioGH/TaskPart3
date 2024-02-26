@@ -1,10 +1,10 @@
+using Cloth.API.Filter;
 using Cloth.Application.Behavior;
 using Cloth.Application.Extensions;
-using Cloth.Application.Interfaces;
-using Cloth.Application.Services;
-using Cloth.Infrastructure;
 using Cloth.Infrastructure.Extensions;
+using Cloth.Persistence.Extensions;
 using MediatR;
+using Persistence.Abstractions.Repositories;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,19 +17,17 @@ builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add(typeof(ErrorHandlingFilter)));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services
     .AddApplication()
-    .AddInfrastructure(builder.Configuration);
+    .AddGenericRepository()
+    .AddInfrastructure(builder.Configuration)
+    .RegisterPersistenceDependencies(builder.Configuration);
 
 builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
-builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-
-builder.Services.AddScoped<IClothRepository, ClothRepository>();
-builder.Services.AddTransient<IClothService, ClothService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

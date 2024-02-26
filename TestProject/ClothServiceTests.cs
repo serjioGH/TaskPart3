@@ -1,8 +1,7 @@
 namespace TestProject;
 
 using Cloth.Application.Extensions;
-using Cloth.Application.Interfaces;
-using Cloth.Application.Services;
+using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
@@ -20,19 +19,19 @@ public class ClothServiceTests
                 {
                     Title = "T-Shirt",
                     Description = "Simple and comfortable basic t-shirt in red for everyday casual wear.",
-                    Sizes = new List<string>() {"medium", "small"}
+                    //Sizes = new List<string>() {"medium", "small"}
                 },
                  new Cloth()
                 {
                     Title = "Chic Blouse",
                     Description = "Chic blouse in red to add a touch of sophistication to your wardrobe.",
-                    Sizes = new List<string>() {"large", "small"}
+                    //Sizes = new List<string>() {"large", "small"}
                 },
                 new Cloth()
                 {
                     Title = "Fashionable Jumpsuit",
                     Description = "Trendy jumpsuit in blue for a chic and fashion-forward ensemble.",
-                    Sizes = new List<string>() {"large"}
+                    //Sizes = new List<string>() {"large"}
                 },
         };
     }
@@ -49,13 +48,12 @@ public class ClothServiceTests
             item.Should().NotBeNull();
             input.Should().Contain(item);
         }
-
     }
 
     [Fact]
     public void GetUniqueSizes_Success()
     {
-         var result = ListClothExtension.GetUniqueSizes(_list);
+        var result = ListClothExtension.GetUniqueSizes(_list);
 
         result.Should().NotBeNull();
         result.Should().HaveCount(3);
@@ -122,7 +120,6 @@ public class ClothServiceTests
         result[0].Description.Should().BeEmpty();
         result[1].Description.Should().BeEmpty();
         result[2].Description.Should().BeEmpty();
-
     }
 
     [Fact]
@@ -131,14 +128,11 @@ public class ClothServiceTests
         List<string> highlights = new List<string>();
         highlights.Add("testWord");
 
-        var loggerMock = new Mock<ILogger<ClothService>>();
-
         var result = ListClothExtension.FilterWithHighlights(_list, highlights).ToArray();
 
         result[0].Description.Should().BeEquivalentTo(_list[0].Description);
         result[1].Description.Should().BeEquivalentTo(_list[1].Description);
         result[2].Description.Should().BeEquivalentTo(_list[2].Description);
-
     }
 
     [Fact]
@@ -161,8 +155,6 @@ public class ClothServiceTests
                 Description = word
             });
         }
-
-        var loggerMock = new Mock<ILogger<ClothService>>();
 
         var result = ListClothExtension.GetCommonWords(list);
         result.Should().NotBeNull();

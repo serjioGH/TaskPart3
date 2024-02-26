@@ -1,0 +1,39 @@
+@Cloth.API_HostAddress = http://localhost:44326
+
+### Get Basket
+GET {{Cloth.API_HostAddress}}/api/Basket/11111110-1111-1111-1111-111111111122
+accept:  application/json
+
+### Create BasketLine
+POST {{Cloth.API_HostAddress}}/api/Basket
+Content-Type: application/json
+
+{
+  "userId": "11111110-1111-1111-1111-111111111122",
+  "basketLine": {
+    "basketId": "11111110-1111-1111-1111-111111111133",
+    "clothId": "4f28788c-d7db-4211-14e2-08dc31e1f437",
+    "sizeId": "55555550-5555-5555-5555-111111111111",
+    "quantity": 30
+  }
+}
+
+### Update BasketLine
+### Parameter: basketLineId
+PUT {{Cloth.API_HostAddress}}/api/Basket/basketlines/1d4c4a50-5d4c-4203-c2b8-08dc32e33d46
+Content-Type: application/json
+
+{
+  "basketLineId": "1d4c4a50-5d4c-4203-c2b8-08dc32e33d46",
+  "clothId": "1a97d7f1-4605-462e-4066-08dc3214bcdb",
+  "sizeId": "33333330-3333-3333-3333-111111111111",
+  "quantity": 44
+}
+
+### DeleteBasketLine
+### Parameter: basketLineId
+DELETE {{Cloth.API_HostAddress}}/api/Basket/basketlines/1d4c4a50-5d4c-4203-c2b8-08dc32e33d46
+
+### Delete all basketlines
+### Parameter: userId
+DELETE {{Cloth.API_HostAddress}}/api/Basket/11111110-1111-1111-1111-111111111122

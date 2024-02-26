@@ -1,0 +1,63 @@
+@Cloth.API_HostAddress = https://localhost:44326
+
+### Get All Items
+GET {{Cloth.API_HostAddress}}/api/Cloths
+accept:  application/json
+
+### Get Filtered Items
+GET {{Cloth.API_HostAddress}}/api/Cloths?MinPrice=2&MaxPrice=6&Highlight=blue,red&Size=small
+accept:  application/json
+
+### Create cloth
+POST {{Cloth.API_HostAddress}}/api/cloths
+Content-Type: application/json
+
+{
+  "brandId": "11111110-1111-1111-1111-111111111111",
+  "title": "created",
+  "price": 20,
+  "description": "created",
+  "groups": [
+    {
+      "groupId": "88888880-8888-8888-8888-111111111111"
+    }
+  ],
+  "sizes": [
+    {
+      "sizeId": "44444440-4444-4444-4444-111111111111",
+      "quantity": 20
+    }
+  ]
+}
+
+###Delete cloth
+DELETE {{Cloth.API_HostAddress}}//api/cloths/4f28788c-d7db-4211-14e2-08dc31e1f437
+
+###Update Cloth
+PUT {{Cloth.API_HostAddress}}//api/cloths/4f28788c-d7db-4211-14e2-08dc31e1f437
+Content-Type: application/json
+
+{
+  "brandId": "11111110-1111-1111-1111-111111111111",
+  "title": "updated",
+  "price": 21,
+  "description": "updated",
+  "groups": [
+    {
+      "groupId": "88888880-8888-8888-8888-111111111111"
+    },
+    {
+      "groupId": "99999990-9999-9999-9999-111111111111"
+    }
+  ],
+  "sizes": [
+    {
+      "sizeId": "44444440-4444-4444-4444-111111111111",
+      "quantity": 11
+    },
+    {
+      "sizeId": "55555550-5555-5555-5555-111111111111",
+      "quantity": 1
+    }
+  ]
+}

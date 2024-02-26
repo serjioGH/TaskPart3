@@ -3,13 +3,13 @@ using System.Text.Json;
 
 namespace Cloth.Infrastructure;
 
-using Cloth.Infrastructure.Extensions;
-using Domain.Entities;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cloth.Application.Interfaces;
 using Cloth.Infrastructure.Configuration;
+using Cloth.Infrastructure.Extensions;
+using Domain.Entities;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class MockyHttpServiceClient : IMockyHttpServiceClient
 {
@@ -57,4 +57,3 @@ public class MockyHttpServiceClient : IMockyHttpServiceClient
         }
     }
 }
-
