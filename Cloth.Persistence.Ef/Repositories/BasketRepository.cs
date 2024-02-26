@@ -27,11 +27,11 @@ public class BasketRepository : GenericRepository<Basket>, IBasketRepository
         }
         catch (ArgumentNullException)
         {
-            throw new ItemNotFoundException($"Basket of User ID {id} not found.");
+            throw new ItemNotFoundException($"Basket of User not found.");
         }
         catch (Exception ex)
         {
-            throw new ItemNotFoundException($"Basket of User ID {id} not found.", ex);
+            throw new ItemNotFoundException($"Basket of User not found.", ex);
         }
     }
 }

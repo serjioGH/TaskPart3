@@ -22,7 +22,7 @@ public class ClothSizeRepository : GenericRepository<ClothSize>, IClothSizeRepos
         var clothSize = await _dbContext.Set<ClothSize>().FindAsync(clothId, sizeId);
         if (clothSize == null)
         {
-            throw new ItemNotFoundException($"ClothSize not found with ClothId {clothId} and SizeId {sizeId}.");
+            throw new ItemNotFoundException($"ClothSize not found with these ClothId and SizeId.");
         }
         _dbContext.ClothSizes.Remove(clothSize);
     }
@@ -33,7 +33,7 @@ public class ClothSizeRepository : GenericRepository<ClothSize>, IClothSizeRepos
 
         if (productSize == null)
         {
-            throw new ItemNotFoundException($"ClothSize not found with ClothId {clothId} and SizeId {sizeId}.");
+            throw new ItemNotFoundException($"ClothSize not found with these ClothId and SizeId.");
         }
 
         return productSize;

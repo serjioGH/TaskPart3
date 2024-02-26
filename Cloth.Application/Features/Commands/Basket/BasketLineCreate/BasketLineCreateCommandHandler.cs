@@ -56,7 +56,7 @@ public class BasketLineCreateCommandHandler : IRequestHandler<BasketLineCreateCo
 
             if (clothSize.QuantityInStock < 0)
             {
-                throw new ItemNotFoundException($"Cloth {clothSize.ClothId} does not have that quantity with size {clothSize.SizeId}.");
+                throw new ItemNotFoundException($"Cloth does not have that quantity with this size.");
             }
         }
     }

@@ -53,15 +53,15 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
         }
         catch (ArgumentNullException ex)
         {
-            throw new ItemNotFoundException($"Retrieving Cloth: {clothId} resulted in an error.", ex);
+            throw new ItemNotFoundException($"Retrieving Cloth resulted in an error.", ex);
         }
         catch (InvalidOperationException ex)
         {
-            throw new ItemNotFoundException($"Retrieving Cloth: {clothId} resulted in an error.", ex);
+            throw new ItemNotFoundException($"Retrieving Cloth resulted in an error.", ex);
         }
         catch (Exception)
         {
-            throw new ItemNotFoundException($"Retrieving Cloth: {clothId} resulted in an error.");
+            throw new ItemNotFoundException($"Retrieving Cloth resulted in an error.");
         }
     }
 }

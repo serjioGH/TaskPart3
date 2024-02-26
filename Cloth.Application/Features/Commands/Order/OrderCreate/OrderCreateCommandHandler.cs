@@ -51,7 +51,7 @@ public class OrderCreateCommandHandler : IRequestHandler<OrderCreateCommand, Cre
 
                 if (clothSize.QuantityInStock < 0)
                 {
-                    throw new ItemNotFoundException($"Cloth {clothSize.ClothId} does not have that quantity with size {clothSize.SizeId}.");
+                    throw new ItemNotFoundException($"Cloth does not have that quantity with specific size.");
                 }
                 else if (clothSize.QuantityInStock == 0)
                 {

@@ -73,15 +73,15 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
         }
         catch (ArgumentNullException ex)
         {
-            throw new ItemNotFoundException($"Retrieving Order: {orderId} resulted in an error.", ex);
+            throw new ItemNotFoundException($"Retrieving Order resulted in an error.", ex);
         }
         catch (InvalidOperationException ex)
         {
-            throw new ItemNotFoundException($"Retrieving Order: {orderId} resulted in an error.", ex);
+            throw new ItemNotFoundException($"Retrieving Order resulted in an error.", ex);
         }
         catch (Exception)
         {
-            throw new ItemNotFoundException($"Order: {orderId} not found.");
+            throw new ItemNotFoundException($"Order not found.");
         }
     }
 }

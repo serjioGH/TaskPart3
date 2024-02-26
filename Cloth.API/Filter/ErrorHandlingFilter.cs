@@ -10,7 +10,7 @@ namespace Cloth.API.Filter;
 
 public class ErrorHandlingFilter : IExceptionFilter
 {
-    public static Error HandleException(Exception exception) => exception switch
+    private Error HandleException(Exception exception) => exception switch
     {
         AutoMapperMappingException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
         ArgumentNullException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
@@ -26,7 +26,11 @@ public class ErrorHandlingFilter : IExceptionFilter
 
         var error = HandleException(exception);
 
-        context.Result = new JsonResult(error);
+        context.HttpContext.Response.StatusCode = (int)error.StatusCode;
+        context.Result = new ObjectResult(error.Message)
+        {
+            StatusCode = (int)error.StatusCode
+        };
         context.ExceptionHandled = true;
     }
 }

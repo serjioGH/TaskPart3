@@ -37,9 +37,4 @@ public class UnitOfWork : IUnitOfWork
     {
         _dbContext.Dispose();
     }
-
-    public void Rollback()
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -41,15 +41,15 @@ public class BasketLineRepository : GenericRepository<BasketLine>, IBasketLineRe
         }
         catch (ArgumentNullException ex)
         {
-            throw new ItemNotFoundException($"Retrieving Basket: {basketId} resulted in an error.", ex);
+            throw new ItemNotFoundException($"Retrieving Basket resulted in an error.", ex);
         }
         catch (InvalidOperationException ex)
         {
-            throw new ItemNotFoundException($"Retrieving Basket: {basketId} resulted in an error.", ex);
+            throw new ItemNotFoundException($"Retrieving Basket resulted in an error.", ex);
         }
         catch (Exception)
         {
-            throw new ItemNotFoundException($"Retrieving Basket: {basketId} resulted in an error.");
+            throw new ItemNotFoundException($"Retrieving Basket resulted in an error.");
         }
     }
 }
