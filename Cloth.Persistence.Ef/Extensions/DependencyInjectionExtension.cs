@@ -20,7 +20,11 @@ public static class DependencyInjectionExtension
         }
 
         services.AddDbContext<DbContext, ClothInventoryDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("ClothInventoryDbConnection")));
+        {
+            options.EnableSensitiveDataLogging();
+            options.UseNpgsql(configuration.GetConnectionString("ClothInventoryNpgsqlDbConnection"));
+        });
+
         services.Configure<MockyHttpConfiguration>(configuration.GetSection("MockyClient"));
         services.AddScoped<IClothRepository, ClothRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();

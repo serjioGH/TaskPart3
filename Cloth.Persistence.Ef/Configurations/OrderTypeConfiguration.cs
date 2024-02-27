@@ -13,7 +13,7 @@ public class OrderTypeConfiguration : IEntityTypeConfiguration<Order>
             .HasColumnType(ConfigurationConstants.BitType)
             .HasDefaultValue(false);
         builder.Property(p => p.CreatedOn)
-            .HasDefaultValueSql(ConfigurationConstants.GetdateType);
+            .HasDefaultValueSql(ConfigurationConstants.GetdateTypeNpgsql);
         builder.HasOne(p => p.Status)
             .WithMany(s => s.Orders)
             .HasForeignKey(p => p.StatusId);
@@ -21,7 +21,7 @@ public class OrderTypeConfiguration : IEntityTypeConfiguration<Order>
             .WithOne(p => p.Order)
             .HasForeignKey<Payment>(p => p.PaymentId);
         builder.Property(p => p.TotalAmount)
-            .HasColumnType(ConfigurationConstants.DecimalType);
+            .HasColumnType(ConfigurationConstants.DecimalTypeNpgsql);
         builder.HasOne(p => p.User)
             .WithMany(p => p.Orders)
             .HasForeignKey(p => p.UserId);

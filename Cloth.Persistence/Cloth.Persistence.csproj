@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -23,7 +23,7 @@
     <ProjectReference Include="..\Cloth.Application\Cloth.Application.csproj" />
     <ProjectReference Include="..\Cloth.Domain\Cloth.Domain.csproj" />
     <ProjectReference Include="..\Cloth.Infrastructure\Cloth.Infrastructure.csproj" />
-    <ProjectReference Include="..\Cloth.Persistence.Ef\Cloth.Persistence.Ef.csproj" />
+    <ProjectReference Include="..\Cloth.Persistence.Ef\Cloth.Persistence.PostgreSQL.csproj" />
   </ItemGroup>
 
 </Project>

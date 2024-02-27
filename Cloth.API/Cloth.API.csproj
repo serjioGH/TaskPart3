@@ -11,7 +11,7 @@
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="MediatR" Version="12.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -22,7 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cloth.Application\Cloth.Application.csproj" />
     <ProjectReference Include="..\Cloth.Infrastructure\Cloth.Infrastructure.csproj" />
-    <ProjectReference Include="..\Cloth.Persistence.Ef\Cloth.Persistence.Ef.csproj" />
+    <ProjectReference Include="..\Cloth.Persistence.Ef\Cloth.Persistence.PostgreSQL.csproj" />
     <ProjectReference Include="..\Cloth.Persistence\Cloth.Persistence.csproj" />
     <ProjectReference Include="..\Persistence.Abstractions\Persistence.Abstractions.csproj" />
   </ItemGroup>
