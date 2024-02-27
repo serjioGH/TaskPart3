@@ -10,9 +10,9 @@ public class UserTypeConfiguration : IEntityTypeConfiguration<User>
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.Property(p => p.CreatedOn)
-               .HasDefaultValueSql(ConfigurationConstants.GetdateType);
+               .HasColumnType(ConfigurationConstants.DateColumnTypeNpgsql)
+               .HasDefaultValueSql(ConfigurationConstants.GetdateTypeNpgsql);
         builder.Property(p => p.IsDeactivated)
-               .HasColumnType(ConfigurationConstants.BitType)
                .HasDefaultValue(false);
         builder.Property(u => u.Email).HasMaxLength(30).IsRequired();
         builder.Property(u => u.Address).HasMaxLength(200);

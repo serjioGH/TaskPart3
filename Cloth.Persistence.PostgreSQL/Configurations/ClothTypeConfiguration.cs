@@ -10,14 +10,14 @@ public class ClothTypeConfiguration : IEntityTypeConfiguration<Cloth>
     public void Configure(EntityTypeBuilder<Cloth> builder)
     {
         builder.Property(p => p.CreatedOn)
-          .HasDefaultValueSql(ConfigurationConstants.GetdateType);
+               .HasColumnType(ConfigurationConstants.DateColumnTypeNpgsql)
+               .HasDefaultValueSql(ConfigurationConstants.GetdateTypeNpgsql);
 
         builder.HasOne(p => p.Brand)
           .WithMany(s => s.Cloths)
           .HasForeignKey(p => p.BrandId);
 
         builder.Property(p => p.IsDeleted)
-           .HasColumnType(ConfigurationConstants.BitType)
            .HasDefaultValue(false);
 
         builder.Property(p => p.Title)
@@ -28,6 +28,6 @@ public class ClothTypeConfiguration : IEntityTypeConfiguration<Cloth>
             .HasColumnType("text");
 
         builder.Property(p => p.Price)
-            .HasColumnType(ConfigurationConstants.DecimalType);
+            .HasColumnType(ConfigurationConstants.DecimalTypeNpgsql);
     }
 }

@@ -20,6 +20,6 @@ public class OrderLinesTypeConfiguration : IEntityTypeConfiguration<OrderLines>
             .WithMany(p => p.OrderDetails)
             .HasForeignKey(p => p.ClothId);
         builder.Property(p => p.Price)
-            .HasColumnType(ConfigurationConstants.DecimalType);
+            .HasColumnType(ConfigurationConstants.DecimalTypeNpgsql);
     }
 }

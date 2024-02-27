@@ -9,6 +9,6 @@ public class PaymentTypeConfiguration : IEntityTypeConfiguration<Payment>
 {
     public void Configure(EntityTypeBuilder<Payment> builder)
     {
-        builder.Property(p => p.PaymentMethod).HasColumnType(ConfigurationConstants.NvarcharType);
+        builder.Property(p => p.PaymentMethod).HasColumnType(ConfigurationConstants.VarcharType);
     }
 }

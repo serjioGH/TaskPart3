@@ -3,11 +3,12 @@
 using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using System.Reflection.Emit;
 
 public class ClothInventoryDbContext : DbContext
 {
     public DbSet<Cloth> Cloths { get; set; }
-    public DbSet<Domain.Entities.ClothSize> ClothSizes { get; set; }
+    public DbSet<ClothSize> ClothSizes { get; set; }
     public DbSet<ClothGroup> ClothGroups { get; set; }
     public DbSet<Group> Groups { get; set; }
     public DbSet<Size> Sizes { get; set; }
@@ -35,7 +36,7 @@ public class ClothInventoryDbContext : DbContext
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.Database.Migrate();
-
+        builder.HasDefaultSchema("public");
         base.OnModelCreating(builder);
     }
 }
