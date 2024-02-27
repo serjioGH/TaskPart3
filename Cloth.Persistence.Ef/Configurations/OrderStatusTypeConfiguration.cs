@@ -9,6 +9,6 @@ public class OrderStatusTypeConfiguration : IEntityTypeConfiguration<OrderStatus
 {
     public void Configure(EntityTypeBuilder<OrderStatus> builder)
     {
-        builder.Property(p => p.Name).HasColumnType(ConfigurationConstants.NvarcharType);
+        builder.Property(p => p.Name).HasColumnType(ConfigurationConstants.VarcharType);
     }
 }

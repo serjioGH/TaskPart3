@@ -10,7 +10,6 @@ public class OrderTypeConfiguration : IEntityTypeConfiguration<Order>
     public void Configure(EntityTypeBuilder<Order> builder)
     {
         builder.Property(p => p.IsDeleted)
-            .HasColumnType(ConfigurationConstants.BitType)
             .HasDefaultValue(false);
         builder.Property(p => p.CreatedOn)
             .HasDefaultValueSql(ConfigurationConstants.GetdateTypeNpgsql);

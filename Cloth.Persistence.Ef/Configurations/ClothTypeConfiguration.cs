@@ -18,7 +18,6 @@ public class ClothTypeConfiguration : IEntityTypeConfiguration<Cloth>
           .HasForeignKey(p => p.BrandId);
 
         builder.Property(p => p.IsDeleted)
-           .HasColumnType(ConfigurationConstants.BitType)
            .HasDefaultValue(false);
 
         builder.Property(p => p.Title)

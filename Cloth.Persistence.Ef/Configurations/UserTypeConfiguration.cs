@@ -13,7 +13,6 @@ public class UserTypeConfiguration : IEntityTypeConfiguration<User>
                .HasColumnType(ConfigurationConstants.DateColumnTypeNpgsql)
                .HasDefaultValueSql(ConfigurationConstants.GetdateTypeNpgsql);
         builder.Property(p => p.IsDeactivated)
-               .HasColumnType(ConfigurationConstants.BitType)
                .HasDefaultValue(false);
         builder.Property(u => u.Email).HasMaxLength(30).IsRequired();
         builder.Property(u => u.Address).HasMaxLength(200);

@@ -9,6 +9,6 @@ public class SizeTypeConfiguration : IEntityTypeConfiguration<Size>
 {
     public void Configure(EntityTypeBuilder<Size> builder)
     {
-        builder.Property(p => p.Name).HasColumnType(ConfigurationConstants.NvarcharType);
+        builder.Property(p => p.Name).HasColumnType(ConfigurationConstants.VarcharType);
     }
 }

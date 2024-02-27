@@ -8,6 +8,8 @@ public static class ConfigurationConstants
 
     public const string NvarcharType = "nvarchar(max)";
 
+    public const string VarcharType = "varchar";
+
     public const string DateColumnTypeNpgsql = "date";
 
     public const string GetdateType = "getDate()";

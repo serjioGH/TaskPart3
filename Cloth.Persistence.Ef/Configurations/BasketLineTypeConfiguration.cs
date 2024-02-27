@@ -23,6 +23,6 @@ public class BasketLineTypeConfiguration : IEntityTypeConfiguration<BasketLine>
             .HasForeignKey(p => p.BasketId);
 
         builder.Property(p => p.Price)
-            .HasColumnType(ConfigurationConstants.DecimalType);
+            .HasColumnType(ConfigurationConstants.DecimalTypeNpgsql);
     }
 }
