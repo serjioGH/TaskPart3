@@ -1,9 +1,9 @@
 ﻿using Cloth.Domain.Entities;
-using Cloth.Persistence.Ef.Constants;
+using Cloth.Persistence.PostgreSQL.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Cloth.Persistence.Ef.Configurations;
+namespace Cloth.Persistence.PostgreSQL.Configurations;
 
 public class BasketLineTypeConfiguration : IEntityTypeConfiguration<BasketLine>
 {

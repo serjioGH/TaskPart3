@@ -1,7 +1,7 @@
 ﻿namespace Cloth.Persistence.Extensions;
 
 using Cloth.Application.Interfaces;
-using Cloth.Persistence.Ef.Extensions;
+using Cloth.Persistence.PostgreSQL.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

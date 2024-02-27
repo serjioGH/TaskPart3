@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Cloth.Persistence.Ef.Configurations;
+namespace Cloth.Persistence.PostgreSQL.Configurations;
 
 public class BasketTypeConfigurations : IEntityTypeConfiguration<Basket>
 {

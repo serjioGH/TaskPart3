@@ -1,6 +1,6 @@
 ﻿using Cloth.Application.Interfaces;
 using Cloth.Application.Interfaces.Repositories;
-using Cloth.Persistence.Ef.Context;
+using Cloth.Persistence.PostgreSQL.Context;
 
 namespace Cloth.Persistence;
 

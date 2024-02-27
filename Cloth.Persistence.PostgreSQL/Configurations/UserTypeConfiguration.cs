@@ -1,7 +1,7 @@
-﻿namespace Cloth.Persistence.Ef.Configurations;
+﻿namespace Cloth.Persistence.PostgreSQL.Configurations;
 
 using Cloth.Domain.Entities;
-using Cloth.Persistence.Ef.Constants;
+using Cloth.Persistence.PostgreSQL.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -3,7 +3,7 @@ using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Abstractions.Repositories;
 
-namespace Cloth.Persistence.Ef.Repositories;
+namespace Cloth.Persistence.PostgreSQL.Repositories;
 
 public class SizeRepository : GenericRepository<Size>, ISizeRepository
 {

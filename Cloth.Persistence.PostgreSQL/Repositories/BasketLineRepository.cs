@@ -1,9 +1,9 @@
-﻿namespace Cloth.Persistence.Ef.Repositories;
+﻿namespace Cloth.Persistence.PostgreSQL.Repositories;
 
 using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
-using Cloth.Persistence.Ef.Context;
+using Cloth.Persistence.PostgreSQL.Context;
 using global::Persistence.Abstractions.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;

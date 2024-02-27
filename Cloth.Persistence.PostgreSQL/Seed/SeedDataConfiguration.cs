@@ -1,4 +1,4 @@
-﻿namespace Cloth.Persistence.Ef.Seed;
+﻿namespace Cloth.Persistence.PostgreSQL.Seed;
 
 using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;

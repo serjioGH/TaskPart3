@@ -1,7 +1,7 @@
 ﻿using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
-using Cloth.Persistence.Ef.Context;
+using Cloth.Persistence.PostgreSQL.Context;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Abstractions.Repositories;
 

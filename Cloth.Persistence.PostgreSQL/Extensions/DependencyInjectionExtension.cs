@@ -1,14 +1,15 @@
-﻿namespace Cloth.Persistence.Ef.Extensions;
+﻿namespace Cloth.Persistence.PostgreSQL.Extensions;
 
 using Cloth.Application.Interfaces;
 using Cloth.Application.Interfaces.Repositories;
 using Cloth.Infrastructure;
 using Cloth.Infrastructure.Configuration;
-using Cloth.Persistence.Ef.Context;
+using Cloth.Persistence.PostgreSQL.Context;
 using Cloth.Persistence.Ef.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Cloth.Persistence.PostgreSQL.Repositories;
 
 public static class DependencyInjectionExtension
 {

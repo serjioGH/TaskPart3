@@ -1,9 +1,8 @@
-﻿namespace Cloth.Persistence.Ef.Context;
+﻿namespace Cloth.Persistence.PostgreSQL.Context;
 
 using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using System.Reflection.Emit;
 
 public class ClothInventoryDbContext : DbContext
 {
