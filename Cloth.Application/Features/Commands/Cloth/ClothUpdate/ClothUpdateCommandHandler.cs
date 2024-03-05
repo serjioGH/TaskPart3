@@ -19,46 +19,55 @@ public class ClothUpdateCommandHandler : IRequestHandler<ClothUpdateCommand, Upd
 
     public async Task<UpdateClothDto> Handle(ClothUpdateCommand command, CancellationToken cancellationToken)
     {
-        var cloth = await _unitOfWork.Cloths.GetClothById(command.Id);
-
-        cloth.Title = command.Title;
-        cloth.Description = command.Description;
-        cloth.Price = command.Price;
-        cloth.BrandId = command.BrandId;
-
-        foreach (var newSize in command.Sizes)
+        try
         {
-            var existingSize = cloth.ClothSizes.SingleOrDefault(p => p.SizeId == newSize.SizeId);
-            if (existingSize != null)
-            {
-                existingSize.QuantityInStock = newSize.Quantity;
-            }
-            else
-            {
-                cloth.ClothSizes.Add(new ClothSize
-                {
-                    SizeId = newSize.SizeId,
-                    QuantityInStock = newSize.Quantity
-                });
-            }
-        }
+            var cloth = await _unitOfWork.Cloths.GetClothById(command.Id);
 
-        foreach (var groups in command.Groups)
+            cloth.Title = command.Title;
+            cloth.Description = command.Description;
+            cloth.Price = command.Price;
+            cloth.BrandId = command.BrandId;
+
+            foreach (var newSize in command.Sizes)
+            {
+                var existingSize = cloth.ClothSizes.SingleOrDefault(p => p.SizeId == newSize.SizeId);
+                if (existingSize != null)
+                {
+                    existingSize.QuantityInStock = newSize.Quantity;
+                }
+                else
+                {
+                    cloth.ClothSizes.Add(new ClothSize
+                    {
+                        SizeId = newSize.SizeId,
+                        QuantityInStock = newSize.Quantity
+                    });
+                }
+            }
+
+            foreach (var groups in command.Groups)
+            {
+                var currentGroup = cloth.ClothGroups.SingleOrDefault(p => p.GroupId == groups.GroupId);
+                if (currentGroup == null)
+                {
+                    cloth.ClothGroups.Add(new ClothGroup
+                    {
+                        GroupId = groups.GroupId
+                    });
+                }
+            }
+
+            await _unitOfWork.Cloths.UpdateAsync(cloth);
+            _unitOfWork.CommitTransaction();
+
+            var updatedProductDto = _mapper.Map<UpdateClothDto>(cloth);
+
+            return updatedProductDto;
+        }
+        catch (Exception ex)
         {
-            var currentGroup = cloth.ClothGroups.SingleOrDefault(p => p.GroupId == groups.GroupId);
-            if (currentGroup == null)
-            {
-                cloth.ClothGroups.Add(new ClothGroup
-                {
-                    GroupId = groups.GroupId
-                });
-            }
+            _unitOfWork.Rollback();
+            throw new Exception("An error occurred processing the request.", ex);
         }
-
-        await _unitOfWork.SaveAsync();
-
-        var updatedProductDto = _mapper.Map<UpdateClothDto>(cloth);
-
-        return updatedProductDto;
     }
 }

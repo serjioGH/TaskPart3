@@ -1,4 +1,5 @@
 ﻿using Cloth.Application.Interfaces;
+using Cloth.Domain.Exceptions;
 using MediatR;
 
 namespace Cloth.Application.Features.Commands.Cloths.ClothDelete;
@@ -14,11 +15,16 @@ public class DeleteClothCommandHandler : IRequestHandler<DeleteClothCommand>
 
     public async Task Handle(DeleteClothCommand command, CancellationToken cancellationToken)
     {
-        var cloth = await _unitOfWork.Cloths.GetClothById(command.clothId);
+        var cloth = await _unitOfWork.Cloths.GetByIdAsync(command.clothId);
+
+        if (cloth is null)
+        {
+            throw new ItemNotFoundException($"Cloth not found.");
+        }
 
         cloth.IsDeleted = true;
 
-        await _unitOfWork.Cloths.UpdateAsync(cloth);
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.Cloths.DeleteAsync(cloth);
+        _unitOfWork.CommitTransaction();
     }
 }

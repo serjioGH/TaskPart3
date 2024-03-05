@@ -6,7 +6,9 @@ using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Context;
 using global::Persistence.Abstractions.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,7 +16,8 @@ public class BasketLineRepository : GenericRepository<BasketLine>, IBasketLineRe
 {
     protected readonly ClothInventoryDbContext _dbContext;
 
-    public BasketLineRepository(ClothInventoryDbContext dbContext) : base(dbContext)
+    public BasketLineRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection,
+        ILogger logger) : base(dbContext, dbConnection)
     {
         _dbContext = dbContext;
     }

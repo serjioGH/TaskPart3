@@ -7,7 +7,7 @@ public interface IOrderRepository : IGenericRepository<Order>
 {
     Task<IEnumerable<Order>> GetAllOrders();
 
-    Task<IEnumerable<Order>> FilterOrdersAsync(DateTime? MinDate, DateTime? MaxDate, Guid? userId, Guid? statusId);
+    Task<IEnumerable<Order>> FilterOrdersAsync(DateTime? MinDate, DateTime? MaxDate, Guid? userId, Guid? statusId, CancellationToken cancellationToken);
 
-    Task<Order> GetOrderById(Guid orderId);
+    Task<Order> GetOrderById(Guid orderId, CancellationToken cancellationToken);
 }

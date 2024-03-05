@@ -26,7 +26,7 @@ public class BasketLineUpdateCommandHandler : IRequestHandler<BasketLineUpdateCo
         var editedBL = _mapper.Map(request, basketLine);
 
         await _unitOfWork.BasketLines.UpdateAsync(editedBL);
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.SaveAsync(cancellationToken);
 
         var updatedDto = _mapper.Map<BasketLineUpdateDto>(editedBL);
 

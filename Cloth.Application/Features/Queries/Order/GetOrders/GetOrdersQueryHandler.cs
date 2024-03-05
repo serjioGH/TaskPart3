@@ -18,7 +18,7 @@ public class GetOrdersQueryHandler : IRequestHandler<GetOrdersQuery, IEnumerable
 
     public async Task<IEnumerable<OrderDto>> Handle(GetOrdersQuery request, CancellationToken cancellationToken)
     {
-        var orders = await _unitOfWork.Orders.FilterOrdersAsync(request.MinDate, request.MaxDate, request.UserId, request.StatusId);
+        var orders = await _unitOfWork.Orders.FilterOrdersAsync(request.MinDate, request.MaxDate, request.UserId, request.StatusId, cancellationToken);
         var mappedOrders = _mapper.Map<IEnumerable<OrderDto>>(orders);
         return mappedOrders;
     }

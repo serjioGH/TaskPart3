@@ -18,7 +18,7 @@ public class GetOrderQueryHandler : IRequestHandler<GetOrderQuery, OrderDto>
 
     public async Task<OrderDto> Handle(GetOrderQuery request, CancellationToken cancellationToken)
     {
-        var order = await _unitOfWork.Orders.GetOrderById(request.OrderId);
+        var order = await _unitOfWork.Orders.GetOrderById(request.OrderId, cancellationToken);
 
         var mappedOrder = _mapper.Map<OrderDto>(order);
 
