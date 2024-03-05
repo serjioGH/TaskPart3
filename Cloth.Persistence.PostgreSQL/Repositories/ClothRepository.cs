@@ -125,7 +125,7 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
         try
         {
             cloth.Id = Guid.NewGuid();
-            await _dbConnection.ExecuteScalarAsync<Guid>(CommandConstants.ClothConstants.InsertClothQuery, cloth);
+            await _dbConnection.ExecuteAsync(CommandConstants.ClothConstants.InsertClothQuery, cloth);
             foreach (var group in cloth.ClothGroups)
             {
                 await _dbConnection.ExecuteAsync(CommandConstants.ClothConstants.InsertClothGroup, new { ClothId = cloth.Id, GroupId = group.GroupId });

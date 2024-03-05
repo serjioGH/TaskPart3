@@ -88,3 +88,66 @@ VALUES (@p8, @p9, @p10, @p11, @p12, @p13, @p14);
 2024-03-05 00:52:33.730 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) in 115.8486ms
 2024-03-05 00:52:33.730 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
 2024-03-05 00:52:33.730 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:44326/api/Cloths?clothId=e3385951-2967-4261-86b3-a5614c35f42a - 200 null application/json; charset=utf-8 126.2576ms
+2024-03-05 10:35:09.165 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 10:35:09.322 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-03-05 10:35:09.332 +02:00 [INF] Hosting environment: Development
+2024-03-05 10:35:09.332 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-03-05 10:35:09.691 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 372.8132ms
+2024-03-05 10:35:09.696 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-05 10:35:09.702 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.9427ms
+2024-03-05 10:35:09.728 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-03-05 10:35:09.783 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.3009ms
+2024-03-05 10:35:09.983 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-03-05 10:35:10.099 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 116.5366ms
+2024-03-05 10:54:26.917 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-03-05 10:54:26.933 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-03-05 10:54:26.948 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-03-05 10:54:27.143 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-03-05 10:54:27.884 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 739.4402ms.
+2024-03-05 10:54:27.887 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-03-05 10:54:27.901 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 950.6726ms
+2024-03-05 10:54:27.901 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-03-05 10:54:27.905 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 990.2455ms
+2024-03-05 10:55:29.821 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Basket - application/json 261
+2024-03-05 10:55:29.822 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API)'
+2024-03-05 10:55:29.828 +02:00 [INF] Route matched with {action = "AddBasketLine", controller = "Basket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddBasketLine(Cloth.API.Models.Requests.Basket.BasketLineCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.BasketController (Cloth.API).
+2024-03-05 10:55:29.847 +02:00 [INF] Executing action method Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API) - Validation state: "Valid"
+2024-03-05 10:55:30.007 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-03-05 10:55:30.008 +02:00 [INF] Executed action Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API) in 180.317ms
+2024-03-05 10:55:30.008 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API)'
+2024-03-05 10:55:30.010 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Basket - 500 null text/plain; charset=utf-8 189.3408ms
+2024-03-05 10:55:41.963 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Basket - application/json 260
+2024-03-05 10:55:41.963 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API)'
+2024-03-05 10:55:41.964 +02:00 [INF] Route matched with {action = "AddBasketLine", controller = "Basket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddBasketLine(Cloth.API.Models.Requests.Basket.BasketLineCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.BasketController (Cloth.API).
+2024-03-05 10:55:41.979 +02:00 [INF] Executing action method Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API) - Validation state: "Valid"
+2024-03-05 10:55:42.117 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-03-05 10:55:42.118 +02:00 [INF] Executed action Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API) in 154.0659ms
+2024-03-05 10:55:42.118 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API)'
+2024-03-05 10:55:42.119 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Basket - 500 null text/plain; charset=utf-8 155.8764ms
+2024-03-05 10:56:18.893 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Basket - application/json 260
+2024-03-05 10:56:18.893 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API)'
+2024-03-05 10:56:18.893 +02:00 [INF] Route matched with {action = "AddBasketLine", controller = "Basket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddBasketLine(Cloth.API.Models.Requests.Basket.BasketLineCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.BasketController (Cloth.API).
+2024-03-05 10:56:18.901 +02:00 [INF] Executing action method Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API) - Validation state: "Valid"
+2024-03-05 10:56:19.011 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-03-05 10:56:19.011 +02:00 [INF] Executed action Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API) in 117.3406ms
+2024-03-05 10:56:19.011 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API)'
+2024-03-05 10:56:19.011 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Basket - 500 null text/plain; charset=utf-8 118.7276ms
+2024-03-05 10:56:38.731 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Basket - application/json 260
+2024-03-05 10:56:38.732 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API)'
+2024-03-05 10:56:38.732 +02:00 [INF] Route matched with {action = "AddBasketLine", controller = "Basket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddBasketLine(Cloth.API.Models.Requests.Basket.BasketLineCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.BasketController (Cloth.API).
+2024-03-05 10:56:38.742 +02:00 [INF] Executing action method Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API) - Validation state: "Valid"
+2024-03-05 10:57:10.442 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-03-05 10:57:10.442 +02:00 [INF] Executed action Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API) in 31710.3092ms
+2024-03-05 10:57:10.442 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.BasketController.AddBasketLine (Cloth.API)'
+2024-03-05 10:57:10.443 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Basket - 500 null text/plain; charset=utf-8 31712.0745ms
+2024-03-05 10:58:04.331 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 10:58:04.443 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-03-05 10:58:04.451 +02:00 [INF] Hosting environment: Development
+2024-03-05 10:58:04.451 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-03-05 10:58:04.623 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-05 10:58:04.624 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-03-05 10:58:04.623 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 184.6107ms
+2024-03-05 10:58:04.629 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.185ms
+2024-03-05 10:58:04.661 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.74ms
+2024-03-05 10:58:04.684 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-03-05 10:58:04.737 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.6197ms
