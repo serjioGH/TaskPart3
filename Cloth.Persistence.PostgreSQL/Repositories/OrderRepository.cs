@@ -145,7 +145,7 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
         }
         catch (Exception ex)
         {
-            throw new Exception($"Error while retrieving order.", ex);
+            throw new DbException($"Error while retrieving order.", ex);
         }
     }
 }

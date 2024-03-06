@@ -6,7 +6,7 @@ using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Constants.DapperQueries;
 using Cloth.Persistence.PostgreSQL.Context;
 using Dapper;
-using global::Persistence.Abstractions.Repositories;
+using GenericRepository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Data;
@@ -61,7 +61,7 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
         }
         catch (Exception)
         {
-            throw new ItemNotFoundException($"Error retrieving all items.");
+            throw new DbException($"Error retrieving all items.");
         }
     }
 
@@ -116,7 +116,7 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
         }
         catch (Exception)
         {
-            throw new ItemNotFoundException($"Retrieving Cloth resulted in an error.");
+            throw new DbException($"Retrieving Cloth resulted in an error.");
         }
     }
 
@@ -162,7 +162,7 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
         }
         catch (Exception)
         {
-            throw new ItemNotFoundException($"Inserting Cloth resulted in an error.");
+            throw new DbException($"Inserting Cloth resulted in an error.");
         }
     }
 
@@ -197,7 +197,7 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
         }
         catch (Exception)
         {
-            throw new ItemNotFoundException($"Updating Cloth resulted in an error.");
+            throw new DbException($"Updating Cloth resulted in an error.");
         }
     }
 
@@ -209,7 +209,7 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
         }
         catch
         {
-            throw new ItemNotFoundException($"Deleting Cloth resulted in an error.");
+            throw new DbException($"Deleting Cloth resulted in an error.");
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Cloth.Domain.Entities;
-using global::Persistence.Abstractions.Interfaces;
+using Persistence.Abstractions.Interfaces;
 
 namespace Cloth.Application.Interfaces.Repositories;
 

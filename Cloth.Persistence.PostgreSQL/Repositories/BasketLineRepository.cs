@@ -4,7 +4,7 @@ using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Context;
-using global::Persistence.Abstractions.Repositories;
+using GenericRepository;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System;

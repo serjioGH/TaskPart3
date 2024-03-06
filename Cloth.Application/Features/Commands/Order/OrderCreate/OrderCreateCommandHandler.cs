@@ -88,7 +88,7 @@ public class OrderCreateCommandHandler : IRequestHandler<OrderCreateCommand, Cre
 
         if (count != orderLines.Count)
         {
-            throw new Exception("Dublicated Orderlines.");
+            throw new DbException("Dublicated Orderlines.");
         }
     }
 }

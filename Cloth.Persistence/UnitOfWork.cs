@@ -1,5 +1,6 @@
 ﻿using Cloth.Application.Interfaces;
 using Cloth.Application.Interfaces.Repositories;
+using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Context;
 using System.Data;
 
@@ -51,7 +52,7 @@ public class UnitOfWork : IUnitOfWork
         catch (Exception ex)
         {
             _dbTransaction.Rollback();
-            throw new ApplicationException("An error occurred while committing changes.", ex);
+            throw new DbException("An error occurred while committing changes.", ex);
         }
         finally
         {

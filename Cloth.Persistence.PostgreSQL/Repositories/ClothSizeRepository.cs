@@ -6,7 +6,7 @@ using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Constants.DapperQueries;
 using Cloth.Persistence.PostgreSQL.Context;
 using Dapper;
-using global::Persistence.Abstractions.Repositories;
+using GenericRepository;
 using Serilog;
 using System;
 using System.Data;
@@ -38,21 +38,16 @@ public class ClothSizeRepository : GenericRepository<ClothSize>, IClothSizeRepos
     {
         try
         {
-            var result = await _dbConnection.QueryFirstOrDefaultAsync<ClothSize>(
+            var result = await _dbConnection.QuerySingleAsync<ClothSize>(
                 ReadFromDbConstants.ClothSizeConstants.GetByCompositeKeyQuery,
                 new { ClothId = clothId, SizeId = sizeId }
             );
-
-            if (result == null)
-            {
-                throw new ItemNotFoundException($"ClothSize not found with these ClothId and SizeId.");
-            }
 
             return result;
         }
         catch (Exception ex)
         {
-            throw new Exception($"Error occured while retrieving clothsize.", ex);
+            throw new ItemNotFoundException($"ClothSize not found with these ClothId and SizeId.", ex);
         }
     }
 }

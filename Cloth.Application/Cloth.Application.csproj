@@ -33,4 +33,10 @@
     <ProjectReference Include="..\Persistence.Abstractions\Persistence.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Using Include="Persistence.Abstractions.Interfaces">
+      <Alias>PersistenceAbstractionsInterfaces</Alias>
+    </Using>
+  </ItemGroup>
+
 </Project>

@@ -68,7 +68,7 @@ public class BasketRepository : GenericRepository<Basket>, IBasketRepository
         }
         catch (Exception ex)
         {
-            throw new Exception($"Error retrieving Basket of User.", ex);
+            throw new DbException($"Error retrieving Basket of User.", ex);
         }
     }
 }

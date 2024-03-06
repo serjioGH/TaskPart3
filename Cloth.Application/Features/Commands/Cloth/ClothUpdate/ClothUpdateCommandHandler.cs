@@ -69,5 +69,9 @@ public class ClothUpdateCommandHandler : IRequestHandler<ClothUpdateCommand, Upd
             _unitOfWork.Rollback();
             throw new Exception("An error occurred processing the request.", ex);
         }
+        finally
+        {
+            _unitOfWork.Dispose();
+        }
     }
 }

@@ -24,7 +24,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     /// <returns></returns>
     public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken)
     {
-        IEnumerable<T?> entities;
+        IEnumerable<T> entities;
         try
         {
             entities = await _connection.QueryAsync<T>(QueryConstants.SelectEntity(typeof(T).Name));
@@ -33,12 +33,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         {
             throw new DbException("An error occurred while getting all entities.", ex);
         }
-        if (entities is null)
-        {
-            throw new ItemNotFoundException($"Entities of type {typeof(T)} not found.");
-        }
 
-        return entities.ToList();
+        return entities;
     }
 
     /// <summary>
@@ -53,15 +49,11 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         try
         {
             var query = QueryConstants.SelectEntityById(typeof(T).Name);
-            entity = await _connection.QueryFirstOrDefaultAsync<T>(query, new { Id = id });
+            entity = await _connection.QuerySingleAsync<T>(query, new { Id = id });
         }
         catch (Exception ex)
         {
             throw new DbException("An error occurred while getting the entity by id.", ex);
-        }
-        if (entity is null)
-        {
-            throw new ItemNotFoundException($"Entity of type {typeof(T)} not found.");
         }
 
         return entity;

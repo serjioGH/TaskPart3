@@ -15,7 +15,8 @@ public class ErrorHandlingFilter : IExceptionFilter
         AutoMapperMappingException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
         ArgumentNullException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
         InvalidOperationException => new Error { StatusCode = HttpStatusCode.InternalServerError, Message = exception.Message },
-        ItemNotFoundException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
+        ItemNotFoundException => new Error { StatusCode = HttpStatusCode.NotFound, Message = exception.Message },
+        DbException => new Error { StatusCode = HttpStatusCode.InternalServerError, Message = exception.Message },
         ValidationException => new Error { StatusCode = HttpStatusCode.BadRequest, Message = exception.Message },
         _ => new Error { StatusCode = HttpStatusCode.InternalServerError, Message = "Unexpected error occured." },
     };

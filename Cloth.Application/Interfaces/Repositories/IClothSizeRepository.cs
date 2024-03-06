@@ -1,7 +1,7 @@
 ﻿namespace Cloth.Application.Interfaces.Repositories;
 
 using Cloth.Domain.Entities;
-using global::Persistence.Abstractions.Interfaces;
+using PersistenceAbstractionsInterfaces;
 using System;
 using System.Threading.Tasks;
 

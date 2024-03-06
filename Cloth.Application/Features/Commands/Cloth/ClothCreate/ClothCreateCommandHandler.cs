@@ -35,5 +35,9 @@ public class ClothCreateCommandHandler : IRequestHandler<ClothCreateCommand, Cre
             _unitOfWork.Rollback();
             throw new Exception("An error occurred processing the request.", ex);
         }
+        finally
+        {
+            _unitOfWork.Dispose();
+        }
     }
 }
