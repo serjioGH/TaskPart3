@@ -29,7 +29,7 @@ public class OrderCreateCommandHandler : IRequestHandler<OrderCreateCommand, Cre
 
         var basket = await _unitOfWork.Baskets.GetBasketByUserIdAsync(request.UserId);
         await _unitOfWork.BasketLines.DeleteAll(basket.Id);
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.SaveAsync(cancellationToken);
 
         var checkedOrder = await _unitOfWork.Orders.GetByIdAsync(order.Id);
 
@@ -88,7 +88,7 @@ public class OrderCreateCommandHandler : IRequestHandler<OrderCreateCommand, Cre
 
         if (count != orderLines.Count)
         {
-            throw new Exception("Dublicated Orderlines.");
+            throw new DbException("Dublicated Orderlines.");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Cloth.Persistence.Ef.Configurations;
+﻿namespace Cloth.Persistence.PostgreSQL.Configurations;
 
 using Cloth.Domain.Entities;
 using Microsoft.EntityFrameworkCore;

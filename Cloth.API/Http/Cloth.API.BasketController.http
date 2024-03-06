@@ -13,8 +13,8 @@ Content-Type: application/json
   "basketLine": {
     "basketId": "11111110-1111-1111-1111-111111111133",
     "clothId": "4f28788c-d7db-4211-14e2-08dc31e1f437",
-    "sizeId": "55555550-5555-5555-5555-111111111111",
-    "quantity": 30
+    "sizeId": "44444440-4444-4444-4444-111111111111",
+    "quantity": 10
   }
 }
 

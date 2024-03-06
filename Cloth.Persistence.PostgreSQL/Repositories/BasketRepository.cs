@@ -1,37 +1,70 @@
 ﻿using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
-using Cloth.Persistence.Ef.Context;
-using Microsoft.EntityFrameworkCore;
-using Persistence.Abstractions.Repositories;
+using Cloth.Persistence.PostgreSQL.Constants.DapperQueries;
+using Cloth.Persistence.PostgreSQL.Context;
+using Dapper;
+using Persistence.Abstractions;
+using System.Data;
 
 namespace Cloth.Persistence.Ef.Repositories;
 
 public class BasketRepository : GenericRepository<Basket>, IBasketRepository
 {
-    protected readonly ClothInventoryDbContext _dbContext;
+    private readonly ClothInventoryDbContext _dbContext;
+    private readonly IDbConnection _dbConnection;
 
-    public BasketRepository(ClothInventoryDbContext dbContext) : base(dbContext)
+    public BasketRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection) : base(dbContext, dbConnection)
     {
         _dbContext = dbContext;
+        _dbConnection = dbConnection;
     }
 
-    public async Task<Basket> GetBasketByUserIdAsync(Guid id)
+    public async Task<Basket> GetBasketByUserIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         try
         {
-            var result = await _dbContext.Baskets
-                .Include(b => b.BasketLines)
-                .SingleAsync(o => o.UserId == id);
+            var basketDictionary = new Dictionary<Guid, Basket>();
+            var basketLinesDictionary = new Dictionary<Guid, BasketLine>();
+
+            var basket = await _dbConnection.QueryAsync<Basket, User, BasketLine, Domain.Entities.Cloth, Size, Basket>(
+                ReadFromDbConstants.BasketConstants.GetBasketByUserIdQuery,
+                (basket, user, basketLine, cloth, size) =>
+                {
+                    Basket basketEntry;
+                    if (!basketDictionary.TryGetValue(basket.Id, out basketEntry))
+                    {
+                        basketDictionary.Add(basket.Id, basketEntry = basket);
+                        basketEntry.User = user;
+                        basketEntry.BasketLines = new List<BasketLine>();
+                    }
+
+                    BasketLine blEntry;
+                    if (basketLine != null && !basketLinesDictionary.TryGetValue(basketLine.Id, out blEntry))
+                    {
+                        basketLinesDictionary.Add(basketLine.Id, blEntry = basketLine);
+                        blEntry.Cloth = cloth;
+                        blEntry.Size = size;
+                        basketEntry.BasketLines.Add(blEntry);
+                    }
+
+                    return basketEntry;
+                },
+                new { UserId = id },
+                splitOn: $"{nameof(User.Id)},{nameof(BasketLine.Id)},{nameof(Domain.Entities.Cloth.Id)},{nameof(Size.Id)}"
+            );
+
+            var result = basketDictionary.Values.FirstOrDefault();
+            if (result == null)
+            {
+                throw new ItemNotFoundException($"Basket of User not found.");
+            }
+
             return result;
-        }
-        catch (ArgumentNullException)
-        {
-            throw new ItemNotFoundException($"Basket of User not found.");
         }
         catch (Exception ex)
         {
-            throw new ItemNotFoundException($"Basket of User not found.", ex);
+            throw new DbException($"Error retrieving Basket of User.", ex);
         }
     }
 }

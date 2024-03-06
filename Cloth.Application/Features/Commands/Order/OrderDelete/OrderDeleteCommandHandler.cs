@@ -14,10 +14,10 @@ public class OrderDeleteCommandHandler : IRequestHandler<OrderDeleteCommand>
 
     public async Task Handle(OrderDeleteCommand request, CancellationToken cancellationToken)
     {
-        var order = await _unitOfWork.Orders.GetOrderById(request.orderId);
+        var order = await _unitOfWork.Orders.GetOrderById(request.orderId, cancellationToken);
 
         order.IsDeleted = true;
         await _unitOfWork.Orders.UpdateAsync(order);
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.SaveAsync(cancellationToken);
     }
 }

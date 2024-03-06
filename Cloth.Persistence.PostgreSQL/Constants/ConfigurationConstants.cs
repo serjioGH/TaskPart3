@@ -1,4 +1,4 @@
-﻿namespace Cloth.Persistence.Ef.Constants;
+﻿namespace Cloth.Persistence.PostgreSQL.Constants;
 
 public static class ConfigurationConstants
 {

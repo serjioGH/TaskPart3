@@ -39,7 +39,7 @@ public class BasketLineCreateCommandHandler : IRequestHandler<BasketLineCreateCo
         await CheckClothSizesAsync(basketLine);
 
         await _unitOfWork.BasketLines.InsertAsync(basketLine);
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.SaveAsync(cancellationToken);
 
         var baskeLineDto = _mapper.Map<BasketLineCreateDto>(basketLine);
         return baskeLineDto;

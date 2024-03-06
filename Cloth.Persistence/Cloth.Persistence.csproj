@@ -23,7 +23,7 @@
     <ProjectReference Include="..\Cloth.Application\Cloth.Application.csproj" />
     <ProjectReference Include="..\Cloth.Domain\Cloth.Domain.csproj" />
     <ProjectReference Include="..\Cloth.Infrastructure\Cloth.Infrastructure.csproj" />
-    <ProjectReference Include="..\Cloth.Persistence.Ef\Cloth.Persistence.PostgreSQL.csproj" />
+    <ProjectReference Include="..\Cloth.Persistence.PostgreSQL\Cloth.Persistence.PostgreSQL.csproj" />
   </ItemGroup>
 
 </Project>

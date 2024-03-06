@@ -20,6 +20,6 @@ public class BasketLineDeleteAllCommandHandler : IRequestHandler<BasketLineDelet
         var basket = await _unitOfWork.Baskets.GetBasketByUserIdAsync(request.UserId);
 
         await _unitOfWork.BasketLines.DeleteAll(basket.Id);
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.SaveAsync(cancellationToken);
     }
 }

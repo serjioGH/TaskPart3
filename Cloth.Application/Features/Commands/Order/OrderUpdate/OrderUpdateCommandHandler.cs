@@ -18,13 +18,13 @@ public class OrderUpdateCommandHandler : IRequestHandler<OrderUpdateCommand, Upd
 
     public async Task<UpdateOrderDto> Handle(OrderUpdateCommand request, CancellationToken cancellationToken)
     {
-        var order = await _unitOfWork.Orders.GetOrderById(request.Id);
+        var order = await _unitOfWork.Orders.GetOrderById(request.Id, cancellationToken);
 
         order.StatusId = request.StatusId;
         order.PaymentId = request.PaymentId;
 
         await _unitOfWork.Orders.UpdateAsync(order);
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.SaveAsync(cancellationToken);
 
         var updatedOrderDto = _mapper.Map<UpdateOrderDto>(order);
         return updatedOrderDto;

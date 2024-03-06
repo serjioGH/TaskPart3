@@ -4,7 +4,7 @@ using Cloth.Application.Extensions;
 using Cloth.Infrastructure.Extensions;
 using Cloth.Persistence.Extensions;
 using MediatR;
-using Persistence.Abstractions.Repositories;
+using Persistence.Abstractions.Extensions;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +15,14 @@ var logger = new LoggerConfiguration()
     .CreateLogger();
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
+builder.Host.UseSerilog((context, loggerConfiguration) =>
+{
+    loggerConfiguration
+        .ReadFrom.Configuration(context.Configuration)
+        .Enrich.FromLogContext()
+        .WriteTo.Console()
+        .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day);
+});
 
 // Add services to the container.
 builder.Services.AddControllers(options => options.Filters.Add(typeof(ErrorHandlingFilter)));

@@ -1,0 +1,661 @@
+2024-02-29 12:32:59.903 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 12:33:00.022 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 12:33:00.032 +02:00 [INF] Hosting environment: Development
+2024-02-29 12:33:00.032 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 12:33:00.262 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 12:33:00.262 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 245.2265ms
+2024-02-29 12:33:00.266 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.3187ms
+2024-02-29 12:33:00.285 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 12:33:00.338 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.7466ms
+2024-02-29 12:33:00.479 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 12:33:00.554 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 75.6928ms
+2024-02-29 12:33:29.261 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/api/Cloths - null null
+2024-02-29 12:33:29.322 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.Get (Cloth.API)'
+2024-02-29 12:33:29.363 +02:00 [INF] Route matched with {action = "Get", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Cloth.API.Models.Requests.Cloth.ClothFilterRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 12:33:29.839 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.Get (Cloth.API) - Validation state: "Valid"
+2024-02-29 12:33:29.905 +02:00 [INF] Sending request ClothQuery, "2024-02-29T12:33:29.9023459+02:00"
+2024-02-29 12:33:31.274 +02:00 [INF] Cloths filtered.
+2024-02-29 12:33:31.283 +02:00 [INF] Completed request ClothQuery, "2024-02-29T12:33:31.2835947+02:00"
+2024-02-29 12:33:31.302 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.Get (Cloth.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1456.9384ms.
+2024-02-29 12:33:31.313 +02:00 [INF] Executing OkObjectResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothResponseDto'.
+2024-02-29 12:33:31.344 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.Get (Cloth.API) in 1978.2157ms
+2024-02-29 12:33:31.346 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.Get (Cloth.API)'
+2024-02-29 12:33:53.415 +02:00 [ERR] Connection ID "18374686501951766531", Request ID "40000004-0005-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Cloth.Persistence.UnitOfWork.Dispose() in D:\Repositories\DigitallDotNetTask3\Cloth.Persistence\UnitOfWork.cs:line 48
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.DisposeAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.Features.RequestServicesFeature.<DisposeAsync>g__Awaited|9_0(RequestServicesFeature servicesFeature, ValueTask vt)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2024-02-29 12:33:53.437 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/api/Cloths - 200 null application/json; charset=utf-8 24175.3243ms
+2024-02-29 14:00:21.416 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 14:00:21.428 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 14:00:21.439 +02:00 [INF] Hosting environment: Development
+2024-02-29 14:00:21.439 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 14:00:21.661 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 235.8988ms
+2024-02-29 14:00:21.664 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 14:00:21.669 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.9121ms
+2024-02-29 14:00:21.707 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 14:00:21.735 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.9357ms
+2024-02-29 14:00:21.762 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 14:00:21.821 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 58.8017ms
+2024-02-29 14:00:27.024 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/api/Cloths - null null
+2024-02-29 14:00:27.038 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.Get (Cloth.API)'
+2024-02-29 14:00:27.088 +02:00 [INF] Route matched with {action = "Get", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Cloth.API.Models.Requests.Cloth.ClothFilterRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 14:00:27.443 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.Get (Cloth.API) - Validation state: "Valid"
+2024-02-29 14:00:27.495 +02:00 [INF] Sending request ClothQuery, "2024-02-29T14:00:27.4925863+02:00"
+2024-02-29 14:00:27.751 +02:00 [ERR] ClothQuery resulted in error with Exception: No service for type 'Npgsql.NpgsqlConnection' has been registered., "2024-02-29T14:00:27.7463553+02:00"
+2024-02-29 14:00:27.926 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 14:00:27.933 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.Get (Cloth.API) in 840.3033ms
+2024-02-29 14:00:27.933 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.Get (Cloth.API)'
+2024-02-29 14:00:27.936 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/api/Cloths - 500 null text/plain; charset=utf-8 912.2118ms
+2024-02-29 14:03:11.788 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 14:03:11.800 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 14:03:11.810 +02:00 [INF] Hosting environment: Development
+2024-02-29 14:03:11.810 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 14:03:11.954 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 157.8009ms
+2024-02-29 14:03:11.987 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 14:03:11.993 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 5.52ms
+2024-02-29 14:03:11.994 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 14:03:12.025 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.7818ms
+2024-02-29 14:03:12.050 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 14:03:12.103 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.7298ms
+2024-02-29 14:03:16.674 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/api/Cloths - null null
+2024-02-29 14:03:16.690 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.Get (Cloth.API)'
+2024-02-29 14:03:16.720 +02:00 [INF] Route matched with {action = "Get", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Cloth.API.Models.Requests.Cloth.ClothFilterRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 14:03:17.052 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.Get (Cloth.API) - Validation state: "Valid"
+2024-02-29 14:03:17.112 +02:00 [INF] Sending request ClothQuery, "2024-02-29T14:03:17.1093216+02:00"
+2024-02-29 14:03:17.566 +02:00 [INF] Cloths filtered.
+2024-02-29 14:03:17.570 +02:00 [INF] Completed request ClothQuery, "2024-02-29T14:03:17.5702537+02:00"
+2024-02-29 14:03:17.577 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.Get (Cloth.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 522.7239ms.
+2024-02-29 14:03:17.581 +02:00 [INF] Executing OkObjectResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothResponseDto'.
+2024-02-29 14:03:17.598 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.Get (Cloth.API) in 874.8927ms
+2024-02-29 14:03:17.598 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.Get (Cloth.API)'
+2024-02-29 14:03:17.609 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/api/Cloths - 200 null application/json; charset=utf-8 935.1373ms
+2024-02-29 15:39:06.653 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 15:39:06.669 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 15:39:06.680 +02:00 [INF] Hosting environment: Development
+2024-02-29 15:39:06.680 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 15:39:06.842 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 15:39:06.843 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 176.5295ms
+2024-02-29 15:39:06.845 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.3571ms
+2024-02-29 15:39:06.848 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 15:39:06.887 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.6055ms
+2024-02-29 15:39:06.909 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 15:39:06.969 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 60.7635ms
+2024-02-29 15:40:28.387 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 15:40:28.404 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 15:40:28.447 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 15:40:28.750 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 15:40:29.579 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 15:40:29.584 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 1133.1512ms
+2024-02-29 15:40:29.584 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 15:40:29.596 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 400 null text/plain; charset=utf-8 1209.0418ms
+2024-02-29 15:46:21.789 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 15:46:21.803 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 15:46:21.816 +02:00 [INF] Hosting environment: Development
+2024-02-29 15:46:21.817 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 15:46:21.983 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 15:46:21.983 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 183.0767ms
+2024-02-29 15:46:21.990 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 15:46:21.986 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.5079ms
+2024-02-29 15:46:22.022 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.7045ms
+2024-02-29 15:46:22.052 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 15:46:22.121 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 68.7739ms
+2024-02-29 15:46:43.185 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 15:46:43.222 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 15:46:43.263 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 15:46:43.619 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 15:48:09.748 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 15:48:09.763 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 15:48:09.777 +02:00 [INF] Hosting environment: Development
+2024-02-29 15:48:09.778 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 15:48:09.989 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 15:48:09.990 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 231.2507ms
+2024-02-29 15:48:09.997 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.909ms
+2024-02-29 15:48:10.007 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 15:48:10.054 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.7896ms
+2024-02-29 15:48:10.091 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 15:48:10.176 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 85.247ms
+2024-02-29 15:48:31.795 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 15:48:31.835 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 15:48:31.860 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 15:48:32.178 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 15:50:37.390 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 15:50:37.393 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 125531.1907ms
+2024-02-29 15:50:37.394 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 15:50:37.399 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 400 null text/plain; charset=utf-8 125605.2867ms
+2024-02-29 15:55:49.145 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 15:55:49.156 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 15:55:49.167 +02:00 [INF] Hosting environment: Development
+2024-02-29 15:55:49.167 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 15:55:49.308 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 154.7089ms
+2024-02-29 15:55:49.320 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 15:55:49.322 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 1.9935ms
+2024-02-29 15:55:49.340 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 15:55:49.372 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.9165ms
+2024-02-29 15:55:49.448 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 15:55:49.521 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.0976ms
+2024-02-29 15:56:14.178 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 15:56:14.202 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 15:56:14.243 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 15:56:14.561 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 15:56:22.679 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 15:56:22.681 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 8435.268ms
+2024-02-29 15:56:22.681 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 15:56:22.685 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 400 null text/plain; charset=utf-8 8507.5146ms
+2024-02-29 15:56:33.229 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 15:56:33.230 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 15:56:33.231 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 15:56:33.257 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 16:11:51.821 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 16:11:51.822 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 918590.2985ms
+2024-02-29 16:11:51.822 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:11:51.824 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 400 null text/plain; charset=utf-8 918595.9475ms
+2024-02-29 16:20:11.293 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 16:20:11.305 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 16:20:11.315 +02:00 [INF] Hosting environment: Development
+2024-02-29 16:20:11.315 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 16:20:11.461 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 16:20:11.461 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 156.6407ms
+2024-02-29 16:20:11.465 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.3078ms
+2024-02-29 16:20:11.473 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 16:20:11.506 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.6643ms
+2024-02-29 16:20:11.528 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 16:20:11.581 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.3615ms
+2024-02-29 16:20:44.092 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 16:20:44.121 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:20:44.155 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 16:20:44.508 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 16:20:45.434 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 16:20:45.438 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 1279.0484ms
+2024-02-29 16:20:45.439 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:20:45.446 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 400 null text/plain; charset=utf-8 1354.1685ms
+2024-02-29 16:21:00.732 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 16:21:00.733 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:21:00.733 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 16:21:00.750 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 16:23:36.646 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 16:23:36.663 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 16:23:36.674 +02:00 [INF] Hosting environment: Development
+2024-02-29 16:23:36.674 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 16:23:36.820 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 159.9077ms
+2024-02-29 16:23:36.831 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 16:23:36.834 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.0385ms
+2024-02-29 16:23:36.846 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 16:23:36.872 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.4175ms
+2024-02-29 16:23:36.941 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 16:23:36.992 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 51.3561ms
+2024-02-29 16:23:54.782 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 16:23:54.795 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:23:54.837 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 16:23:55.197 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 16:30:21.143 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 16:30:21.161 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 16:30:21.176 +02:00 [INF] Hosting environment: Development
+2024-02-29 16:30:21.176 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 16:30:21.329 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 16:30:21.329 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 174.27ms
+2024-02-29 16:30:21.331 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.0069ms
+2024-02-29 16:30:21.337 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 16:30:21.374 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.31ms
+2024-02-29 16:30:21.399 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 16:30:21.460 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 61.577ms
+2024-02-29 16:30:52.795 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 16:30:52.826 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:30:52.868 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 16:30:53.209 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 16:31:00.303 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 16:31:00.360 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 16:31:00.384 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 16:31:00.419 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 16:31:00.420 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 16:31:00.426 +02:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-29 16:31:00.454 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-02-29 16:31:00.562 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 7351.4332ms.
+2024-02-29 16:31:00.565 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-02-29 16:31:00.579 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 7708.6183ms
+2024-02-29 16:31:00.579 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:31:00.584 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 7789.1539ms
+2024-02-29 16:38:09.418 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 16:38:09.430 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 16:38:09.440 +02:00 [INF] Hosting environment: Development
+2024-02-29 16:38:09.440 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 16:38:09.585 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 16:38:09.584 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 156.6825ms
+2024-02-29 16:38:09.587 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.5084ms
+2024-02-29 16:38:09.609 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 16:38:09.641 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.3253ms
+2024-02-29 16:38:09.693 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 16:38:09.746 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.762ms
+2024-02-29 16:41:02.260 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 398
+2024-02-29 16:41:02.311 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:41:02.331 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 16:41:02.576 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 16:41:03.894 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 16:41:03.977 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 16:41:04.016 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 16:41:04.039 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 16:41:04.039 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 16:41:04.047 +02:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-29 16:41:04.088 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-02-29 16:41:04.333 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 1754.0058ms.
+2024-02-29 16:41:04.339 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-02-29 16:41:04.367 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 2032.8058ms
+2024-02-29 16:41:04.368 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 16:41:04.377 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 2118.4659ms
+2024-02-29 17:09:39.664 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 17:09:39.682 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 17:09:39.691 +02:00 [INF] Hosting environment: Development
+2024-02-29 17:09:39.691 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 17:09:39.850 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 172.0319ms
+2024-02-29 17:09:39.867 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 17:09:39.867 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 17:09:39.871 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.8548ms
+2024-02-29 17:09:39.904 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.1855ms
+2024-02-29 17:09:39.930 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 17:09:39.991 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 61.5104ms
+2024-02-29 17:10:57.946 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:44326/api/Cloths - application/json 472
+2024-02-29 17:10:57.963 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 17:10:58.003 +02:00 [INF] Route matched with {action = "UpdateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCloth(System.Guid, Cloth.API.Models.Requests.Cloth.ClothUpdateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:10:58.333 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:10:58.404 +02:00 [ERR] Request Validation Failed.
+2024-02-29 17:10:58.554 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 17:10:58.563 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) in 553.1895ms
+2024-02-29 17:10:58.564 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 17:10:58.565 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:44326/api/Cloths - 400 null text/plain; charset=utf-8 618.9576ms
+2024-02-29 17:11:22.463 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:44326/api/Cloths - application/json 472
+2024-02-29 17:11:22.464 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 17:11:22.464 +02:00 [INF] Route matched with {action = "UpdateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCloth(System.Guid, Cloth.API.Models.Requests.Cloth.ClothUpdateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:11:22.488 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:11:22.489 +02:00 [ERR] Request Validation Failed.
+2024-02-29 17:11:22.522 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 17:11:22.522 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) in 58.1202ms
+2024-02-29 17:11:22.522 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 17:11:22.522 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:44326/api/Cloths - 400 null text/plain; charset=utf-8 59.8487ms
+2024-02-29 17:12:35.868 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:44326/api/Cloths?clothId=dd38c312-78e5-4d03-b99a-8aafcb112ffb - application/json 472
+2024-02-29 17:12:35.877 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 17:12:35.877 +02:00 [INF] Route matched with {action = "UpdateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCloth(System.Guid, Cloth.API.Models.Requests.Cloth.ClothUpdateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:12:35.898 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:12:37.187 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:12:37.336 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 17:12:37.371 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:12:37.399 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:12:37.400 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 17:12:37.409 +02:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-29 17:12:37.459 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-02-29 17:12:37.674 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1772.6981ms.
+2024-02-29 17:12:37.676 +02:00 [INF] Executing OkObjectResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothUpdateResponse'.
+2024-02-29 17:12:37.685 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) in 1807.1432ms
+2024-02-29 17:12:37.686 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 17:12:37.706 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:44326/api/Cloths?clothId=dd38c312-78e5-4d03-b99a-8aafcb112ffb - 200 null application/json; charset=utf-8 1839.8788ms
+2024-02-29 17:36:55.314 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 17:36:55.325 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 17:36:55.338 +02:00 [INF] Hosting environment: Development
+2024-02-29 17:36:55.338 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 17:36:55.481 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 158.6895ms
+2024-02-29 17:36:55.494 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 17:36:55.500 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.0972ms
+2024-02-29 17:36:55.508 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 17:36:55.534 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.9632ms
+2024-02-29 17:36:55.636 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 17:36:55.715 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 78.5171ms
+2024-02-29 17:37:25.430 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 316
+2024-02-29 17:37:25.460 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 17:37:25.511 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:37:25.850 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:37:27.177 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:37:27.356 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 17:37:27.395 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:37:27.430 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:37:27.431 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 17:37:27.442 +02:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-29 17:37:27.522 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-02-29 17:37:27.731 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 1877.8133ms.
+2024-02-29 17:37:27.735 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-02-29 17:37:27.764 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 2249.7552ms
+2024-02-29 17:37:27.764 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 17:37:27.772 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 2342.9224ms
+2024-02-29 17:37:45.580 +02:00 [INF] Request starting HTTP/2 DELETE https://localhost:44326/api/Cloths/13516597-390c-4596-8fbf-1b1ebd4e8d90 - null null
+2024-02-29 17:37:45.582 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 17:37:45.588 +02:00 [INF] Route matched with {action = "DeleteCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCloth(System.Guid, MediatR.IMediator) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:37:45.625 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:37:45.905 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 17:37:45.907 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) in 318.3189ms
+2024-02-29 17:37:45.907 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 17:37:45.908 +02:00 [INF] Request finished HTTP/2 DELETE https://localhost:44326/api/Cloths/13516597-390c-4596-8fbf-1b1ebd4e8d90 - 400 null text/plain; charset=utf-8 328.4001ms
+2024-02-29 17:38:38.027 +02:00 [INF] Request starting HTTP/2 DELETE https://localhost:44326/api/Cloths/13516597-390c-4596-8fbf-1b1ebd4e8d90 - null null
+2024-02-29 17:38:38.028 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 17:38:38.031 +02:00 [INF] Route matched with {action = "DeleteCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCloth(System.Guid, MediatR.IMediator) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:38:38.063 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:38:38.267 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 17:38:38.268 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) in 236.0241ms
+2024-02-29 17:38:38.268 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 17:38:38.269 +02:00 [INF] Request finished HTTP/2 DELETE https://localhost:44326/api/Cloths/13516597-390c-4596-8fbf-1b1ebd4e8d90 - 400 null text/plain; charset=utf-8 241.8817ms
+2024-02-29 17:41:35.543 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 17:41:35.560 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 17:41:35.571 +02:00 [INF] Hosting environment: Development
+2024-02-29 17:41:35.572 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 17:41:35.719 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 17:41:35.720 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 163.1725ms
+2024-02-29 17:41:35.723 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.4194ms
+2024-02-29 17:41:35.736 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 17:41:35.777 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.2511ms
+2024-02-29 17:41:35.809 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 17:41:35.871 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 61.9388ms
+2024-02-29 17:44:16.265 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 17:44:16.308 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 17:44:16.329 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:44:16.622 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:44:17.852 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:44:17.981 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 17:44:18.027 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:44:18.059 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-02-29 17:44:18.059 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-02-29 17:44:18.068 +02:00 [INF] No migrations were applied. The database is already up to date.
+2024-02-29 17:44:18.123 +02:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-02-29 17:44:18.390 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 1764.5967ms.
+2024-02-29 17:44:18.395 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-02-29 17:44:18.418 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 2086.1961ms
+2024-02-29 17:44:18.419 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 17:44:18.434 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 2170.1492ms
+2024-02-29 17:44:32.120 +02:00 [INF] Request starting HTTP/2 DELETE https://localhost:44326/api/Cloths/0722f425-4af3-42bb-af24-82ef480cb4f7 - null null
+2024-02-29 17:44:32.123 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 17:44:32.136 +02:00 [INF] Route matched with {action = "DeleteCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCloth(System.Guid, MediatR.IMediator) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:44:32.167 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:45:07.284 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-02-29 17:45:07.285 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) in 35148.4914ms
+2024-02-29 17:45:07.285 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 17:45:07.285 +02:00 [INF] Request finished HTTP/2 DELETE https://localhost:44326/api/Cloths/0722f425-4af3-42bb-af24-82ef480cb4f7 - 400 null text/plain; charset=utf-8 35166.4462ms
+2024-02-29 17:52:13.659 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 17:52:13.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 17:52:13.690 +02:00 [INF] Hosting environment: Development
+2024-02-29 17:52:13.690 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 17:52:13.844 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 17:52:13.845 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 175.7804ms
+2024-02-29 17:52:13.850 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 17:52:13.850 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.192ms
+2024-02-29 17:52:13.883 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.4123ms
+2024-02-29 17:52:13.912 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 17:52:13.964 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 51.4362ms
+2024-02-29 17:52:46.903 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 17:52:46.932 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 17:52:46.972 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:52:47.306 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:52:48.138 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 824.8193ms.
+2024-02-29 17:52:48.148 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-02-29 17:52:48.195 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 1219.2796ms
+2024-02-29 17:52:48.196 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 17:52:48.205 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 1301.9965ms
+2024-02-29 17:53:03.931 +02:00 [INF] Request starting HTTP/2 DELETE https://localhost:44326/api/Cloths/a55adcc1-ba6c-48f0-9a8e-a1649208c2b8 - null null
+2024-02-29 17:53:03.933 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 17:53:03.947 +02:00 [INF] Route matched with {action = "DeleteCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCloth(System.Guid, MediatR.IMediator) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 17:53:03.982 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 17:53:09.555 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 5572.9265ms.
+2024-02-29 17:53:09.557 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2024-02-29 17:53:09.558 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) in 5610.3819ms
+2024-02-29 17:53:09.558 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 17:53:09.558 +02:00 [INF] Request finished HTTP/2 DELETE https://localhost:44326/api/Cloths/a55adcc1-ba6c-48f0-9a8e-a1649208c2b8 - 204 null null 5627.7688ms
+2024-02-29 18:57:33.543 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 18:57:33.638 +02:00 [INF] Hosting environment: Development
+2024-02-29 18:57:33.639 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 18:57:33.661 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 18:57:33.895 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 18:57:33.892 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 235.3437ms
+2024-02-29 18:57:33.904 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 7.6181ms
+2024-02-29 18:57:33.913 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 18:57:33.939 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.3078ms
+2024-02-29 18:57:33.967 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 18:57:34.033 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 66.0846ms
+2024-02-29 19:00:43.427 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 403
+2024-02-29 19:00:43.440 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 19:00:43.451 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 19:00:43.697 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 19:00:44.730 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 1031.1659ms.
+2024-02-29 19:00:44.733 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-02-29 19:00:44.745 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 1292.0976ms
+2024-02-29 19:00:44.745 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 19:01:10.986 +02:00 [ERR] Connection ID "18158513724132950038", Request ID "40000017-0006-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: NpgsqlTransaction
+   at Npgsql.ThrowHelper.ThrowObjectDisposedException(String objectName, Exception innerException)
+   at Npgsql.NpgsqlTransaction.CheckDisposed()
+   at Npgsql.NpgsqlTransaction.get_Connection()
+   at Npgsql.NpgsqlTransaction.get_DbConnection()
+   at Cloth.Persistence.UnitOfWork.Dispose() in D:\Repositories\DigitallDotNetTask3\Cloth.Persistence\UnitOfWork.cs:line 48
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.DisposeAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.Features.RequestServicesFeature.<DisposeAsync>g__Awaited|9_0(RequestServicesFeature servicesFeature, ValueTask vt)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2024-02-29 19:01:11.005 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 27584.1526ms
+2024-02-29 19:01:36.419 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 19:01:36.435 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 19:01:36.449 +02:00 [INF] Hosting environment: Development
+2024-02-29 19:01:36.449 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 19:01:36.623 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 191.1667ms
+2024-02-29 19:01:36.627 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 19:01:36.639 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.8085ms
+2024-02-29 19:01:36.645 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 19:01:36.673 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.5858ms
+2024-02-29 19:01:36.698 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 19:01:36.754 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 55.6544ms
+2024-02-29 19:02:27.672 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 403
+2024-02-29 19:02:27.688 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 19:02:27.700 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 19:02:27.816 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 19:02:28.138 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 319.3621ms.
+2024-02-29 19:02:28.141 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-02-29 19:02:28.153 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 450.3606ms
+2024-02-29 19:02:28.153 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 19:02:45.795 +02:00 [ERR] Connection ID "18374686549196406790", Request ID "40000007-0010-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: NpgsqlTransaction
+   at Npgsql.ThrowHelper.ThrowObjectDisposedException(String objectName, Exception innerException)
+   at Npgsql.NpgsqlTransaction.CheckDisposed()
+   at Npgsql.NpgsqlTransaction.get_Connection()
+   at Npgsql.NpgsqlTransaction.get_DbConnection()
+   at Cloth.Persistence.UnitOfWork.Dispose() in D:\Repositories\DigitallDotNetTask3\Cloth.Persistence\UnitOfWork.cs:line 48
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.DisposeAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.Features.RequestServicesFeature.<DisposeAsync>g__Awaited|9_0(RequestServicesFeature servicesFeature, ValueTask vt)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2024-02-29 19:02:45.821 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 18149.1516ms
+2024-02-29 19:04:10.729 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 19:04:10.741 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 19:04:10.755 +02:00 [INF] Hosting environment: Development
+2024-02-29 19:04:10.755 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 19:04:10.899 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 19:04:10.899 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 160.6341ms
+2024-02-29 19:04:10.903 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.6959ms
+2024-02-29 19:04:10.913 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 19:04:10.940 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.4947ms
+2024-02-29 19:04:10.970 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 19:04:11.028 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 58.3143ms
+2024-02-29 19:04:31.008 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44326/api/Cloths - application/json 314
+2024-02-29 19:04:31.021 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 19:04:31.032 +02:00 [INF] Route matched with {action = "CreateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCloth(Cloth.API.Models.Requests.Cloth.ClothCreateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 19:04:31.153 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 19:04:31.480 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 325.5123ms.
+2024-02-29 19:04:31.484 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothCreateResponse'.
+2024-02-29 19:04:31.495 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API) in 461.0218ms
+2024-02-29 19:04:31.496 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.CreateCloth (Cloth.API)'
+2024-02-29 19:04:31.499 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44326/api/Cloths - 201 null application/json; charset=utf-8 491.2433ms
+2024-02-29 19:05:43.651 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:44326/api/Cloths?clothId=c05e7a95-a09b-4ffc-bd4b-e3c75391d36f - application/json 472
+2024-02-29 19:05:43.653 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 19:05:43.667 +02:00 [INF] Route matched with {action = "UpdateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCloth(System.Guid, Cloth.API.Models.Requests.Cloth.ClothUpdateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 19:05:43.724 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 19:05:43.778 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 53.6179ms.
+2024-02-29 19:05:43.778 +02:00 [INF] Executing OkObjectResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothUpdateResponse'.
+2024-02-29 19:05:43.780 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) in 112.8974ms
+2024-02-29 19:05:43.780 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 19:05:43.780 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:44326/api/Cloths?clothId=c05e7a95-a09b-4ffc-bd4b-e3c75391d36f - 200 null application/json; charset=utf-8 129.5406ms
+2024-02-29 19:06:13.915 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/api/Cloths - null null
+2024-02-29 19:06:13.916 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.Get (Cloth.API)'
+2024-02-29 19:06:13.928 +02:00 [INF] Route matched with {action = "Get", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Cloth.API.Models.Requests.Cloth.ClothFilterRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 19:06:13.976 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.Get (Cloth.API) - Validation state: "Valid"
+2024-02-29 19:06:14.007 +02:00 [INF] Sending request ClothQuery, "2024-02-29T19:06:14.0038675+02:00"
+2024-02-29 19:06:14.036 +02:00 [INF] Cloths filtered.
+2024-02-29 19:06:14.040 +02:00 [INF] Completed request ClothQuery, "2024-02-29T19:06:14.0401073+02:00"
+2024-02-29 19:06:14.047 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.Get (Cloth.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 71.2365ms.
+2024-02-29 19:06:14.047 +02:00 [INF] Executing OkObjectResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothResponseDto'.
+2024-02-29 19:06:14.061 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.Get (Cloth.API) in 132.6204ms
+2024-02-29 19:06:14.061 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.Get (Cloth.API)'
+2024-02-29 19:06:14.062 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/api/Cloths - 200 null application/json; charset=utf-8 147.2033ms
+2024-02-29 19:07:19.947 +02:00 [INF] Request starting HTTP/2 DELETE https://localhost:44326/api/Cloths/c05e7a95-a09b-4ffc-bd4b-e3c75391d36f - null null
+2024-02-29 19:07:19.948 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 19:07:19.953 +02:00 [INF] Route matched with {action = "DeleteCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCloth(System.Guid, MediatR.IMediator) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 19:07:19.979 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 19:07:20.012 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 32.7711ms.
+2024-02-29 19:07:20.014 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2024-02-29 19:07:20.014 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API) in 61.0135ms
+2024-02-29 19:07:20.014 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.DeleteCloth (Cloth.API)'
+2024-02-29 19:07:20.015 +02:00 [INF] Request finished HTTP/2 DELETE https://localhost:44326/api/Cloths/c05e7a95-a09b-4ffc-bd4b-e3c75391d36f - 204 null null 68.6535ms
+2024-02-29 22:32:26.586 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 22:32:26.730 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 22:32:26.748 +02:00 [INF] Hosting environment: Development
+2024-02-29 22:32:26.748 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 22:32:27.000 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 275.6601ms
+2024-02-29 22:32:27.015 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 22:32:27.018 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 3.2421ms
+2024-02-29 22:32:27.037 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 22:32:27.087 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.7556ms
+2024-02-29 22:32:27.141 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 22:32:27.232 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.4338ms
+2024-02-29 22:33:43.169 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:44326/api/Cloths?clothId=dd38c312-78e5-4d03-b99a-8aafcb112ffb - application/json 473
+2024-02-29 22:33:43.187 +02:00 [INF] Executing endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 22:33:43.225 +02:00 [INF] Route matched with {action = "UpdateCloth", controller = "Cloths"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCloth(System.Guid, Cloth.API.Models.Requests.Cloth.ClothUpdateRequest, MediatR.IMediator, AutoMapper.IMapper) on controller Cloth.API.Controllers.ClothsController (Cloth.API).
+2024-02-29 22:33:43.573 +02:00 [INF] Executing action method Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) - Validation state: "Valid"
+2024-02-29 22:33:44.940 +02:00 [INF] Executed action method Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1360.0205ms.
+2024-02-29 22:33:44.950 +02:00 [INF] Executing OkObjectResult, writing value of type 'Cloth.API.Models.Responses.Cloth.ClothUpdateResponse'.
+2024-02-29 22:33:44.967 +02:00 [INF] Executed action Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API) in 1736.9652ms
+2024-02-29 22:33:44.968 +02:00 [INF] Executed endpoint 'Cloth.API.Controllers.ClothsController.UpdateCloth (Cloth.API)'
+2024-02-29 22:33:44.977 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:44326/api/Cloths?clothId=dd38c312-78e5-4d03-b99a-8aafcb112ffb - 200 null application/json; charset=utf-8 1808.1841ms
+2024-02-29 23:59:03.908 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-02-29 23:59:04.074 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/index.html - null null
+2024-02-29 23:59:04.082 +02:00 [INF] Hosting environment: Development
+2024-02-29 23:59:04.082 +02:00 [INF] Content root path: D:\Repositories\DigitallDotNetTask3\Cloth.API
+2024-02-29 23:59:04.282 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/index.html - 200 null text/html;charset=utf-8 212.4318ms
+2024-02-29 23:59:04.285 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - null null
+2024-02-29 23:59:04.288 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.8352ms
+2024-02-29 23:59:04.295 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/_vs/browserLink - null null
+2024-02-29 23:59:04.319 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.8853ms
+2024-02-29 23:59:04.347 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - null null
+2024-02-29 23:59:04.404 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44326/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 56.7554ms

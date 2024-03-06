@@ -19,13 +19,25 @@ public class ClothCreateCommandHandler : IRequestHandler<ClothCreateCommand, Cre
 
     public async Task<CreateClothDto> Handle(ClothCreateCommand command, CancellationToken cancellationToken)
     {
-        var cloth = _mapper.Map<Cloth>(command);
+        try
+        {
+            var cloth = _mapper.Map<Cloth>(command);
 
-        await _unitOfWork.Cloths.InsertAsync(cloth);
-        await _unitOfWork.SaveAsync();
+            await _unitOfWork.Cloths.InsertAsync(cloth);
+            _unitOfWork.CommitTransaction();
 
-        var itemDto = _mapper.Map<CreateClothDto>(cloth);
+            var itemDto = _mapper.Map<CreateClothDto>(cloth);
 
-        return itemDto;
+            return itemDto;
+        }
+        catch (Exception ex)
+        {
+            _unitOfWork.Rollback();
+            throw new Exception("An error occurred processing the request.", ex);
+        }
+        finally
+        {
+            _unitOfWork.Dispose();
+        }
     }
 }

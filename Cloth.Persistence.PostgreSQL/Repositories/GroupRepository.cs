@@ -1,13 +1,14 @@
 ﻿using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
-using Cloth.Persistence.Ef.Context;
-using Persistence.Abstractions.Repositories;
+using Cloth.Persistence.PostgreSQL.Context;
+using Persistence.Abstractions;
+using System.Data;
 
-namespace Cloth.Persistence.Ef.Repositories;
+namespace Cloth.Persistence.PostgreSQL.Repositories;
 
 internal class GroupRepository : GenericRepository<Group>, IGroupRepository
 {
-    public GroupRepository(ClothInventoryDbContext dbContext) : base(dbContext)
+    public GroupRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection) : base(dbContext, dbConnection)
     {
     }
 }

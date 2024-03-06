@@ -1,20 +1,23 @@
-﻿namespace Cloth.Persistence.Ef.Repositories;
-
-using Cloth.Application.Interfaces.Repositories;
+﻿using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
-using Cloth.Persistence.Ef.Context;
-using global::Persistence.Abstractions.Repositories;
-using System;
-using System.Threading.Tasks;
+using Cloth.Persistence.PostgreSQL.Constants.DapperQueries;
+using Cloth.Persistence.PostgreSQL.Context;
+using Dapper;
+using Persistence.Abstractions;
+using System.Data;
+
+namespace Cloth.Persistence.PostgreSQL.Repositories;
 
 public class ClothSizeRepository : GenericRepository<ClothSize>, IClothSizeRepository
 {
     protected readonly ClothInventoryDbContext _dbContext;
+    private readonly IDbConnection _dbConnection;
 
-    public ClothSizeRepository(ClothInventoryDbContext dbContext) : base(dbContext)
+    public ClothSizeRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection) : base(dbContext, dbConnection)
     {
         _dbContext = dbContext;
+        _dbConnection = dbConnection;
     }
 
     public async Task DeleteByCompositKey(Guid clothId, Guid sizeId)
@@ -29,13 +32,18 @@ public class ClothSizeRepository : GenericRepository<ClothSize>, IClothSizeRepos
 
     public async Task<ClothSize> GetByCompositKey(Guid clothId, Guid sizeId)
     {
-        var productSize = await _dbContext.Set<ClothSize>().FindAsync(clothId, sizeId);
-
-        if (productSize == null)
+        try
         {
-            throw new ItemNotFoundException($"ClothSize not found with these ClothId and SizeId.");
-        }
+            var result = await _dbConnection.QuerySingleAsync<ClothSize>(
+                ReadFromDbConstants.ClothSizeConstants.GetByCompositeKeyQuery,
+                new { ClothId = clothId, SizeId = sizeId }
+            );
 
-        return productSize;
+            return result;
+        }
+        catch (Exception ex)
+        {
+            throw new ItemNotFoundException($"ClothSize not found with these ClothId and SizeId.", ex);
+        }
     }
 }

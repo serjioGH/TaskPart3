@@ -10,7 +10,11 @@ public interface IUnitOfWork : IDisposable
 
     IOrderRepository Orders { get; }
 
-    Task<int> SaveAsync();
+    Task<int> SaveAsync(CancellationToken cancellationToken);
+
+    void CommitTransaction();
+
+    void Rollback();
 
     IClothRepository Cloths { get; }
 
