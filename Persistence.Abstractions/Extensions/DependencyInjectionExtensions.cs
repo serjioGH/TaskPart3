@@ -1,4 +1,4 @@
-﻿namespace Persistence.Abstractions.Repositories;
+﻿namespace Persistence.Abstractions.Extensions;
 
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Abstractions.Interfaces;

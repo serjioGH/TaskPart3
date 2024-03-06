@@ -21,17 +21,10 @@
     <ProjectReference Include="..\Cloth.Application\Cloth.Application.csproj" />
     <ProjectReference Include="..\Cloth.Domain\Cloth.Domain.csproj" />
     <ProjectReference Include="..\Cloth.Infrastructure\Cloth.Infrastructure.csproj" />
-    <ProjectReference Include="..\Persistence.Abstractions\Persistence.Abstractions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Using Include="Persistence.Abstractions.Repositories">
-      <Alias>GenericRepository</Alias>
-    </Using>
   </ItemGroup>
 
 </Project>

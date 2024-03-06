@@ -1,11 +1,11 @@
-﻿using Cloth.Persistence.Abstractions.Constants;
-using Dapper;
+﻿using Dapper;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Abstractions.Constants;
 using Persistence.Abstractions.Exceptions;
 using Persistence.Abstractions.Interfaces;
 using System.Data;
 
-namespace Persistence.Abstractions.Repositories;
+namespace Persistence.Abstractions;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {

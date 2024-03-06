@@ -1,26 +1,23 @@
-﻿namespace Cloth.Persistence.PostgreSQL.Repositories;
-
-using Cloth.Application.Interfaces.Repositories;
-using Cloth.Domain.Entities;
+﻿using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Constants.DapperQueries;
 using Cloth.Persistence.PostgreSQL.Context;
 using Dapper;
-using GenericRepository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using Persistence.Abstractions;
 using System.Data;
-using System.Threading;
+
+namespace Cloth.Persistence.PostgreSQL.Repositories;
+
+using Cloth.Domain.Entities;
 
 public class ClothRepository : GenericRepository<Cloth>, IClothRepository
 {
     private readonly IDbConnection _dbConnection;
-    private readonly ILogger _logger;
 
-    public ClothRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection, ILogger<ClothRepository> logger) : base(dbContext, dbConnection)
+    public ClothRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection) : base(dbContext, dbConnection)
     {
         _dbConnection = dbConnection;
-        _logger = logger;
     }
 
     public async Task<IEnumerable<Cloth>> GetAllCloths()

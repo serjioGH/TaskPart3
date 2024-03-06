@@ -1,4 +1,4 @@
-﻿namespace Cloth.Persistence.Abstractions.Constants;
+﻿namespace Persistence.Abstractions.Constants;
 
 public static class QueryConstants
 {

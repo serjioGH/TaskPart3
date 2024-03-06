@@ -4,8 +4,7 @@ using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Constants.DapperQueries;
 using Cloth.Persistence.PostgreSQL.Context;
 using Dapper;
-using Persistence.Abstractions.Repositories;
-using Serilog;
+using Persistence.Abstractions;
 using System.Data;
 
 namespace Cloth.Persistence.Ef.Repositories;
@@ -14,14 +13,11 @@ public class BasketRepository : GenericRepository<Basket>, IBasketRepository
 {
     private readonly ClothInventoryDbContext _dbContext;
     private readonly IDbConnection _dbConnection;
-    private readonly ILogger _logger;
 
-    public BasketRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection,
-        ILogger logger) : base(dbContext, dbConnection)
+    public BasketRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection) : base(dbContext, dbConnection)
     {
         _dbContext = dbContext;
         _dbConnection = dbConnection;
-        _logger = logger;
     }
 
     public async Task<Basket> GetBasketByUserIdAsync(Guid id, CancellationToken cancellationToken = default)

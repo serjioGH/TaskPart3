@@ -1,23 +1,18 @@
-﻿namespace Cloth.Persistence.PostgreSQL.Repositories;
-
-using Cloth.Application.Interfaces.Repositories;
+﻿using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Context;
-using GenericRepository;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
-using System;
+using Persistence.Abstractions;
 using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+
+namespace Cloth.Persistence.PostgreSQL.Repositories;
 
 public class BasketLineRepository : GenericRepository<BasketLine>, IBasketLineRepository
 {
     protected readonly ClothInventoryDbContext _dbContext;
 
-    public BasketLineRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection,
-        ILogger logger) : base(dbContext, dbConnection)
+    public BasketLineRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection) : base(dbContext, dbConnection)
     {
         _dbContext = dbContext;
     }

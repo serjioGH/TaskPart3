@@ -1,24 +1,20 @@
-﻿namespace Cloth.Persistence.PostgreSQL.Repositories;
-
-using Cloth.Application.Interfaces.Repositories;
+﻿using Cloth.Application.Interfaces.Repositories;
 using Cloth.Domain.Entities;
 using Cloth.Domain.Exceptions;
 using Cloth.Persistence.PostgreSQL.Constants.DapperQueries;
 using Cloth.Persistence.PostgreSQL.Context;
 using Dapper;
-using GenericRepository;
-using Serilog;
-using System;
+using Persistence.Abstractions;
 using System.Data;
-using System.Threading.Tasks;
+
+namespace Cloth.Persistence.PostgreSQL.Repositories;
 
 public class ClothSizeRepository : GenericRepository<ClothSize>, IClothSizeRepository
 {
     protected readonly ClothInventoryDbContext _dbContext;
     private readonly IDbConnection _dbConnection;
 
-    public ClothSizeRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection,
-        ILogger logger) : base(dbContext, dbConnection)
+    public ClothSizeRepository(ClothInventoryDbContext dbContext, IDbConnection dbConnection) : base(dbContext, dbConnection)
     {
         _dbContext = dbContext;
         _dbConnection = dbConnection;

@@ -4,7 +4,7 @@ using Cloth.Application.Extensions;
 using Cloth.Infrastructure.Extensions;
 using Cloth.Persistence.Extensions;
 using MediatR;
-using Persistence.Abstractions.Repositories;
+using Persistence.Abstractions.Extensions;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
