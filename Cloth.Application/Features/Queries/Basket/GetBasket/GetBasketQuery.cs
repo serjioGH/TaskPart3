@@ -1,6 +1,7 @@
-﻿namespace Cloth.Application.Features.Queries.Basket.GetBasket;
+﻿using Cloth.Application.Models.Dto.Basket;
 
-using Cloth.Application.Models.Dto.Basket;
+namespace Cloth.Application.Features.Queries.Basket.GetBasket;
+
 using MediatR;
 
 public record GetBasketQuery(Guid UserId) : IRequest<BasketDetailsDto>

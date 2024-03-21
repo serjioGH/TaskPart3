@@ -1,10 +1,11 @@
-﻿namespace Cloth.Application.Features.Queries.Cloths.GetCloths;
-
-using AutoMapper;
-using Cloth.Application.Extensions;
+﻿using Cloth.Application.Extensions;
 using Cloth.Application.Interfaces;
 using Cloth.Application.Models.Dto;
-using Cloth.Domain.Entities;
+
+namespace Cloth.Application.Features.Queries.Cloths.GetCloths;
+
+using AutoMapper;
+using global::Cloth.Domain.Entities;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

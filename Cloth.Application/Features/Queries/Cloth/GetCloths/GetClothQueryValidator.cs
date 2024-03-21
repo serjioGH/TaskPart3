@@ -1,6 +1,6 @@
 ﻿namespace Cloth.Application.Features.Queries.Cloths.GetCloths;
 
-using Cloth.Application.Constants;
+using Constants;
 using FluentValidation;
 
 public class GetClothQueryValidator : AbstractValidator<ClothQuery>

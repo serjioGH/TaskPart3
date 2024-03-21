@@ -6,6 +6,7 @@ using Cloth.API.Models.Responses.Cloth;
 using Cloth.Application.Features.Commands.Cloths.ClothCreate;
 using Cloth.Application.Features.Commands.Cloths.ClothDelete;
 using Cloth.Application.Features.Commands.Cloths.ClothUpdate;
+using Cloth.Application.Features.Queries.Cloth.GetCloth;
 using Cloth.Application.Features.Queries.Cloths.GetCloths;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,20 @@ public class ClothsController : BaseController
         return Ok(response);
     }
 
+    [HttpGet("{ClothId:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetCloth([FromRoute] ClothGetRequest request, [FromServices] IMediator _mediator,
+     [FromServices] IMapper _mapper)
+    {
+        var query = _mapper.Map<GetClothByIdQuery>(request);
+
+        var data = await _mediator.Send(query);
+
+        var response = _mapper.Map<ClothGetResponse>(data);
+
+        return Ok(response);
+    }
+
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -42,12 +57,12 @@ public class ClothsController : BaseController
         return CreatedAtAction(nameof(CreateCloth), new { id = result.Id }, mappedResult);
     }
 
-    [HttpPut()]
+    [HttpPut("{clothId:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> UpdateCloth(
-        [FromQuery] Guid clothId, [FromBody] ClothUpdateRequest clothUpdateRequest, [FromServices] IMediator _mediator, [FromServices] IMapper _mapper)
+        [FromRoute] Guid clothId, [FromBody] ClothUpdateRequest clothUpdateRequest, [FromServices] IMediator _mediator, [FromServices] IMapper _mapper)
     {
         clothUpdateRequest.Id = clothId;
 

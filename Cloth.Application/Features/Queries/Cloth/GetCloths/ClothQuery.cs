@@ -1,6 +1,7 @@
-﻿namespace Cloth.Application.Features.Queries.Cloths.GetCloths;
+﻿using Cloth.Application.Models.Dto;
 
-using Cloth.Application.Models.Dto;
+namespace Cloth.Application.Features.Queries.Cloths.GetCloths;
+
 using MediatR;
 
 public record ClothQuery() : IRequest<ClothFilterDto>

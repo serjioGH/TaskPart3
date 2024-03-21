@@ -68,7 +68,7 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
             throw new ItemNotFoundException("No items found in the database.");
         }
 
-        var allItems = new List<Order>(ordersLookup.Values);
+        var allItems = new List<Order>(ordersLookup.Values.DistinctBy(p => p.Id));
 
         allItems = allItems.OrderUserFilter(userId)
             .OrderStatusFilter(statusId)

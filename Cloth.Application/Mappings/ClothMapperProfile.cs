@@ -25,11 +25,13 @@ public class ClothMapperProfile : Profile
             .ForMember(dest => dest.Groups, opt => opt.MapFrom(src => src.ClothGroups.Select(pg => pg.Group.Name).ToList()))
             .ForMember(dest => dest.Sizes, opt => opt.MapFrom(src => src.ClothSizes.Select(ps => new SizeDto
             {
+                Size = ps.Size.Name.ToString(),
                 QuantityInStock = ps.QuantityInStock,
                 SizeId = ps.SizeId
             }).ToList()))
             .ForMember(dest => dest.Groups, opt => opt.MapFrom(src => src.ClothGroups.Select(ps => new GroupDto
             {
+                Group = ps.Group.Name,
                 GroupId = ps.GroupId
             })));
 
@@ -38,11 +40,13 @@ public class ClothMapperProfile : Profile
             .ForMember(dest => dest.Groups, opt => opt.MapFrom(src => src.ClothGroups.Select(pg => pg.Group.Name).ToList()))
             .ForMember(dest => dest.Sizes, opt => opt.MapFrom(src => src.ClothSizes.Select(ps => new SizeDto
             {
+                Size = ps.Size.Name.ToString(),
                 QuantityInStock = ps.QuantityInStock,
                 SizeId = ps.SizeId
             }).ToList()))
             .ForMember(dest => dest.Groups, opt => opt.MapFrom(src => src.ClothGroups.Select(ps => new GroupDto
             {
+                Group = ps.Group.Name,
                 GroupId = ps.GroupId
             })));
 
@@ -51,11 +55,13 @@ public class ClothMapperProfile : Profile
             .ForMember(dest => dest.Groups, opt => opt.MapFrom(src => src.ClothGroups.Any() ? src.ClothGroups.Select(pg => pg.Group.Name).ToList() : null))
             .ForMember(dest => dest.Sizes, opt => opt.MapFrom(src => src.ClothSizes.Any() ? src.ClothSizes.Select(ps => new SizeDto
             {
+                Size = ps.Size.Name.ToString(),
                 QuantityInStock = ps.QuantityInStock,
                 SizeId = ps.SizeId
             }).ToList() : null))
             .ForMember(dest => dest.Groups, opt => opt.MapFrom(src => src.ClothGroups.Select(ps => new GroupDto
             {
+                Group = ps.Group.Name,
                 GroupId = ps.GroupId
             })));
 
@@ -134,7 +140,7 @@ public class ClothMapperProfile : Profile
 
         CreateMap<SizeClothDto, ClothSize>()
             .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId))
-            .ForMember(dest => dest.QuantityInStock, opt => opt.MapFrom(src => src.Quantity));
+            .ForMember(dest => dest.QuantityInStock, opt => opt.MapFrom(src => src.QuantityInStock));
 
         CreateMap<BasketLineCreateCommand, BasketLine>()
            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.BasketLine.Quantity))

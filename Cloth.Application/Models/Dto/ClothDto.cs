@@ -15,4 +15,6 @@ public class ClothDto
     public List<GroupDto> Groups { get; set; }
 
     public List<SizeDto> Sizes { get; set; }
+
+    public Guid BrandId { get; set; }
 }

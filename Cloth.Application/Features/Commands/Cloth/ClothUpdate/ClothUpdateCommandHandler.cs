@@ -28,23 +28,25 @@ public class ClothUpdateCommandHandler : IRequestHandler<ClothUpdateCommand, Upd
             cloth.Price = command.Price;
             cloth.BrandId = command.BrandId;
 
+            cloth.ClothSizes = new List<ClothSize>();
             foreach (var newSize in command.Sizes)
             {
                 var existingSize = cloth.ClothSizes.SingleOrDefault(p => p.SizeId == newSize.SizeId);
                 if (existingSize != null)
                 {
-                    existingSize.QuantityInStock = newSize.Quantity;
+                    existingSize.QuantityInStock = newSize.QuantityInStock;
                 }
                 else
                 {
                     cloth.ClothSizes.Add(new ClothSize
                     {
                         SizeId = newSize.SizeId,
-                        QuantityInStock = newSize.Quantity
+                        QuantityInStock = newSize.QuantityInStock
                     });
                 }
             }
 
+            cloth.ClothGroups = new List<ClothGroup>();
             foreach (var groups in command.Groups)
             {
                 var currentGroup = cloth.ClothGroups.SingleOrDefault(p => p.GroupId == groups.GroupId);
@@ -52,7 +54,12 @@ public class ClothUpdateCommandHandler : IRequestHandler<ClothUpdateCommand, Upd
                 {
                     cloth.ClothGroups.Add(new ClothGroup
                     {
-                        GroupId = groups.GroupId
+                        GroupId = groups.GroupId,
+                        Group = new Group
+                        {
+                            Id = groups.GroupId,
+                            Name = string.Empty
+                        }
                     });
                 }
             }

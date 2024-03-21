@@ -8,7 +8,7 @@ public class SizeClothDtoValidator : AbstractValidator<SizeClothDto>
 {
     public SizeClothDtoValidator()
     {
-        RuleFor(command => command.Quantity)
+        RuleFor(command => command.QuantityInStock)
             .GreaterThan(0).WithMessage(Constants.QuantityOverZero);
     }
 }

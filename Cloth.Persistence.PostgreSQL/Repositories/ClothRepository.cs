@@ -54,7 +54,7 @@ public class ClothRepository : GenericRepository<Cloth>, IClothRepository
                 },
                 splitOn: $"{nameof(Brand.Id)},{nameof(ClothGroup.ClothId)},{nameof(ClothSize.ClothId)},{nameof(Size.Id)},{nameof(Group.Id)}");
 
-            return cloths.ToList();
+            return cloths.DistinctBy(p => p.Id).ToList();
         }
         catch (Exception)
         {

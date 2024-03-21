@@ -4,5 +4,7 @@ public class SizeClothResponse
 {
     public Guid SizeId { get; set; }
 
+    public string Size { get; set; }
+
     public int QuantityInStock { get; set; }
 }
