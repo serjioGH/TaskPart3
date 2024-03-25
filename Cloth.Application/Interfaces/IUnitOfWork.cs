@@ -23,4 +23,6 @@ public interface IUnitOfWork : IDisposable
     IBasketRepository Baskets { get; }
 
     IBasketLineRepository BasketLines { get; }
+
+    IUserRepository Users { get; }
 }

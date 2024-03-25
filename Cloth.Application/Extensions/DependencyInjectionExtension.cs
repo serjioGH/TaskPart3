@@ -1,6 +1,8 @@
 ﻿namespace Cloth.Application.Extensions;
 
 using Cloth.Application.Behavior;
+using Cloth.Application.Helpers;
+using Cloth.Application.Interfaces.Services;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +17,7 @@ public static class DependencyInjectionExtension
             config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
 
+        services.AddScoped<IUserService, UserService>();
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         services.AddAutoMapper(Assembly.GetExecutingAssembly());

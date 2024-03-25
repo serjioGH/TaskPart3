@@ -17,9 +17,10 @@ public class UnitOfWork : IUnitOfWork
     public IBasketLineRepository BasketLines { get; }
     public IOrderRepository Orders { get; }
     public IClothSizeRepository ClothSizes { get; }
+    public IUserRepository Users { get; }
 
     public UnitOfWork(ClothInventoryDbContext dbContext, IDbTransaction dbTransaction, IClothRepository clothRepository,
-        ISizeRepository sizes, IOrderRepository orders, IGroupRepository groups, IBasketRepository baskets, IBasketLineRepository basketLines, IClothSizeRepository clothSizes)
+        ISizeRepository sizes, IOrderRepository orders, IGroupRepository groups, IBasketRepository baskets, IBasketLineRepository basketLines, IClothSizeRepository clothSizes, IUserRepository users)
     {
         _dbContext = dbContext;
         _dbTransaction = dbTransaction;
@@ -30,6 +31,7 @@ public class UnitOfWork : IUnitOfWork
         Baskets = baskets;
         BasketLines = basketLines;
         ClothSizes = clothSizes;
+        Users = users;
     }
 
     public async Task<int> SaveAsync(CancellationToken cancellationToken)

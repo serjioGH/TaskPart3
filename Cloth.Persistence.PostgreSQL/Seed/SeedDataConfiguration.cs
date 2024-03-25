@@ -59,6 +59,7 @@ public class SeedDataConfiguration :
                    new User
                    {
                        Id = Guid.Parse("11111110-1111-1111-1111-111111111122"),
+                       Username = "Serj",
                        FirstName = "Serdzhan",
                        LastName = "Ahmedov",
                        Email = "s.r.a@example.com",

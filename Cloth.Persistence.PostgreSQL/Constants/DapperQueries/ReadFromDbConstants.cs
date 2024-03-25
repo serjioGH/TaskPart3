@@ -84,4 +84,15 @@ public static class ReadFromDbConstants
              AND o."IsDeleted" = false
              """;
     }
+
+    public static class UserConstants
+    {
+        public static string GetUserByPassAndUsername = """
+             SELECT u.*
+             FROM "Users" u
+             WHERE u."Password" = @Password
+             AND u."Username" = @Username
+             AND u."IsDeactivated" = false
+             """;
+    }
 }

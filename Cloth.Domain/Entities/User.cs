@@ -14,6 +14,8 @@ public class User : Entity
 
     public string Address { get; set; }
 
+    public string Username { get; set; }
+
     public bool IsDeactivated { get; set; }
 
     public Basket Basket { get; set; }

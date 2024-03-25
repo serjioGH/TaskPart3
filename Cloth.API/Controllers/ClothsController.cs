@@ -1,6 +1,7 @@
 ﻿namespace Cloth.API.Controllers;
 
 using AutoMapper;
+using Cloth.API.Helpers;
 using Cloth.API.Models.Requests.Cloth;
 using Cloth.API.Models.Responses.Cloth;
 using Cloth.Application.Features.Commands.Cloths.ClothCreate;
@@ -43,6 +44,7 @@ public class ClothsController : BaseController
     }
 
     [HttpPost]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateCloth(
@@ -76,6 +78,7 @@ public class ClothsController : BaseController
     }
 
     [HttpDelete("{clothId}")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
