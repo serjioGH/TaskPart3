@@ -1,7 +1,6 @@
 ﻿namespace Cloth.API.Controllers;
 
 using AutoMapper;
-using Cloth.API.Helpers;
 using Cloth.API.Models.Requests.Cloth;
 using Cloth.API.Models.Responses.Cloth;
 using Cloth.Application.Features.Commands.Cloths.ClothCreate;
@@ -9,13 +8,17 @@ using Cloth.Application.Features.Commands.Cloths.ClothDelete;
 using Cloth.Application.Features.Commands.Cloths.ClothUpdate;
 using Cloth.Application.Features.Queries.Cloth.GetCloth;
 using Cloth.Application.Features.Queries.Cloths.GetCloths;
+using Cloth.Application.Identity;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+[Authorize(Policy = IdentityData.AdminUserPolicy)]
 public class ClothsController : BaseController
 {
     // GET: api/<ClothsController>
     [HttpGet]
+    [AllowAnonymous]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> Get([FromQuery] ClothFilterRequest request, [FromServices] IMediator _mediator,
          [FromServices] IMapper _mapper)
@@ -44,7 +47,6 @@ public class ClothsController : BaseController
     }
 
     [HttpPost]
-    [Authorize]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateCloth(

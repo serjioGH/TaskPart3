@@ -7,6 +7,7 @@ using Cloth.API.Models.Requests.Cloth;
 using Cloth.API.Models.Requests.Order;
 using Cloth.API.Models.Responses.Basket;
 using Cloth.API.Models.Responses.Cloth;
+using Cloth.API.Models.Responses.Login;
 using Cloth.API.Models.Responses.Order;
 using Cloth.Application.Features.Commands.Basket.BasketLineCreate;
 using Cloth.Application.Features.Commands.Basket.BasketLineUpdate;
@@ -17,6 +18,7 @@ using Cloth.Application.Features.Commands.Order.OrderUpdate;
 using Cloth.Application.Features.Queries.Cloth.GetCloth;
 using Cloth.Application.Features.Queries.Cloths.GetCloths;
 using Cloth.Application.Features.Queries.Order.GetOrders;
+using Cloth.Application.Models;
 using Cloth.Application.Models.Dto;
 using Cloth.Application.Models.Dto.Basket;
 using Cloth.Domain.Entities;
@@ -81,5 +83,8 @@ public class MapperProfile : Profile
         CreateMap<SizeClothDto, SizeClothResponse>()
             .ForMember(dest => dest.QuantityInStock, opt => opt.MapFrom(src => src.QuantityInStock))
             .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.SizeId));
+        CreateMap<LoginModel, LoginResponse>();
+        CreateMap<RefreshTokenModel, RefreshTokenResponse>();
+        CreateMap<LogoutModel, LogoutResponse>();
     }
 }

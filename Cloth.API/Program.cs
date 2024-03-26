@@ -1,17 +1,12 @@
 using Cloth.API.Filter;
 using Cloth.Application.Behavior;
 using Cloth.Application.Extensions;
-using Cloth.Application.Helpers;
-using Cloth.Application.Models;
 using Cloth.Infrastructure.Extensions;
 using Cloth.Persistence.Extensions;
 using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence.Abstractions.Extensions;
 using Serilog;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
@@ -50,7 +45,8 @@ builder.Configuration.AddJsonFile("appsettings.Development.json");
 //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
 //    };
 //});
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("Jwt"));
+
+//builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("Jwt"));
 
 builder.Services.AddControllers(options => options.Filters.Add(typeof(ErrorHandlingFilter)));
 builder.Services.AddEndpointsApiExplorer();
@@ -99,7 +95,7 @@ builder.Services.AddSwaggerGen(swagger =>
     });
 });
 builder.Services
-    .AddApplication()
+    .AddApplication(builder.Configuration)
     .AddGenericRepository()
     .AddInfrastructure(builder.Configuration)
     .RegisterPersistenceDependencies(builder.Configuration);
@@ -115,7 +111,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 app.UseCors("AllowOrigin");
-app.UseMiddleware<JwtMiddleware>();
+//app.UseMiddleware<JwtMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

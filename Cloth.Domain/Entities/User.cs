@@ -18,6 +18,10 @@ public class User : Entity
 
     public bool IsDeactivated { get; set; }
 
+    public string? RefreshToken { get; set; }
+
+    public DateTime TokenExpiration { get; set; }
+
     public Basket Basket { get; set; }
 
     public ICollection<Order> Orders { get; set; } = new List<Order>();
